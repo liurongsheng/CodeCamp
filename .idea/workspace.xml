@@ -2,8 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5c6d1298-969a-4447-9b58-5ffcd3ae7378" name="Default" comment="">
-      <change beforePath="" afterPath="$PROJECT_DIR$/img/Cookies-list.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/跨域问题/localStorage和cookie的跨域解决方案.md" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
@@ -173,7 +171,7 @@
       <workItem from="1527469697348" duration="141000" />
       <workItem from="1528161574634" duration="6607000" />
       <workItem from="1528183548202" duration="1831000" />
-      <workItem from="1528249076199" duration="2692000" />
+      <workItem from="1528249076199" duration="2751000" />
     </task>
     <task id="LOCAL-00001" summary="新增前端面试题目小结">
       <created>1528251238842</created>
@@ -182,11 +180,18 @@
       <option name="project" value="LOCAL" />
       <updated>1528251238842</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="利用cookie 和 localStorage跨域解决方案">
+      <created>1528252322884</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1528252322884</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="11879000" />
+    <option name="totallyTimeSpent" value="11938000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -218,7 +223,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="新增前端面试题目小结" />
-    <option name="LAST_COMMIT_MESSAGE" value="新增前端面试题目小结" />
+    <MESSAGE value="利用cookie 和 localStorage跨域解决方案" />
+    <option name="LAST_COMMIT_MESSAGE" value="利用cookie 和 localStorage跨域解决方案" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
