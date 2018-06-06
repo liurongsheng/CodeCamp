@@ -58,7 +58,10 @@
     </leaf>
   </component>
   <component name="Git.Settings">
+    <option name="ROOT_SYNC" value="DONT_SYNC" />
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="AUTO_COMMIT_ON_CHERRY_PICK" value="true" />
+    <option name="WARN_ABOUT_DETACHED_HEAD" value="false" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
@@ -171,7 +174,7 @@
       <workItem from="1527469697348" duration="141000" />
       <workItem from="1528161574634" duration="6607000" />
       <workItem from="1528183548202" duration="1831000" />
-      <workItem from="1528249076199" duration="2751000" />
+      <workItem from="1528249076199" duration="2859000" />
     </task>
     <task id="LOCAL-00001" summary="新增前端面试题目小结">
       <created>1528251238842</created>
@@ -187,11 +190,18 @@
       <option name="project" value="LOCAL" />
       <updated>1528252322884</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="利用cookie 和 localStorage跨域解决方案">
+      <created>1528252347661</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1528252347661</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="11938000" />
+    <option name="totallyTimeSpent" value="12046000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
