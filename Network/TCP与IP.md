@@ -40,12 +40,12 @@ TCP/IP不是一个协议，而是一个协议族的统称。
 
 OSI七层模型和TCP/IP五层模型
 
-<img src="../../img/osi七层模型和tcpip五层模型.jpg" title="OSI七层模型和TCP/IP五层模型"/> 
+<img src="../img/osi七层模型和tcpip五层模型.jpg" title="OSI七层模型和TCP/IP五层模型"/> 
 
 ### TCP/IP的三次握手与四次挥手
 >三次握手
 
-<img src="../../img/tcpip三次握手.jpg" title="TCP/IP的三次握手"/>
+<img src="../img/tcpip三次握手.jpg" title="TCP/IP的三次握手"/>
 
 为了方便描述我们将主动发起请求的172.16.50.72:65076 主机称为客户端，
 将返回数据的主机172.16.17.94:8080称为服务器。
@@ -62,7 +62,7 @@ OSI七层模型和TCP/IP五层模型
 
 >四次挥手
 
-<img src="../../img/tcpip四次握手.jpg" title="TCP/IP四次握手"/>
+<img src="../img/tcpip四次握手.jpg" title="TCP/IP四次握手"/>
 
 第一次挥手：客户端向服务器发送一个FIN报文段，将设置seq为160和ack为112，;
            此时，客户端进入 FIN_WAIT_1状态,这表示客户端没有数据要发送服务器了，请求关闭连接;
