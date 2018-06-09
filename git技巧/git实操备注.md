@@ -15,7 +15,7 @@
 
 ###Git各个状态之间转换指令总结
 
-<img src="./img/git-lifecycle.png" />
+<img src="../img/git-lifecycle.png" />
 
 基本状态标识
 
