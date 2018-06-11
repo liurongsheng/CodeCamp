@@ -1,3 +1,11 @@
+TCP与UDP概要汇总
+    [TCP/IP协议分层模型](#Hierarchical Model)
+    [TCP的三次握手建立连接与四次挥手断开连接](#Three handshakes)
+    [TCP与UDP的区别](#difference)
+    [TCP优缺点](#TCP Disadvantages)
+    [UDP优缺点](#UDP Disadvantages)
+---
+
 不同的计算机系统，就好像语言不同的两个人互相见了面，完全不能交流信息。
 因而他们需要定义一些共通的东西来进行交流，TCP/IP就是为此而生。
 
@@ -19,7 +27,7 @@ UDP协议概要：
     UDP报头只有8字节
     UDP包最大为65507字节，约64K
 ---
-### TCP/IP协议分层模型
+### <a name='Hierarchical Model'>TCP/IP协议分层模型</a>
 
 >物理层
     
@@ -55,7 +63,7 @@ OSI七层模型和TCP/IP五层模型：
 
 <img src="../img/osi七层模型和tcpip五层模型.jpg" title="OSI七层模型和TCP/IP五层模型"/> 
 
-### TCP的三次握手建立连接与四次挥手断开连接
+### <a name='Three handshakes'>TCP的三次握手建立连接与四次挥手断开连接</a>
 >三次握手建立连接
 
 <img src="../img/tcp三次握手建立连接.jpg" title="TCP的三次握手建立连接"/>
@@ -74,10 +82,10 @@ OSI七层模型和TCP/IP五层模型：
            向服务器发送ACK报文段，这个报文段发送完毕以后，客户端和服务器端都进入ESTABLISHED状态，
            完成TCP三次握手。
 ---
-客户端发送：SYN = 1, SEQ = X, 端口号
-服务器回复：SYN = 1, ACK = X + 1, SEQ = Y
-客户端发送：ACK = Y + 1, SEQ = X + 1
-确认应答信号ACK = 收到的SEQ + 1。 连接建立中，同步信号SYN始终为1。连接建立后，同步信号SYN=0。
+    客户端发送：SYN = 1, SEQ = X, 端口号
+    服务器回复：SYN = 1, ACK = X + 1, SEQ = Y
+    客户端发送：ACK = Y + 1, SEQ = X + 1
+    确认应答信号ACK = 收到的SEQ + 1。 连接建立中，同步信号SYN始终为1。连接建立后，同步信号SYN=0。
 
 >四次挥手断开连接
 
@@ -98,12 +106,12 @@ OSI七层模型和TCP/IP五层模型：
            就关闭连接;此时，客户端等待2MSL后依然没有收到回复，则证明Server端已正常关闭，
            客户端也可以关闭连接了。
 ---
-A向B提出停止连接请求，FIN = 1
-B收到，ACK = 1
-B向A提出停止连接请求，FIN = 1
-A收到，ACK = 1
+    A向B提出停止连接请求，FIN = 1
+    B收到，ACK = 1
+    B向A提出停止连接请求，FIN = 1
+    A收到，ACK = 1
 
-### TCP与UDP的区别
+### <a name='difference'>TCP与UDP的区别</a>
 
 | TCP                   | UDP                     |
 | --------------------- |:-----------------------:|
@@ -127,7 +135,7 @@ TCP也可以等待积累有足够多的字节后再构成报文段发送出去�
 UDP对应用层交下来的报文，既不合并，也不拆分，而是保留这些报文的边界。
 这也就是说，应用层交给UDP多长的报文，UDP就照样发送，即一次发送一个报文。 
 
-### TCP优缺点
+### <a name='TCP Disadvantages'>TCP优缺点</a>
 优点：
 * 可靠，稳定 
     
@@ -150,7 +158,7 @@ UDP对应用层交下来的报文，既不合并，也不拆分，而是保留�
 
 >TCP协议使用SEQ和ACK机制保证了顺序性 TCP的每个报文都是有序号的。确认应答信号ACK=收到的SEQ+1
 
-### UDP优缺点
+### <a name='UDP Disadvantages'>UDP优缺点
 优点：
 * 传输速率快 
 
