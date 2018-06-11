@@ -1,9 +1,14 @@
 TCP与UDP概要汇总
-    [TCP/IP协议分层模型](#Hierarchical Model)
-    [TCP的三次握手建立连接与四次挥手断开连接](#Three handshakes)
-    [TCP与UDP的区别](#difference)
-    [TCP优缺点](#TCP Disadvantages)
-    [UDP优缺点](#UDP Disadvantages)
+
+    [TCP/IP协议分层模型](#HierarchicalModel)
+    [TCP的三次握手建立连接与四次挥手断开连接](#ThreeHandshakes)
+    [TCP与UDP的区别](#Difference)
+    [TCP优缺点](#TCPDisadvantages)
+    [UDP优缺点](#UDPDisadvantages)
+    [UDP包的最大是多少](#UDPMaximumPacket)
+    [TCP包的最大是多少](#TCPMaximumPacket)
+    [为什么UDP比TCP快](#UDPFast)
+    [为什么TCP比UDP可靠](#TCPReliable)
 ---
 
 不同的计算机系统，就好像语言不同的两个人互相见了面，完全不能交流信息。
@@ -63,7 +68,7 @@ OSI七层模型和TCP/IP五层模型：
 
 <img src="../img/osi七层模型和tcpip五层模型.jpg" title="OSI七层模型和TCP/IP五层模型"/> 
 
-### <a name='Three handshakes'>TCP的三次握手建立连接与四次挥手断开连接</a>
+### <a name='ThreeHandshakes'>TCP的三次握手建立连接与四次挥手断开连接</a>
 >三次握手建立连接
 
 <img src="../img/tcp三次握手建立连接.jpg" title="TCP的三次握手建立连接"/>
@@ -111,7 +116,7 @@ OSI七层模型和TCP/IP五层模型：
     B向A提出停止连接请求，FIN = 1
     A收到，ACK = 1
 
-### <a name='difference'>TCP与UDP的区别</a>
+### <a name='Difference'>TCP与UDP的区别</a>
 
 | TCP                   | UDP                     |
 | --------------------- |:-----------------------:|
@@ -135,7 +140,7 @@ TCP也可以等待积累有足够多的字节后再构成报文段发送出去�
 UDP对应用层交下来的报文，既不合并，也不拆分，而是保留这些报文的边界。
 这也就是说，应用层交给UDP多长的报文，UDP就照样发送，即一次发送一个报文。 
 
-### <a name='TCP Disadvantages'>TCP优缺点</a>
+### <a name='TCPDisadvantages'>TCP优缺点</a>
 优点：
 * 可靠，稳定 
     
@@ -158,7 +163,7 @@ UDP对应用层交下来的报文，既不合并，也不拆分，而是保留�
 
 >TCP协议使用SEQ和ACK机制保证了顺序性 TCP的每个报文都是有序号的。确认应答信号ACK=收到的SEQ+1
 
-### <a name='UDP Disadvantages'>UDP优缺点
+### <a name='UDPDisadvantages'>UDP优缺点
 优点：
 * 传输速率快 
 
@@ -177,7 +182,7 @@ UDP对应用层交下来的报文，既不合并，也不拆分，而是保留�
 仿造TCP的做法，每发一个UDP包，都在里面加一个SEQ序号，接收方收到包后，将SEQ序号回复给发送方。
 如果发送方在指定时间以内没有收到回应，说明丢包了
 
-### UDP包的最大是多少?
+### <a name='UDPMaximumPacket'>UDP包的最大是多少?</a>
 
 >65507字节(byte)约等于64K
  
@@ -192,18 +197,18 @@ ip包头占20字节,udp包头占8字节, 65535-IP包头(20)-UDP包头(8)＝65507
 经测试,局域网环境下,UDP包大小为1024*8,速度达到2M/s,丢包情况理想.
 外网环境下,UDP包大小为548,速度理想,丢包情况理想.
 
-### TCP包的最大是多少?
+### <a name='TCPMaximumPacket'>TCP包的最大是多少?</a>
 
 用TCP协议发送时，由于TCP是数据流协议，因此不存在包大小的限制（暂不考虑缓冲区的大小）。
 这是指在用send函数时，数据长度参数不受限制。
 而实际上，所指定的这段数据并不一定会一次性发送出去，
 如果这段数据比较长，会被分段发送，如果比较短，可能会等待和下一次数据一起发送。
 
-### 为什么UDP比TCP快
+### <a name='UDPFast'>为什么UDP比TCP快</a>
 * TCP需要三次握手
 * TCP有拥塞控制，控制流量等机制
 
-### 为什么TCP比UDP可靠
+### <a name='TCPReliable'>为什么TCP比UDP可靠</a>
 * TCP是面向有连接的，建立连接之后才发送数据；而UDP则不管对方存不存在都会发送数据。
 * TCP有确认机制，接收端每收到一个正确包都会回应给发送端。超时或者数据包不完整的话发送端会重传。
   UDP没有。因此可能丢包。
