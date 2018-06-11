@@ -1,14 +1,14 @@
 TCP与UDP概要汇总
 
-    [TCP/IP协议分层模型](#HierarchicalModel)
-    [TCP的三次握手建立连接与四次挥手断开连接](#ThreeHandshakes)
-    [TCP与UDP的区别](#Difference)
-    [TCP优缺点](#TCPDisadvantages)
-    [UDP优缺点](#UDPDisadvantages)
-    [UDP包的最大是多少](#UDPMaximumPacket)
-    [TCP包的最大是多少](#TCPMaximumPacket)
-    [为什么UDP比TCP快](#UDPFast)
-    [为什么TCP比UDP可靠](#TCPReliable)
+* [TCP/IP协议分层模型](#HierarchicalModel)
+* [TCP的三次握手建立连接与四次挥手断开连接](#ThreeHandshakes)
+* [TCP与UDP的区别](#Difference)
+* [TCP优缺点](#TCPDisadvantages)
+* [UDP优缺点](#UDPDisadvantages)
+* [UDP包的最大是多少](#UDPMaximumPacket)
+* [TCP包的最大是多少](#TCPMaximumPacket)
+* [为什么UDP比TCP快](#UDPFast)
+* [为什么TCP比UDP可靠](#TCPReliable)
 ---
 
 不同的计算机系统，就好像语言不同的两个人互相见了面，完全不能交流信息。
