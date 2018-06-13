@@ -1,4 +1,4 @@
-###多端提交导致冲突
+### 多端提交导致冲突
 
 错误代码：
 
@@ -13,7 +13,7 @@
 >git checkout . && git clean -xdf
 
 
-###Git各个状态之间转换指令总结
+### Git各个状态之间转换指令总结
 
 <img src="../img/git-lifecycle.png" />
 
