@@ -5,6 +5,11 @@
     简单来说就是客户端和服务端进行数据传输的一种规则。
 
 默认端口：80
+版本：
+
+    HTTP/1.0，于 1996 年 5 月发布，引入了多种功能，至今仍在使用当中。
+    HTTP/1.1，于 1997 年 1 月发布，持久连接被默认采用，是目前最流行的版本。
+    HTTP/2 ，于 2015 年 5 月发布，引入了服务器推送等多种功能，是目前最新的版本。
 
 ## 主要特点
 1. 支持客户／服务器模式
@@ -30,15 +35,13 @@
 
 ### Http请求
 
-<img src="img/http请求数据结构.png" />
+<img src="../img/http请求数据结构.png" />
 
     http请求由请求行，消息报头，请求正文三部分构成
 
-* 请求行
+* 请求行：由请求方法、请求地址和 HTTP 协议版本三部分构成
 
-请求行由请求方法，URL字段和HTTP协议版本三部分构成，
-总的来说请求行就是定义了本次请求的请求方式，请求的地址，以及所遵循的HTTP协议版本例如：
-
+例如：
 >GET /example.html HTTP/1.1 (CRLF)
 
 http协议的方法有
@@ -52,11 +55,9 @@ http协议的方法有
     CONNECT 保留将来使用
     OPTIONS 请求查询服务器的性能，或者查询与资源相关的选项和需求
 
-* 消息报头
-
-消息报头由一系列的键值对组成，允许客户端向服务器端发送一些附加信息或者客户端自身的信息，主要包括
+* 消息报头：包含一系列的键值对，允许客户端向服务器端发送一些附加信息或者客户端自身的信息，主要包括
     
-* Accept
+Accept
 Accept请求报头域用于指定客户端接受哪些类型的信息。
 eg：Accept：image/gif，表明客户端希望接受GIF图象格式的资源；Accept：text/html，表明客户端希望接受html文本。
 
@@ -88,13 +89,50 @@ User-Agent请求报头域允许客户端将它的操作系统、浏览器和其�
 不过，这个报头域不是必需的，如果我们自己编写一个浏览器，不使用User-Agent请求报头域，
 那么服务器端就无法得知我们的信息了。
 
-* 请求正文
+* 请求正文（可选）：注意和消息报头之间有一个空行
 
 只有在发送post请求时才会有请求正文，get方法并没有请求正文
 
+```
+GET / HTTP/1.1
+Host: httpbin.org
+Connection: keep-alive
+Cache-Control: max-age=0
+Upgrade-Insecure-Requests: 1
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/54.0.2840.98 Safari/537.36
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8
+Accept-Encoding: gzip, deflate, sdch, br
+Accept-Language: zh-CN,zh;q=0.8,en;q=0.6,zh-TW;q=0.4
+Cookie: _ga=GA1.2.475070272.1480418329; _gat=1
+```
+上面的第一行就是一个请求行：
+GET / HTTP/1.1
+其中，GET 是请求方法，表示从服务器获取资源；/ 是一个请求地址；HTTP/1.1 表明 HTTP 的版本是 1.1。
+
+请求行后面的一系列键值对就是消息报头：
+
+Host 是请求报头域，用于指定被请求资源的 Internet 主机和端口号，它通常从 HTTP URL 中提取出来；
+
+Connection 表示连接状态，keep-alive 表示该连接是持久连接（persistent connection），
+即 TCP 连接默认不关闭，可以被多个请求复用，如果客户端和服务器发现对方有一段时间没有活动，
+就可以主动关闭连接；
+
+Cache-Control 用于指定缓存指令，它的值有 no-cache, no-store, max-age 等，
+max-age=秒表示资源在本地缓存多少秒；
+
+User-Agent 用于标识请求者的一些信息，比如浏览器类型和版本，操作系统等；
+
+Accept 用于指定客户端希望接受哪些类型的信息，比如 text/html, image/gif 等；
+
+Accept-Encoding 用于指定可接受的内容编码；
+
+Accept-Language 用于指定可接受的自然语言；
+
+Cookie 用于维护状态，可做用户认证，服务器检验等，它是浏览器储存在用户电脑上的文本片段；
+
 ### Http响应
 
-<img src="img/http响应数据结构.png" />
+<img src="../img/http响应数据结构.png" />
     
     http响应也由三部分组成，包括状态行，消息报头，响应正文
 
