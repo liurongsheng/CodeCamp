@@ -14,7 +14,7 @@ cookie跨域的业务场景很多，例如：
 
 聊到这里，必须说一说cookie的参数或者属性了。 打开谷歌浏览器，找到cookie,如下图：
 
-<img src="img/cookies-list.png" title="cookies-list"/>
+<img src="/img/cookies-list.png" title="cookies-list" />
 
 关于具体每一个参数，这里就不详细介绍了，不清楚的大家可以搜索一下，下面主要介绍一下domain和path
 
@@ -103,11 +103,9 @@ upstream web2 {
 ### 2、jsonp方法
 其实，淘宝和天猫cookie的传递，应该也是利用jsonp来进行的，如下图：
 
-![](img/jsonp淘宝天猫.png)
+<img src="img/jsonp淘宝天猫.png" title="jsonp淘宝天猫" /> 
 
 打开淘宝首页，回向天猫发送一个请求。
-
-
 
 说白了，这个jsonp 的cookie跨域和我们平时用的jsonp跨域是一样的，关于jsonp跨域，请看http://www.haorooms.com/post/js_kuayu_service
 
