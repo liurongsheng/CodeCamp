@@ -1,6 +1,6 @@
 // 引入页面文件
-import foo from './views/foo'
-import bar from './views/bar'
+import foo from './views/foo/index'
+import bar from './views/bar/index'
 
 const routes = {
   '/foo': foo,
