@@ -1,83 +1,51 @@
-# ESlint  
+# ESlint规则
 
-## 1.首先安装一下
+运行后eslint --init，您.eslintrc的目录中将有一个文件。在其中，您将看到一些配置如下的规则：
+```
+{
+    "rules": {
+        "semi": ["error", "always"],
+        "quotes": ["error", "double"]
+    }
+}
+```
 
-// 安装eslint
-// 安装eslint-loader 在webpack中解析
-// 安装babel-eslint  对Babel解析器的包装与ESLint兼容
-// -D 安装在开发依赖环境 devDependencies 原--save-dev的简写
-npm i eslint eslint-loader babel-eslint -D
-复制代码友情提示：ESLint是基于Node的(当然webpack也是)，所以在使用之前，请确保Node已经安装
+名称"semi"和"quotes"是ESLint 中规则的名称。第一个值是规则的错误级别，可以是以下值之一：
 
-创建.eslintrc.js配置文件(默认是.eslintrc文件)
-
-// .eslintrc.js
-module.exports = {
-    // 指定解析器
-    'parse': '',
-    // 指定解析器选项
-    'parserOptions': {},
-    // 指定脚本的运行环境
-    'env': {},
-    // 别人可以直接使用你配置好的ESLint
-    'root': true,
-    // 脚本在执行期间访问的额外的全局变量
-    'globals': {},
-    // 启用的规则及其各自的错误级别
-    'rules': {}
-};
-
-将配置好的规则添加到webpack中对js文件检查
-
-// webpack.config.js
-
-module.exports = {
-    entry: '',
-    output: {},
-    module: {
-        rules: [
-            {
-                test: /\.js$/,
-                use: ['babel-loader', 'eslint-loader']
-            }
-        ]
-    },
-    plugins: [],
-    devServer: {}
-};
+    "off"或0- 关闭规则
+    "warn"或1- 将规则作为警告打开（不影响退出代码）
+    "error"或2- 将规则作为错误打开（退出代码为1）
+    
+三个错误级别允许您对ESLint如何应用规则进行细粒度控制
 
 ---
 
-## 工作中用到的规则
-正所谓人在江湖飘啊，哪有不挨刀的道理。谁敢说写的代码放到ESLint里完全不报错，报错纯属正常，没必要慌张
-现在针对一些比较常见的规范来简单梳理一下，这么多规则，其实看的我也吃了一鲸
-现在来看看编译过程中报错的规则吧
-非友情提示：每个规则对应的0，1，2分别表示off, warning, error三个错误级别
+## 常用规则
 
-no-unused-vars
+### no-unused-vars
 
 定义了变量却没有在代码中使用，这是防止产生多余没用的变量
 
 
-semi
+### semi
 
 缺少分号，行尾必须使用分号，这是为了在压缩代码的时候出现意外情况
 
 
-no-console
+### no-console
 
 禁止使用 console，提醒开发者，上线时要去掉，因为是warning不会导致编译的js出问题
 
 
-consistent-this
+### consistent-this
 
 this的别名规则，只允许self和that，防止有些人写成_this或者me等等，哈哈
 
 
-curly
+### curly
 
 if 后必须包含 { ，单行 if 除外，也是为了方便阅读代码
-
+```
 // 错误写法
 function fn (key) {
    if (key === 'a') 
@@ -92,11 +60,12 @@ function fn (key) {
    if (key === 'b') return 2;
 }
 fn('a');
-复制代码
-default-case
+```
+
+### default-case
 
 switch 语句必须包含 default
-
+```
 // 错误写法
 function fn (key) {
     let str = '';
@@ -128,21 +97,22 @@ function fn (key) {
     }
     return str;
 }
-复制代码
-eqeqeq
+```
+
+### eqeqeq
 
 必须使用全等===进行比较，防止隐式转换带来的意外问题
 
 
-guard-for-in
+### guard-for-in
 
 for in时需检测hasOwnProperty，避免遍历到继承来的属性方法
 
 
-max-depth
+### max-depth
 
 最大块嵌套不能超过5层
-
+```
 // 正确写法
 if () {
     if () {
@@ -155,69 +125,71 @@ if () {
         }
     }
 }
-复制代码
-max-params
+```
+
+### max-params
 
 函数的形参不能多于8个,如果形参过多，我们现在可以用扩展运算符...来代替后面多余的形参
 
 
-new-cap
+### new-cap
 
 new关键字后类名应首字母大写，区分类和函数
 
 
-no-array-constructor
+### no-array-constructor
 
 禁止使用Array构造函数，定义数组直接用最快捷的方式[1, 2, 3]
 
 
-no-await-in-loop
+### no-await-in-loop
 
 禁止将await写在循环里,循环属于同步操作，不该将await异步操作写在内部
 
 
-no-caller
+### no-caller
 
 禁止使用arguments.caller和arguments.callee，ES6中废弃了
 
 
-no-const-assign
+### no-const-assign
 
 禁止对const定义重新赋值
 
 
-no-delete-var
+### no-delete-var
 
 禁止对变量使用delete关键字，delete只适用于对象的属性，提醒使用的范围
 
 
-no-dupe-args
+### no-dupe-args
 
 函数参数禁止重名
 
 
-no-empty-function
+### no-empty-function
 
 禁止空的function,保证写的每一个function都有用
 
 
-no-eval
+### no-eval
 
 禁止使用eval，eval是“魔鬼”，所以在开发中避免
 
 
-no-extra-semi
+### no-extra-semi
 
 禁止额外的分号，有些地方没必要加分号比如if () {};这样就是错误的
 
 
-no-global-assign
+### no-global-assign
 
 禁止对全局变量赋值
 
 
 
-好了还有一些就需要大家在使用中来去体会了，下面我将我司工作当中用到的ESLint规则贴出来，方便大家去做代码检查了
+## 工作当中用到的ESLint规则
+```
 // .eslintrc.js
 module.exports = {
     // 解析ES6
@@ -1139,3 +1111,4 @@ module.exports = {
         'yoda': 2,
     }
 };
+```
