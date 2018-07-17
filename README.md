@@ -20,6 +20,8 @@
 
 1. [Flow](https://flow.org)
 
+1. [iconfont](http://www.iconfont.cn/collections)
+
 ## Gitbook 书籍收集
 
 1. [GitHub 漫游指南](http://github.phodal.com)

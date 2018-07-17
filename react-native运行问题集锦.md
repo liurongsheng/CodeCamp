@@ -37,7 +37,10 @@ allprojects {
         }
         maven { url 'https://jitpack.io' }
         maven { url 'https://maven.google.com' }
-
+        maven {
+            // All of React Native (JS, Obj-C sources, Android binaries) is installed from npm
+            url "$rootDir/../node_modules/react-native/android"
+        }
     }
 }
 ```
