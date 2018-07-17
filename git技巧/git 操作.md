@@ -131,3 +131,14 @@ Win7 下不能直接创建，可以创建 ".gitignore." 文件，后面的标点
     /fd/*           // 忽略根目录下的 /fd/ 目录的全部内容；
     *.iml           // 过滤指定的所有文件
     !.gitignore     // 不忽略该文件
+    
+---
+
+在gitolite-admin的conf文件夹下修改gitolite.conf添加项目名
+
+在项目中初始化项目 git init
+
+git add .
+git commit -m "init"
+git remote add origin git@192.168.90.51:myApp.git
+git push origin master:master
