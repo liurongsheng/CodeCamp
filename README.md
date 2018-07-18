@@ -45,3 +45,11 @@
 1. [Python 核心编程 第二版](https://legacy.gitbook.com/book/wizardforcel/core-python-2e/details)
 
 1. [Go 语言圣经 中文版](https://www.gitbook.com/book/wizardforcel/gopl-zh/details)
+
+## 工具类网站导航
+
+1. [npms](https://npms.io/) 基于项目版本、模块下载次数、最新更新日期、提交频率等综合测量分数进行模块排名
+
+1. [npmdiscover](http://www.npmdiscover.com/) 快速搜索和其它模块通常一起使用的模块
+
+1. [awesome-nodejs](https://node.cool) 收集各类健壮的插件的集合
