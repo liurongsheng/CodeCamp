@@ -22,7 +22,7 @@
     列出所有 remote 的 url
     git remote -v
     
-    删除一个 renote
+    删除一个 remote
     git remote rm [name]
     
     重命名 remote
@@ -137,8 +137,11 @@ Win7 下不能直接创建，可以创建 ".gitignore." 文件，后面的标点
 在gitolite-admin的conf文件夹下修改gitolite.conf添加项目名
 
 在项目中初始化项目 git init
-
+```
 git add .
 git commit -m "init"
 git remote add origin git@192.168.90.51:myApp.git
 git push origin master:master
+
+git checkout -b newBranch 创建分支
+```
