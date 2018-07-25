@@ -16,14 +16,17 @@ Make sure your bundle ispackged correctly or you are running a packger server.
 
 运行`cd android && gradlew clean && cd .. && react-native run-android`
 
-## Could not expand ZIP
+## 问题
+** Could not expand ZIP **
 
 Execution failed for task ':app:prepareComAndroidSupportSupportCompat2531Library'.
 > Could not expand ZIP 'D:\SDK\extras\android\m2repository\com\android\support\support-compat\25.3.1\support-compat-25.3.1.aar'.
 
 运行`cd android && gradlew clean && cd .. && react-native run-android`
 
-## Failed to resolve: com.android.support:appcompat-v7:26.0.1
+## 问题
+** Failed to resolve: com.android.support:appcompat-v7:26.0.1 **
+** Could not find com.github.yalantis:ucrop:2.2.1-native **
 
 修改android project的gradle，添加maven { url 'https://maven.google.com' }
 
