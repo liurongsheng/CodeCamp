@@ -53,3 +53,5 @@
 1. [npmdiscover](http://www.npmdiscover.com/) 快速搜索和其它模块通常一起使用的模块
 
 1. [awesome-nodejs](https://node.cool) 收集各类健壮的插件的集合
+
+1. [unpkg](https://unpkg.com/#/stats) npm包快速云端库 
