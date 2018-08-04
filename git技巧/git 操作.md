@@ -65,6 +65,14 @@
 ### 查看状态
 
     git status
+    
+### 查看本地 stash 的未提交暂存数据
+    
+    git stash list //查看暂存区的所有暂存修改
+    
+    git stash apply stash@{X} //取出相应的暂存
+        
+    git stash drop stash@{X} //将记录列表中取出的对应暂存记录删除
 
 ### 从远程库中下载新的改动
 
