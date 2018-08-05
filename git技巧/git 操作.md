@@ -68,11 +68,18 @@
     
 ### 查看本地 stash 的未提交暂存数据
     
-    git stash list //查看暂存区的所有暂存修改
+    git stash //把所有没有提交的修改暂存到stash里面
+    //WIP，Work In Progess的简称，说明代表了工作区进度。 
+    //Index ,代表的是已经被 add 但是还未被提交的进度。
     
+    git stash save <message> //给 stash 存储的修改起个名字
+    
+    git stash list //查看暂存区的所有暂存修改
     git stash apply stash@{X} //取出相应的暂存
-        
+    git stash pop  //取出最近一次暂存并删除记录列表中对应记录
     git stash drop stash@{X} //将记录列表中取出的对应暂存记录删除
+    
+    git stash clear 清空stash队列
 
 ### 从远程库中下载新的改动
 
