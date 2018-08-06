@@ -160,3 +160,5 @@ git push origin master:master
 
 git checkout -b newBranch 创建分支
 ```
+如果是在gitHub上创建了项目，这个时候没有文件。在本地初始化后打算提交到gitHub，
+由于版本冲突不能push成功，使用`git push -f` 可以强推成功，但是gitHub上的初始化文件会消失，比如README.md文件
