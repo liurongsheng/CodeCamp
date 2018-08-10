@@ -93,3 +93,6 @@ org.gradle.jvmargs=-Xmx2048m
 #JVM最大允许分堆非内存
 ```
 
+## NDK is missing a "platforms" directory.
+
+下载NDK安装解决 [下载地址](https://developer.android.google.cn/ndk/downloads/)

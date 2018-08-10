@@ -20,7 +20,6 @@
 
 1. [Flow](https://flow.org)
 
-1. [iconfont](http://www.iconfont.cn/collections)
 
 ## Gitbook 书籍收集
 
@@ -55,3 +54,13 @@
 1. [awesome-nodejs](https://node.cool) 收集各类健壮的插件的集合
 
 1. [unpkg](https://unpkg.com/#/stats) npm包快速云端库 
+
+## ICON图标
+
+1. [iconfont](http://www.iconfont.cn/collections)
+
+1. [thenounproject](https://thenounproject.com/)
+
+1. [iconfinder](https://www.iconfinder.com/)
+
+1. [easyicon](http://www.easyicon.net/)
