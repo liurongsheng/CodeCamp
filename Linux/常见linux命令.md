@@ -108,10 +108,23 @@ shutdown用于关闭计算机，而shutdown -r用于重启计算机
 
 功能点索引：
 
-##清除屏幕当前内容
+## 清除屏幕当前内容
 1. clear 
 1. alias 创建别名法
 alias cls=clear 使得cls等效于clear
 1. 直接按Ctrl+L
 [来源](http://codingstandards.iteye.com/blog/804213)
 
+## 重启与关机
+CentOS关机命令：
+重启命令
+reboot
+shutdown -r now 立刻重启
+shutdown -r 10 过10分钟自动重启
+shutdown -r 20:35 在时间为20:35时候重启
+shutdown -c 取消重启
+关机命令
+halt
+poweroff 立刻关机
+shutdown -h now 立刻关机
+shutdown -h 10 10分钟后自动关机
