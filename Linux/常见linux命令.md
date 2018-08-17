@@ -37,6 +37,9 @@ cd 将给定的文件夹（或目录）设置成当前工作目录
 ## ps – ProcesseS
 ps显示系统的运行进程
 
+## history
+查看历史运行命令行
+
 ## grep
 在给定的文件中搜寻指定的字符串。grep -i "" 在搜寻时会忽略字符串的大小写，
 而grep -r "" 则会在当前工作目录的文件中递归搜寻指定的字符串。
@@ -128,3 +131,38 @@ halt
 poweroff 立刻关机
 shutdown -h now 立刻关机
 shutdown -h 10 10分钟后自动关机
+
+## 查询某软件信息
+`yum search ssh`
+
+## 查看是否安装某软件，安装软件和卸载软件
+
+`rpm -qa | grep ssh` 查看是否安装某软件
+```
+[root@localhost /]# rpm -qa | grep ssh
+openssh-askpass-5.3p1-94.el6.x86_64
+libssh2-1.4.2-1.el6.x86_64
+openssh-5.3p1-94.el6.x86_64
+openssh-server-5.3p1-94.el6.x86_64
+openssh-clients-5.3p1-94.el6.x86_64
+[root@localhost /]# 
+```
+
+`yum -y install vsftpd` 安装软件，-y 代表所有安装过程中询问都选择yes
+`yum -y install vsftpd mysql` 安装多个软件
+
+`yum -y remove vsftpd` 卸载软件，-y 代表所有卸载过程中询问都选择yes
+`yum -y remove vsftpd mysql` 卸载多个软件
+
+## 设置开机启动  
+`chkconfig vsftpd on`
+
+## 配置防火墙  
+
+显示防火墙规则 `iptables -L`
+关闭防火墙 `service iptables stop`
+开启防火墙 `service iptables start`
+关闭开启自启动 `chkconfig  iptables off`
+
+## 查看网络连接状态 
+`netstat -tudpln`
