@@ -104,6 +104,7 @@ vi /etc/vsftpd/vsftpd.conf
 
 配置
 找到下面的三段，这三段是在一起的哦
+```
 #chroot_list_enable=YES
 # (default follows)
 #chroot_list_file=/etc/vsftpd.chroot_list
@@ -111,6 +112,7 @@ vi /etc/vsftpd/vsftpd.conf
 chroot_list_enable=YES
 # (default follows)
 chroot_list_file=/etc/vsftpd.chroot_list
+```
 
 新增用户
 `useradd -d /home/ftpuser -g ftp -s /sbin/nologin ftpuser`
