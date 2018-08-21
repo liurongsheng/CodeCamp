@@ -120,8 +120,6 @@ shutdown用于关闭计算机，而shutdown -r用于重启计算机
 命令检查、设置系统的各种服务，chkconfig不是立即自动禁止或激活一个服务，它只是简单的改变了符号连接。
 `chkconfig vsftpd on` 设置开机运行ftp
 
-[来源](https://github.com/dwqs/blog/issues/24)
-
 ---
 
 功能点索引：
@@ -131,8 +129,6 @@ shutdown用于关闭计算机，而shutdown -r用于重启计算机
 1. alias 创建别名法
 alias cls=clear 使得cls等效于clear
 1. 直接按Ctrl+L
-
-[来源](http://codingstandards.iteye.com/blog/804213)
 
 ## 重启与关机
 CentOS关机命令：
@@ -183,3 +179,7 @@ openssh-clients-5.3p1-94.el6.x86_64
 
 ## 查看网络连接状态 
 `netstat -tudpln`
+
+[参考来源](http://man.linuxde.net/vi)
+[参考来源1](http://codingstandards.iteye.com/blog/804213)
+[参考来源2](https://github.com/dwqs/blog/issues/24)
