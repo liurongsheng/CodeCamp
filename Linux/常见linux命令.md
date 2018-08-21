@@ -31,6 +31,17 @@ cd 将给定的文件夹（或目录）设置成当前工作目录
 ## cat – concatenate and print files
 用于在标准输出（监控器或屏幕）上查看文件内容
 
+## vi
+vi命令是UNIX操作系统和类UNIX操作系统中最通用的全屏幕纯文本编辑器。
+vi编辑器支持编辑模式和命令模式，编辑模式下可以完成文本的编辑功能，命令模式下可以完成对文件的操作命令
+从编辑模式切换到命令模式使用“esc”键；
+从命令模式切换到编辑模式使用“A”、“a”、“O”、“o”、“I”、“i”键
+:q！：在命令模式下，执行强制退出vi操作；
+:wq：在命令模式下，执行存盘退出操作；
+
+## vim
+Linux中的vi编辑器叫vim，它是vi的增强版（vi Improved），与vi编辑器完全兼容，而且实现了很多增强功能。
+
 ## tail – print TAIL (from last) 
 输出上显示给定文件的最后10行内容，可以使用tail -n N 指定在标准输出上显示文件的最后N行内容
 
@@ -105,6 +116,10 @@ top命令会默认按照CPU的占用情况，显示占用量较大的进程,可�
 ## shutdown
 shutdown用于关闭计算机，而shutdown -r用于重启计算机
 
+## chkconfig
+命令检查、设置系统的各种服务，chkconfig不是立即自动禁止或激活一个服务，它只是简单的改变了符号连接。
+`chkconfig vsftpd on` 设置开机运行ftp
+
 [来源](https://github.com/dwqs/blog/issues/24)
 
 ---
@@ -116,6 +131,7 @@ shutdown用于关闭计算机，而shutdown -r用于重启计算机
 1. alias 创建别名法
 alias cls=clear 使得cls等效于clear
 1. 直接按Ctrl+L
+
 [来源](http://codingstandards.iteye.com/blog/804213)
 
 ## 重启与关机
@@ -156,6 +172,7 @@ openssh-clients-5.3p1-94.el6.x86_64
 
 ## 设置开机启动  
 `chkconfig vsftpd on`
+
 
 ## 配置防火墙  
 
