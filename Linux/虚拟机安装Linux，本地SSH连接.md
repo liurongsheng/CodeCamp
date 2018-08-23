@@ -41,8 +41,11 @@ ifconfig eth0 up
 选择VMnet8，在VMnet信息集中选择NAT模式，同时把使用本地DHCP服务将IP地址分配给虚拟机去掉勾选
 将子网IP设置为192.168.123.0，这时去设置VMnet信息中的NAT设置，将网关IP设置为192.168.123.2确认保存
 
+在Linux中的设置中把IP设置为192.168.123.3，网关子网掩码为255.255.255.0，网关IP设置为192.168.123.2。
+这里的网关地址一定要和VMware Workstation中的虚拟网络编辑器的NAT设置中的网关一致！！！不然不能上网
+
 在控制面板的网络和Internet中的网络连接
-把VMware Network Adapter VMnet8 的IPv4设置固定IP为192.168.123.1网关子网掩码为255.255.255.0，**特别注意这里不要设默认网关**
+把VMware Network Adapter VMnet8 的IPv4设置固定IP为192.168.123.1，网关子网掩码为255.255.255.0，**特别注意这里不要设默认网关**
 
 设置完毕，在本机使用ping 测试192.168.123.30发现可以ping通。
 
@@ -232,3 +235,13 @@ ps aux | grep nginx
 nginx 报异常"/usr/local/nginx/logs/nginx.pid" failed (2: No such file or directory)处理方法
 使用nginx -c的参数指定nginx.conf文件的位置
 `/usr/local/webserver/nginx/sbin/nginx -c /usr/local/webserver/nginx/conf/nginx.conf`
+
+## 搭建 WildFly
+
+### 下载WildFly的tar包
+```
+cd /usr/local
+mkdir wildFly && cd wildFly
+wget http://download.jboss.org/wildfly/13.0.0.Final/wildfly-13.0.0.Final.tar.gz
+tar -xvf nginx-1.15.2.tar.gz
+```
