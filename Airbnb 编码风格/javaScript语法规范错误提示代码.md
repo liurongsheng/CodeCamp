@@ -1,4 +1,4 @@
-# Javascript语法规范错误提示代码
+# javaScript语法规范错误提示代码
 
 “Missing semicolon.” : “缺少分号.”,
 
