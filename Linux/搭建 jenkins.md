@@ -1,4 +1,4 @@
-# 搭建 kenkins
+# 搭建 jenkins
 
 ## [官网地址](https://jenkins.io/)
 
@@ -34,13 +34,14 @@ Java HotSpot(TM) 64-Bit Server VM (build 25.181-b13, mixed mode)
 ```
 
 ## 安装 Tomcat
+```
 cd /uer/local
 mkdir tomcat
 wget http://mirrors.hust.edu.cn/apache/tomcat/tomcat-8/v8.5.33/bin/apache-tomcat-8.5.33.tar.gz
 tar -zxvf apache-tomcat-8.5.33.tar.gz
 cd apache-tomcat-8.5.33/bin
 ./startup.sh
-
+```
 vim /etc/init.d/tomcat
 ```
 # chkconfig: 112 63 37
@@ -50,10 +51,11 @@ vim /etc/init.d/tomcat
 JAVA_HOME=/usr/local/java/jdk1.8.0_181/
 CATALINA_HOME=/usr/local/tomcat/apache-tomcat-8.5.33
 ```
+```
 chmod 755 /etc/init.d/tomcat
 chkconfig --add tomcat
 chkconfig tomcat on
-
+```
 service tomcat start
 可在浏览器输入http://你的ip:8080,tomcat默认端口是8080，如果成功启动的话会看到tomcat主界面
 
@@ -63,8 +65,8 @@ vim /usr/local/tomcat/apache-tomcat-8.5.33/config/server.xml
 <Connector port="8080" protocol="HTTP/1.1"
 port设置端口
 ```
-service tomcat stop
-service tomcat start
+>service tomcat stop
+>service tomcat start
 
 
 需要修改权限
@@ -88,9 +90,11 @@ vim /usr/local/tomcat/apache-tomcat-8.5.33/webapps/manager/META-INF/context.xml
 ```
 
 ## 获取war包
+```
 cd /user/APP
 wget http://mirrors.jenkins-ci.org/war/latest/jenkins.war
 把下载的war包放置到tomcat的webapps文件中
 cp jenkins.war /usr/local/tomcat/apache-tomcat-8.5.33/webapps
+```
 
-浏览器打开http://192.168.80.123:8080/jenkins/
+浏览器打开http://192.168.80.123:8080/jenkins/根据提示完成授权安装
