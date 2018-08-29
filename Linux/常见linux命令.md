@@ -180,6 +180,25 @@ openssh-clients-5.3p1-94.el6.x86_64
 ## 查看网络连接状态 
 `netstat -tudpln`
 
+## 获取当前linux信息 
+cat /etc/redhat-release 
+`CentOS Linux release 7.5.1804 (Core)` 
+
+## 查看所有用户
+w命令
+w命令用于显示已经登录系统的用户的名称，以及他们正在做的事。
+//信息来源 /var/run/utmp文件
+
+who命令
+查看（登录）用户名称及所启动的进程
+
+whoami命令
+whoami命令能显示当前登入的用户名称，以及当前所使用的tty信息。
+
+last命令
+last命令可用于显示特定用户登录系统的历史记录。
+//信息来源 /var/log/wtmp
+
 [参考来源](http://man.linuxde.net/vi)
 [参考来源1](http://codingstandards.iteye.com/blog/804213)
 [参考来源2](https://github.com/dwqs/blog/issues/24)

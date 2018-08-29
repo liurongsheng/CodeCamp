@@ -45,7 +45,8 @@ liu
 
 新增一行 `-A INPUT -m state --state NEW -m tcp -p tcp --dport 21 -j ACCEPT`
 
-本地开发建议直接关闭 `service iptables stop`
+本地开发建议直接关闭 `service iptables stop`  //CentOS 6
+`systemctl stop firewalld.service` //CentOS 7
 
 ### 修改策略 -P参数是保存到配置文件，重启生效
 ```
