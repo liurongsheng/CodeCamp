@@ -199,6 +199,18 @@ last命令
 last命令可用于显示特定用户登录系统的历史记录。
 //信息来源 /var/log/wtmp
 
+## 用户管理
+查看所有用户
+cat /etc/group
+cat /cat /etc/passwd
+
+新增用户
+useradd -d /data/web -s /sbin/nologin ftpuser
+
+删除用户
+userdel -r ftpuser
+
+
 [参考来源](http://man.linuxde.net/vi)
 [参考来源1](http://codingstandards.iteye.com/blog/804213)
 [参考来源2](https://github.com/dwqs/blog/issues/24)
