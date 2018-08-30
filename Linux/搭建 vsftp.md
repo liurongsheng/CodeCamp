@@ -5,7 +5,7 @@
 ```
 rpm -qa | grep vsftp
 yum -y install vsftpd
-chkconfig vsftpd on`
+chkconfig vsftpd on
 vi /etc/vsftpd/vsftpd.conf
 ```
 
@@ -23,7 +23,8 @@ chroot_list_file=/etc/vsftpd/chroot_list
 
 ### 新增用户
 `useradd -d /home/ftpuser -g ftp -s /sbin/nologin ftpuser`
-//使用useradd 命令，增加用户ftpuser，当然你可以将ftpuser改成其他你想要的，指向目录/home/testftp/ftpuser,禁止登录SSH权限
+`useradd -d /home/liu -g ftp -s /sbin/nologin liu`
+//使用useradd 命令，增加用户ftpuser，当然你可以将ftpuser改成其他你想要的，指向目录/home/ftpuser,禁止登录SSH权限
 
 ### 修改密码
 `passwd ftpuser`
@@ -50,14 +51,14 @@ liu
 
 ### 修改策略 -P参数是保存到配置文件，重启生效
 ```
-setsebool -P ftpd_disable_trans 1`
+setsebool -P ftpd_disable_trans 1
 setsebool -P allow_ftpd_full_access 1
 setsebool -P ftp_home_dir 1 //必须，不然无法访问
 ```        
 现在应该FTP就可以使用了！
 
 ---
-
+getsebool -a | grep ftp
 ```
 ftp连接的时候会出现 "500 OOPS:cannot change directory:/home/ftpuser" 错误
 出现这个问题是应为默认下是没有开启FTP的支持，所以访问时都被阻止了

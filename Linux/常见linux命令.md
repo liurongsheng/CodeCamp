@@ -178,7 +178,7 @@ openssh-clients-5.3p1-94.el6.x86_64
 关闭开启自启动 `chkconfig  iptables off`
 
 ## 查看网络连接状态 
-`netstat -tudpln`
+`netstat -lnptu`
 
 ## 获取当前linux信息 
 cat /etc/redhat-release 
