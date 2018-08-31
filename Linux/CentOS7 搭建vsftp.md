@@ -47,7 +47,7 @@ listen_ipv6=NO
 ### 新增用户
 useradd -g root -d /data/web -s /sbin/nologin ftpuser
 
-useradd -d /data/web -s /sbin/nologin ftpuser
+useradd -d /home/ftpuser -s /sbin/nologin ftpuser
 //使用useradd 命令，增加用户ftpuser，当然你可以将ftpuser改成其他你想要的，指向目录/home/ftpuser，禁止登录SSH权限
 
 ```
@@ -78,8 +78,8 @@ vim /etc/selinux/config
 SELINUX=disable
 
 ## 设置权限
-chown -777 ftpuser:root /data/web
-chmod 755 -R /data/web
+chown -R ftpuser /data/web/
+chmod -R 755 /data/web/
 
 ### 重新vsftpd
 ```
@@ -125,11 +125,38 @@ vim test2
 local_root=/data/web2/
 ```
 //授权
-chown -R ftpuser /data/web/
-chmod -R 755 /data/web/
+chmod a-w /home/ftpuser //移除主目录写权限
+
+//chown -R ftpuser /data/web/
+//chown -R ftpuser /home/ftpuser
+//chmod -R 755 /data/web/
 
 //重启vsftp
 systemctl restart vsftpd.service
+
+### 问题索引
+500 OOPS: vsftpd: cannot locate user specified in 'ftp_username':ftp
+
+原因：
+配置文件在调用默认匿名用户anonymous时会去找ftp这个系统用户，但是ftp这个系统用户又不存在（可能被删除了）
+
+解决：
+```
+取消匿名模式
+在vsftpd.conf中将anonymous_enable设置为NO,
+anonymous_enable=NO
+```
+
+OOPS: vsftpd: refusing to run with writable root inside chroot()
+
+原因：
+从2.3.5之后，vsftpd增强了安全检查，如果用户被限定在了其主目录下，则该用户的主目录不能再具有写权限了！如果检查发现还有写权限，就会报该错误。
+
+解决：
+chmod a-w /home/ftpuser //移除主目录写权限
+或者在conf文件中新增
+allow_writeable_chroot=YES
+
 
 ### vsftpd.conf具体使用情况
 ```
