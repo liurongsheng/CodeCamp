@@ -1,4 +1,15 @@
-# pip源设置
+# pip常用命令与源设置
+
+## pip常用命令
+1. pip install you-get // 安装 you-get
+2. pip list // 显示已经安装的软件
+3. pip show you-get // 显示已安装 you-get 信息
+4. pip list --outdated 显示可升级的软件列表
+5. pip install --upgrade you-get // 升级 you-get
+6. pip uninstall  you-get // 卸载 you-get
+7. pip search you-get // 搜索 you-get 信息
+
+pip -V // 显示当前版本
 
 ## pip国内的一些镜像
 ```
@@ -46,9 +57,7 @@ index-url = http://pypi.douban.com/simple
 trusted-host=pypi.douban.com
 ```
 
-
 ## 常用软件
 
 pip install pylint
 pip install autopep8
-
