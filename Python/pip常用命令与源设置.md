@@ -15,7 +15,7 @@ pip -V // 显示当前版本
 ```
 1. 阿里云 http://mirrors.aliyun.com/pypi/simple/ 
 2. 中国科技大学 https://pypi.mirrors.ustc.edu.cn/simple/ 
-3. 豆瓣(douban) http://pypi.douban.com/simple/ 
+3. 豆瓣(douban)，福州 http://pypi.douban.com/simple/ 
 4. 清华大学 https://pypi.tuna.tsinghua.edu.cn/simple/ 
 5. 中国科学技术大学 http://pypi.mirrors.ustc.edu.cn/simple/
 ```
@@ -48,7 +48,7 @@ trusted-host=pypi.douban.com
 ```
 
 windows: 
-直接在user目录中创建一个pip目录，如：C:\Users\xx\pip，新建文件pip.ini，内容如下
+直接在user目录中创建一个pip目录，如：C:\Users\xx\pip，在pip文件夹内新建文件pip.ini，内容如下
 
 ```
 [global]
