@@ -19,7 +19,7 @@ pip -V // 显示当前版本
 4. 清华大学 https://pypi.tuna.tsinghua.edu.cn/simple/ 
 5. 中国科学技术大学 http://pypi.mirrors.ustc.edu.cn/simple/
 ```
-
+pip install Scrapy -i https://pypi.mirrors.ustc.edu.cn/simple
 ## pip升级自身
 ```
 pip install -U pip //升级pip

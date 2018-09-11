@@ -1,4 +1,5 @@
 # Scrapy框架架构
+[官网文档](https://scrapy.org)
 
 ## Scrapy框架介绍：
 写一个爬虫，需要做很多的事情。比如：发送网络请求、数据解析、数据存储、反反爬虫机制（更换ip代理、设置请求头等）、异步请求等。
@@ -18,3 +19,37 @@
 6. Downloader Middlewares（下载中间件）：可以扩展下载器和引擎之间通信功能的中间件。
 7. Spider Middlewares（Spider中间件）：可以扩展引擎和爬虫之间通信功能的中间件。
 
+## 快速安装
+1. 安装：通过 `pip install Scrapy` 即可安装。
+2. [Scrapy官方文档](http://doc.scrapy.org/en/latest)：http://doc.scrapy.org/en/latest
+3. [Scrapy中文文档](http://scrapy-chs.readthedocs.io/zh_CN/latest/index.html)：http://scrapy-chs.readthedocs.io/zh_CN/latest/index.html
+
+如果在windows系统下，提示这个错误`ModuleNotFoundError: No module named 'win32api'`，那么使用以下命令可以解决：`pip install pypiwin32`；
+提示这个错误`Could not find suitable distribution for Requirement.parse('incremental>=16.10.1')`
+```python
+pip install --upgrade incremental
+pip install Twisted
+pip install Scrapy
+```
+`pip install Twisted` 如果出错报 `error: Microsoft Visual C++ 14.0 is required. Get it with "Microsoft Visual C++ Build Tools": https://visualstudio.microsoft.com/downloads/`
+需要到网站下载匹配的离线包安装 `https://www.lfd.uci.edu/~gohlke/pythonlibs/#twisted`,
+然后进入下载的文件夹安装 `pip install .\Twisted‑18.7.0‑cp37‑cp37m‑win_amd64.whl`
+ 
+ 
+如果在ubuntu上安装scrapy之前，需要先安装以下依赖：
+`sudo apt-get install python3-dev build-essential python3-pip libxml2-dev libxslt1-dev zlib1g-dev libffi-dev libssl-dev`，然后再通过 `pip install scrapy` 安装。
+
+## 创建项目
+要使用Scrapy框架创建项目，需要通过命令来创建。首先进入到你想把这个项目存放的目录。
+
+然后使用以下命令创建：
+
+`scrapy startproject [项目名称]`
+
+## 目录结构
+1. items.py：用来存放爬虫爬取下来数据的模型。
+2. middlewares.py：用来存放各种中间件的文件。
+3. pipelines.py：用来将items的模型存储到本地磁盘中。
+4. settings.py：本爬虫的一些配置信息（比如请求头、多久发送一次请求、ip代理池等）。
+5. scrapy.cfg：项目的配置文件。
+6. spiders包：以后所有的爬虫，都是存放到这个里面。
