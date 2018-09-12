@@ -153,7 +153,7 @@ class QsbkSpider(scrapy.Spider):
         return items
 ```
 items.py部分代码：
-```
+```python
 import scrapy
 class QsbkItem(scrapy.Item):
     author = scrapy.Field()
@@ -161,7 +161,7 @@ class QsbkItem(scrapy.Item):
 ```
 
 pipeline部分代码：
-```
+```python
 import json
 
 class AbcspiderPipeline(object):
@@ -181,9 +181,28 @@ class AbcspiderPipeline(object):
 运行scrapy项目：
 运行scrapy项目。需要在终端，进入项目所在的路径，然后scrapy crawl [爬虫名字]即可运行指定的爬虫。如果不想每次都在命令行中运行，那么可以把这个命令写在一个文件中。
 以后就在pycharm中执行运行这个文件就可以了。比如现在新创建一个文件叫做start.py，然后在这个文件中填入以下代码：
-
+```python
 from scrapy import cmdline
-
 cmdline.execute("scrapy crawl qsbk".split())
+```
 
+## 运行问题
+Python3.7，装上依赖包和 scrapy 后运行爬虫命令出错
+```python
+  File "c:\users\administrator\appdata\local\programs\python\python37\lib\site-packages\twisted\conch\manhole.py", line 154
+      def write(self, data, async=Shark):
+                              ^
+SyntaxError: invalid syntax
+```
+将源码manhole.py中的async参数更改为shark（注意更换全部）可以直接点击错误跳转 
+```python
+    def write(self, data, shark=False):
+        self.handler.addOutput(data, shark)
 
+    def addOutput(self, data, shark=False):
+        if shark:
+            self.terminal.eraseLine()
+            self.terminal.cursorBackward(len(self.lineBuffer) + len(self.ps[self.pn]))
+
+        self.terminal.write(data)
+```
