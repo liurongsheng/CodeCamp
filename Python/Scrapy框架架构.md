@@ -45,6 +45,7 @@ pip install Scrapy
 然后使用以下命令创建：
 
 `scrapy startproject [项目名称]`
+scrapy startproject ScrapyDemo
 
 ## 目录结构
 1. items.py：用来存放爬虫爬取下来数据的模型。
@@ -53,3 +54,118 @@ pip install Scrapy
 4. settings.py：本爬虫的一些配置信息（比如请求头、多久发送一次请求、ip代理池等）。
 5. scrapy.cfg：项目的配置文件。
 6. spiders包：以后所有的爬虫，都是存放到这个里面。
+
+## scrapy 可用命令
+```
+Available commands:
+  bench         Run quick benchmark test
+  fetch         Fetch a URL using the Scrapy downloader
+  genspider     Generate new spider using pre-defined templates
+  runspider     Run a self-contained spider (without creating a project)
+  settings      Get settings values
+  shell         Interactive scraping console
+  startproject  Create new project
+  version       Print Scrapy version
+  view          Open URL in browser, as seen by Scrapy
+```
+
+## 使用Scrapy框架爬取糗事百科段子：
+
+使用命令创建一个爬虫：
+```python
+scrapy genspider qsbk "qiushibaike.com"
+```
+创建了一个名字叫做 qsbk 的爬虫，并且能爬取的网页只会限制在 `qiushibaike.com` 这个域名下。
+
+爬虫代码解析：
+```python
+import scrapy
+
+class QsbkSpider(scrapy.Spider):
+   name = 'qsbk'
+   allowed_domains = ['qiushibaike.com']
+   start_urls = ['http://qiushibaike.com/']
+
+   def parse(self, response):
+       pass
+```
+其实这些代码我们完全可以自己手动去写，而不用命令。只不过是不用命令，自己写这些代码比较麻烦。
+要创建一个Spider，那么必须自定义一个类，继承自scrapy.Spider，然后在这个类中定义三个属性和一个方法。
+
+1. name：这个爬虫的名字，名字必须是唯一的。
+2. allow_domains：允许的域名。爬虫只会爬取这个域名下的网页，其他不是这个域名下的网页会被自动忽略。
+3. start_urls：爬虫从这个变量中的url开始。
+
+parse：引擎会把下载器下载回来的数据扔给爬虫解析，爬虫再把数据传给这个parse方法。这个是个固定的写法。
+这个方法的作用有两个，第一个是提取想要的数据。第二个是生成下一个请求的url。
+
+## 修改settings.py代码：
+在做一个爬虫之前，一定要记得修改`setttings.py`中的设置。两个地方是强烈建议设置的。
+
+1. ROBOTSTXT_OBEY设置为False。默认是True。即遵守机器协议，那么在爬虫的时候，scrapy首先去找robots.txt文件，如果没有找到。则直接停止爬取。
+2. DEFAULT_REQUEST_HEADERS添加User-Agent。这个也是告诉服务器，我这个请求是一个正常的请求，不是一个爬虫。
+```
+ROBOTSTXT_OBEY = False
+DEFAULT_REQUEST_HEADERS = {
+  'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+  'Accept-Language': 'en',
+  'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/68.0.3440.106 Safari/537.36',
+}
+```
+
+完成的爬虫代码：
+爬虫部分代码：
+```python
+import scrapy
+from abcspider.items import QsbkItem
+
+class QsbkSpider(scrapy.Spider):
+    name = 'qsbk'
+    allowed_domains = ['qiushibaike.com']
+    start_urls = ['https://www.qiushibaike.com/text/']
+
+    def parse(self, response):
+        outerbox = response.xpath("//div[@id='content-left']/div")
+        items = []
+        for box in outerbox:
+            author = box.xpath(".//div[contains(@class,'author')]//h2/text()").extract_first().strip()
+            content = box.xpath(".//div[@class='content']/span/text()").extract_first().strip()
+            item = QsbkItem()
+            item["author"] = author
+            item["content"] = content
+            items.append(item)
+        return items
+```
+items.py部分代码：
+```
+import scrapy
+class QsbkItem(scrapy.Item):
+    author = scrapy.Field()
+    content = scrapy.Field()
+```
+
+pipeline部分代码：
+```
+import json
+
+class AbcspiderPipeline(object):
+    def __init__(self):
+
+        self.items = []
+
+    def process_item(self, item, spider):
+        self.items.append(dict(item))
+        print("="*40)
+        return item
+
+    def close_spider(self,spider):
+        with open('qsbk.json','w',encoding='utf-8') as fp:
+            json.dump(self.items,fp,ensure_ascii=False)
+```
+运行scrapy项目：
+运行scrapy项目。需要在终端，进入项目所在的路径，然后scrapy crawl [爬虫名字]即可运行指定的爬虫。如果不想每次都在命令行中运行，那么可以把这个命令写在一个文件中。
+以后就在pycharm中执行运行这个文件就可以了。比如现在新创建一个文件叫做start.py，然后在这个文件中填入以下代码：
+
+from scrapy import cmdline
+
+cmdline.execute("scrapy crawl qsbk".split())
