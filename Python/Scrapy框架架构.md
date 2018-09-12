@@ -19,6 +19,23 @@
 6. Downloader Middlewares（下载中间件）：可以扩展下载器和引擎之间通信功能的中间件。
 7. Spider Middlewares（Spider中间件）：可以扩展引擎和爬虫之间通信功能的中间件。
 
+
+## 创建虚拟环境 virtualenvwrapper
+在当前的目录中创建一个文件夹，包含了Python可执行文件，以及 pip 库的一份拷贝，在虚拟环境中任何你使用pip安装的包将会放在 venv 文件夹中，与全局安装的Python隔绝开。
+虚拟环境的名字（此例中是 venv ）可以是任意的；若省略名字将会把文件均放在当前目录。
+```
+pip install virtualenvwrapper-win
+mkvirtualenv venv
+workon venv
+pip --version # 查看是不是当前系统的最新版本
+pip install ./Twisted-18.7.0-cp37-cp37m-win_amd64.whl # 先去找和 python 版本对应的然后离线安装 
+pip install Scrapy
+# workon # 查看所有的虚拟环境
+# workon venv # 切换到虚拟环境
+# deactivate # 退出虚拟环境
+# rmvirtualenv venv # 删除虚拟环境
+```
+
 ## 快速安装
 1. 安装：通过 `pip install Scrapy` 即可安装。
 2. [Scrapy官方文档](http://doc.scrapy.org/en/latest)：http://doc.scrapy.org/en/latest
@@ -40,7 +57,7 @@ pip install Scrapy
 `sudo apt-get install python3-dev build-essential python3-pip libxml2-dev libxslt1-dev zlib1g-dev libffi-dev libssl-dev`，然后再通过 `pip install scrapy` 安装。
 
 ## 创建项目
-要使用Scrapy框架创建项目，需要通过命令来创建。首先进入到你想把这个项目存放的目录。
+要使用Scrapy框架创建项目，需要通过命令来创建。(旧版本需要进入文件夹后初始化一个工程项目，新版本比如Scrapy 1.5.1，已经不需要进入文件夹下初始化了)
 
 然后使用以下命令创建：
 
@@ -70,8 +87,7 @@ Available commands:
 ```
 
 ## 使用Scrapy框架爬取糗事百科段子：
-
-使用命令创建一个爬虫：
+在根目录( scrapy.cfg 同级目录 )使用命令创建一个爬虫：
 ```python
 scrapy genspider qsbk "qiushibaike.com"
 ```
@@ -169,3 +185,5 @@ class AbcspiderPipeline(object):
 from scrapy import cmdline
 
 cmdline.execute("scrapy crawl qsbk".split())
+
+
