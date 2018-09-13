@@ -252,8 +252,85 @@ SyntaxError: invalid syntax
         self.terminal.write(data)
 ```
 
+## 改进数据存储方式
 
+JsonItemExporter 和 JsonLinesItemExporter
+保存json数据的时候，可以使用这两个类，让操作更简单
+JsonItemExporter，每次把数据添加在内存中，最后统一写入磁盘
+好处是存储的数据是一个满足json格式的数据
+坏处是如果数据量比较大，比较耗费内存
 
+JsonLinesItemExporter，每次调用export_item的时候把每个item存储到硬盘中
+好处是每次处理数据的时候就直接存储到了硬盘中，不耗费内存比较安全
+坏处是每一个字典一行，整个文件不是一个满足json格式的文件
 
+pipeline 部分代码
+```python
+# JsonItemExporter
+from scrapy.exporters import JsonItemExporter
+class ScrapydemoPipeline(object):
+    def __init__(self):  # 构造函数
+        self.fp = open("duanzi,json","wb")  ## wb类型是二进制类型，同时不需要声明encoding="utf-8"
+        self.exporter = JsonItemExporter(self.fp,ensure_ascii=False)
+        self.exporter.start_exporting() # 需要开启和结束
 
+    def open_spider(self, spider): # 开始运行爬虫的时候执行代码
+        print("爬虫开始")
+
+    def process_item(self, item, spider):
+        self.exporter.export_item(item)
+        return item
+
+    def closs_spider(self, spider): # 关闭爬虫的时候执行代码
+        self.exporter.finish_exporting() # 需要开启和结束
+        self.fp.close()
+        print("爬虫结束")
+```
+```python
+# JsonLinesItemExporter
+from scrapy.exporters import JsonLinesItemExporter
+class ScrapydemoPipeline(object):
+    def __init__(self):  # 构造函数
+        self.fp = open("duanzi,json","wb")  ## wb类型是二进制类型
+        self.exporter = JsonLinesItemExporter(self.fp,ensure_ascii=False)
+
+    def open_spider(self, spider): # 开始运行爬虫的时候执行代码
+        print("爬虫开始")
+
+    def process_item(self, item, spider):
+        self.exporter.export_item(item)
+        return item
+
+    def closs_spider(self, spider): # 关闭爬虫的时候执行代码
+        self.fp.close()
+        print("爬虫结束")
+```
+
+## 获取多个页面
+```python
+import scrapy
+from ScrapyDemo.items import ScrapydemoItem
+
+class QsbkSpider(scrapy.Spider): # 继承 scrapy.Spider 类
+    name = 'qsbk' # 爬虫名字要唯一性
+    allowed_domains = ['qiushibaike.com']
+    start_urls = ['https://www.qiushibaike.com/8hr/page/1/']
+    base_domain = "https://www.qiushibaike.com"
+    def parse(self, response):
+        duanziDivs = response.xpath("//div[@id='content-left']/div")
+        print("*" * 40)
+        for duanziDiv in duanziDivs:
+            author = duanziDiv.xpath(".//h2/text()").get().strip() # get()提取内容 strip()去除空格
+            content = duanziDiv.xpath(".//div[@class='content']//text()").getall() # getall()提取全部内容
+            content = "".join(content).strip()
+            # duanzi = {"author":author,"content":content} # 使用 items.py 操作
+            # yield duanzi
+            item = ScrapydemoItem(author=author, content=content)
+            yield item  # 生成器
+        next_url = response.xpath("//ul[@class='pagination']/li[last()]/a/@href").get()
+        if not next_url:
+            return
+        else:
+            yield scrapy.Request(self.base_domain + next_url,callback=self.parse)
+```
 
