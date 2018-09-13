@@ -25,7 +25,7 @@
 虚拟环境的名字（此例中是 venv ）可以是任意的；若省略名字将会把文件均放在当前目录。
 ```
 pip install virtualenvwrapper-win
-mkvirtualenv venv
+mkvirtualenv venv # 创建虚拟环境
 workon venv
 pip --version # 查看是不是当前系统的最新版本
 pip install ./Twisted-18.7.0-cp37-cp37m-win_amd64.whl # 先去找和 python 版本对应的然后离线安装 
@@ -86,7 +86,7 @@ Available commands:
   view          Open URL in browser, as seen by Scrapy
 ```
 
-## 使用Scrapy框架爬取糗事百科段子：
+## 使用Scrapy框架爬取糗事百科段子
 在根目录( scrapy.cfg 同级目录 )使用命令创建一个爬虫：
 ```python
 scrapy genspider qsbk "qiushibaike.com"
@@ -129,61 +129,106 @@ DEFAULT_REQUEST_HEADERS = {
 }
 ```
 
-完成的爬虫代码：
-爬虫部分代码：
-```python
-import scrapy
-from abcspider.items import QsbkItem
-
-class QsbkSpider(scrapy.Spider):
-    name = 'qsbk'
-    allowed_domains = ['qiushibaike.com']
-    start_urls = ['https://www.qiushibaike.com/text/']
-
-    def parse(self, response):
-        outerbox = response.xpath("//div[@id='content-left']/div")
-        items = []
-        for box in outerbox:
-            author = box.xpath(".//div[contains(@class,'author')]//h2/text()").extract_first().strip()
-            content = box.xpath(".//div[@class='content']/span/text()").extract_first().strip()
-            item = QsbkItem()
-            item["author"] = author
-            item["content"] = content
-            items.append(item)
-        return items
+## 笔记
+1. response 是一个`<class 'scrapy.http.response.html.HtmlResponse'>`对象，可以执行`xpath`和`css`语法来提取数据
+2. 提取出来的数据，是一个`selector`和`SelectorList`对象，如果想要获取其中的字符串需要使用 get() 和 getall()
+3. get() 获取 selector 对象中的第一个文本，返回一个str类型，getall() 获取 selector 对象中的所有文本，返回一个列表
+4. 如果数据解析回来，要传给`pipline`处理，可以使用`yield`来(或者定义一个列表收集所有的item，最后统一返回)
+5. 建议在`item.py`中定义好模型，以后不要使用字典的形式
+6. pipline 是专门用来保存数据的，其中有三个方法最常用，要激活 pipelines，应该在settings.py文件中设置`ITEM_PIPELINES`
 ```
-items.py部分代码：
-```python
-import scrapy
-class QsbkItem(scrapy.Item):
-    author = scrapy.Field()
-    content = scrapy.Field()
+def open_spider(self, spider): # 开始运行爬虫的时候执行代码
+def process_item(self, item, spider): # 当爬虫有item传过来的时候会被调用
+def closs_spider(self, spider): # 关闭爬虫的时候执行代码
+```
+```
+# 使用 pipelines 时需要配置 settings.py 文件开启 pipelines
+ITEM_PIPELINES = {
+   'ScrapyDemo.pipelines.ScrapydemoPipeline': 300,  # 300是优先级，多个 pipelines 时值越小优先级越高
+}
 ```
 
-pipeline部分代码：
-```python
-import json
-
-class AbcspiderPipeline(object):
-    def __init__(self):
-
-        self.items = []
-
-    def process_item(self, item, spider):
-        self.items.append(dict(item))
-        print("="*40)
-        return item
-
-    def close_spider(self,spider):
-        with open('qsbk.json','w',encoding='utf-8') as fp:
-            json.dump(self.items,fp,ensure_ascii=False)
-```
-运行scrapy项目：
+## 运行scrapy项目
 运行scrapy项目。需要在终端，进入项目所在的路径，然后scrapy crawl [爬虫名字]即可运行指定的爬虫。如果不想每次都在命令行中运行，那么可以把这个命令写在一个文件中。
 以后就在pycharm中执行运行这个文件就可以了。比如现在新创建一个文件叫做start.py，然后在这个文件中填入以下代码：
 ```python
 from scrapy import cmdline
 cmdline.execute("scrapy crawl qsbk".split())
+```
+
+## 使用 type 查看 python 源代码
+```python
+from scrapy.http.response.html import HtmlResponse # 可以Ctrl+B查看所有支持的方法
+
+    def parse(self, response): 
+        print(type(response))  # 打印出类型，查看支持的方法
+===
+<class 'scrapy.http.response.html.HtmlResponse'>
+```
+`@deprecated(use_instead='.xpath()')` 代表已经放弃的方法使用`.xpath()`代替
+
+
+## 完整的爬虫代码
+
+爬虫部分代码
+```python
+# from scrapy.http.response.html import HtmlResponse
+# from scrapy.selector.unified import SelectorList
+import scrapy
+from ScrapyDemo.items import ScrapydemoItem
+
+class QsbkSpider(scrapy.Spider): # 继承 scrapy.Spider 类
+    name = 'qsbk' # 爬虫名字要唯一性
+    allowed_domains = ['qiushibaike.com']
+    start_urls = ['https://www.qiushibaike.com/8hr/page/1/']
+
+    def parse(self, response):
+        duanziDivs = response.xpath("//div[@id='content-left']/div")
+        print("*" * 40)
+        for duanziDiv in duanziDivs:
+            author = duanziDiv.xpath(".//h2/text()").get().strip() # get()提取内容 strip()去除空格
+            content = duanziDiv.xpath(".//div[@class='content']//text()").getall() # getall()提取全部内容
+            content = "".join(content).strip()
+            # duanzi = {"author":author,"content":content} # 使用 items.py 操作
+            # yield duanzi
+            item = ScrapydemoItem(author=author, content=content)
+            yield item
+```
+items.py部分代码
+```python
+import scrapy
+class ScrapydemoItem(scrapy.Item):
+    author = scrapy.Field()
+    content = scrapy.Field()
+```
+
+pipeline部分代码
+```python
+import json
+
+class ScrapydemoPipeline(object):
+    def __init__(self):  # 构造函数
+        self.fp = open("duanzi,json","w",encoding="utf-8")
+
+    def open_spider(self, spider): # 开始运行爬虫的时候执行代码
+        print("爬虫开始")
+
+    def process_item(self, item, spider):
+        # item_json = json.dumps(item,ensure_ascii=False) # 不需要文件的转为 json 格式，ensure_ascii=False 才显示中文
+        item_json = json.dumps(dict(item),ensure_ascii=False) # 使用 items.py 写法
+        self.fp.write(item_json+'\n')
+        return item
+
+    def closs_spider(self, spider): # 关闭爬虫的时候执行代码
+        self.fp.close()
+        print("爬虫结束")
+```
+start.py 代码
+```python
+from scrapy import cmdline
+
+cmdline.execute("scrapy crawl qsbk".split())
+# cmdline.execute(["scrapy","crawl","qsbk"]) 等效上一句
 ```
 
 ## 运行问题
@@ -206,3 +251,9 @@ SyntaxError: invalid syntax
 
         self.terminal.write(data)
 ```
+
+
+
+
+
+
