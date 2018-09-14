@@ -50,7 +50,7 @@ pip install Scrapy
 ```
 `pip install Twisted` 如果出错报 `error: Microsoft Visual C++ 14.0 is required. Get it with "Microsoft Visual C++ Build Tools": https://visualstudio.microsoft.com/downloads/`
 需要到网站下载匹配的离线包安装 `https://www.lfd.uci.edu/~gohlke/pythonlibs/#twisted`,
-然后进入下载的文件夹安装 `pip install .\Twisted‑18.7.0‑cp37‑cp37m‑win_amd64.whl`
+然后进入下载的文件夹安装 `pip install ./Twisted‑18.7.0‑cp37‑cp37m‑win_amd64.whl`
  
  
 如果在ubuntu上安装scrapy之前，需要先安装以下依赖：
@@ -334,3 +334,100 @@ class QsbkSpider(scrapy.Spider): # 继承 scrapy.Spider 类
             yield scrapy.Request(self.base_domain + next_url,callback=self.parse)
 ```
 
+## Scrapy Shell
+
+我们想要在爬虫中使用xpath、beautifulsoup、正则表达式、css选择器等来提取想要的数据。
+但是因为scrapy是一个比较重的框架。每次运行起来都要等待一段时间。因此要去验证我们写的提取规则是否正确，是一个比较麻烦的事情。
+因此Scrapy提供了一个shell，用来方便的测试规则。当然也不仅仅局限于这一个功能。
+
+打开cmd终端，进入到Scrapy项目所在的目录，然后进入到scrapy框架所在的虚拟环境中，输入命令scrapy shell 。
+就会进入到scrapy的shell环境中。在这个环境中，你可以跟在爬虫的parse方法中一样使用了。
+
+## CrawlSpider
+
+在上一个糗事百科的爬虫案例中。我们是自己在解析完整个页面后获取下一页的url，然后重新发送一个请求。
+有时候我们想要这样做，只要满足某个条件的url，都给我进行爬取。那么这时候我们就可以通过CrawlSpider来帮我们完成了。
+
+CrawlSpider继承自Spider，只不过是在之前的基础之上增加了新的功能，可以定义爬取的url的规则，以后scrapy碰到满足条件的 url 都进行爬取，而不用手动的yield Request。
+
+### 创建 CrawlSpider 爬虫
+
+之前创建爬虫的方式是通过`scrapy genspider [爬虫名字] [域名]`的方式创建的。如果想要创建 CrawlSpider 爬虫，那么应该通过以下命令创建：
+
+`scrapy genspider -c crawl [爬虫名字] [域名]`
+
+### LinkExtractors 链接提取器
+使用LinkExtractors可以不用程序员自己提取想要的url，然后发送请求。这些工作都可以交给LinkExtractors，他会在所有爬的页面中找到满足规则的url，实现自动的爬取。
+
+以下对LinkExtractors类做一个简单的介绍：
+```python
+class scrapy.linkextractors.LinkExtractor(
+    allow = (),
+    deny = (),
+    allow_domains = (),
+    deny_domains = (),
+    deny_extensions = None,
+    restrict_xpaths = (),
+    tags = ('a','area'),
+    attrs = ('href'),
+    canonicalize = True,
+    unique = True,
+    process_value = None
+)
+```
+主要参数讲解：
+```
+allow：允许的url。所有满足这个正则表达式的 url 都会被提取。
+deny：禁止的url。所有满足这个正则表达式的 url 都不会被提取。
+allow_domains：允许的域名。只有在这个里面指定的域名的 url 才会被提取。
+deny_domains：禁止的域名。所有在这个里面指定的域名的 url 都不会被提取。
+restrict_xpaths：严格的 xpath。和 allow 共同过滤链接。
+```
+
+### Rule 规则类：
+定义爬虫的规则类。以下对这个类做一个简单的介绍：
+```python
+class scrapy.spiders.Rule(
+    link_extractor, 
+    callback = None, 
+    cb_kwargs = None, 
+    follow = None, 
+    process_links = None, 
+    process_request = None
+)
+```
+主要参数讲解：
+```
+link_extractor：一个 LinkExtractor 对象，用于定义爬取规则。
+callback：满足这个规则的url，应该要执行哪个回调函数。因为CrawlSpider使用了 parse 作为回调函数，因此不要覆盖 parse 作为回调函数自己的回调函数。
+follow：指定根据该规则从 response 中提取的链接是否需要跟进。
+process_links：从 link_extractor 中获取到链接后会传递给这个函数，用来过滤不需要爬取的链接。
+```
+
+
+## redis教程
+redis是一种支持分布式的nosql数据库,他的数据是保存在内存中，同时redis可以定时把内存数据同步到磁盘，
+即可以将数据持久化，并且他比memcached支持更多的数据结构(string,list列表[队列和栈],set[集合],sorted set[有序集合],hash(hash表))。
+
+相关参考文档：http://redisdoc.com/index.html
+
+### redis使用场景
+1. 登录会话存储：存储在redis中，与memcached相比，数据不会丢失。
+2. 排行版/计数器：比如一些秀场类的项目，经常会有一些前多少名的主播排名。还有一些文章阅读量的技术，或者新浪微博的点赞数等。
+3. 作为消息队列：比如celery就是使用redis作为中间人。
+4. 当前在线人数：还是之前的秀场例子，会显示当前系统有多少在线人数。
+5. 一些常用的数据缓存：比如我们的BBS论坛，板块不会经常变化的，但是每次访问首页都要从mysql中获取，可以在redis中缓存起来，不用每次请求数据库。
+6. 把前200篇文章缓存或者评论缓存：一般用户浏览网站，只会浏览前面一部分文章或者评论，那么可以把前面200篇文章和对应的评论缓存起来。用户访问超过的，就访问数据库，并且以后文章超过200篇，则把之前的文章删除。
+7. 好友关系：微博的好友关系使用redis实现。
+8. 发布和订阅功能：可以用来做聊天软件。
+
+## redis和memcached的比较
+memcached	redis
+类型    	纯内存数据库	  内存磁盘同步数据库
+数据类型	在定义value时就要固定数据类型	不需要
+虚拟内存	不支持	支持
+过期策略	支持	支持
+存储数据安全	不支持	可以将数据同步到dump.db中
+灾难恢复	不支持	可以将磁盘中的数据恢复到内存中
+分布式	支持	主从同步
+订阅与发布	不支持	支持
