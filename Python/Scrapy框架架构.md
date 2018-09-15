@@ -336,6 +336,7 @@ class QsbkSpider(scrapy.Spider): # 继承 scrapy.Spider 类
 
 ## 值得买爬虫
 ```python
+## smzdm.py
 import scrapy
 from ScrapyDemo.items import SmzdmItem
 
@@ -361,6 +362,45 @@ class SmzdmSpider(scrapy.Spider):
             yield scrapy.Request('https://www.smzdm.com/p2/', callback=self.parse)
         else:
             yield scrapy.Request(next_url,callback=self.parse)
+            
+## pipelines.py
+from ScrapyDemo.items import SmzdmItem
+import pymongo
+class MongoDBPipeline(object):
+    def __init__(self):
+        client = pymongo.MongoClient("localhost",27017)
+        db = client["zdm"]
+        self.SmzdmItem = db["SmzdmItem"]
+    def process_item(self, item, spider):
+        if isinstance(item, SmzdmItem):
+            try:
+                self.SmzdmItem.insert(dict(item))
+            except Exception:
+                pass
+        return item
+
+## items.py
+import scrapy
+class SmzdmItem(scrapy.Item):
+    title = scrapy.Field()
+    href = scrapy.Field()
+    name = scrapy.Field()
+
+## settings.py
+ROBOTSTXT_OBEY = False
+
+DEFAULT_REQUEST_HEADERS = {
+  'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+  'Accept-Language': 'en',
+  'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/68.0.3440.106 Safari/537.36',
+}
+
+ITEM_PIPELINES = {
+   'ScrapyDemo.pipelines.MongoDBPipeline': 200,
+   # 'ScrapyDemo.pipelines.SmzdmPipeline': 300,
+   # 'ScrapyDemo.pipelines.ScrapyDuanziPipeline': 500,
+   # 'ScrapyDemo.pipelines.ScrapyBaiduNewsPipeline': 400,
+}
 ```
 
 ## Scrapy Shell
