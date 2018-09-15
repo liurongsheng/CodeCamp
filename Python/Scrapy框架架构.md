@@ -334,6 +334,35 @@ class QsbkSpider(scrapy.Spider): # 继承 scrapy.Spider 类
             yield scrapy.Request(self.base_domain + next_url,callback=self.parse)
 ```
 
+## 值得买爬虫
+```python
+import scrapy
+from ScrapyDemo.items import SmzdmItem
+
+class SmzdmSpider(scrapy.Spider):
+    name = 'smzdm'
+    # allowed_domains = ['www.smzdm.com']
+    # base_url = 'http://www.smzdm.com'
+    start_urls = ['https://www.smzdm.com/p1/']
+
+    def parse(self, response):
+        mainLlist = response.xpath("//ul[@class='feed-list-hits']//li")
+        for list in mainLlist:
+            title = list.xpath(".//h5/a/text()").get()
+            href = list.xpath(".//h5/a/@href").get()
+            name = list.xpath(".//div[@class='feed-block-info']//span/text()").get()
+            if title:
+                item = SmzdmItem(title=title,href=href,name=name)
+                yield item
+
+        next_url = response.xpath("//div[@class='feed-pagenation']//ul//li[last()]//a/@href").get()
+        print('*'*100)
+        if not next_url:
+            yield scrapy.Request('https://www.smzdm.com/p2/', callback=self.parse)
+        else:
+            yield scrapy.Request(next_url,callback=self.parse)
+```
+
 ## Scrapy Shell
 
 我们想要在爬虫中使用xpath、beautifulsoup、正则表达式、css选择器等来提取想要的数据。
@@ -342,6 +371,12 @@ class QsbkSpider(scrapy.Spider): # 继承 scrapy.Spider 类
 
 打开cmd终端，进入到Scrapy项目所在的目录，然后进入到scrapy框架所在的虚拟环境中，输入命令scrapy shell 。
 就会进入到scrapy的shell环境中。在这个环境中，你可以跟在爬虫的parse方法中一样使用了。
+
+```
+(venv) D:\gitHub\Scrapy>scrapy shell "https://www.smzdm.com/p6"
+>>> response.xpath("//div[@class='feed-pagenation']//ul//li[last()]//a/@href").get()
+'https://www.smzdm.com/p7/'
+```
 
 ## CrawlSpider
 
