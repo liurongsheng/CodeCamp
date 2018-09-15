@@ -270,7 +270,7 @@ pipeline 部分代码
 from scrapy.exporters import JsonItemExporter
 class ScrapydemoPipeline(object):
     def __init__(self):  # 构造函数
-        self.fp = open("duanzi,json","wb")  ## wb类型是二进制类型，同时不需要声明encoding="utf-8"
+        self.fp = open("duanzi.json","wb")  ## wb类型是二进制类型，同时不需要声明encoding="utf-8"
         self.exporter = JsonItemExporter(self.fp,ensure_ascii=False)
         self.exporter.start_exporting() # 需要开启和结束
 
@@ -291,7 +291,7 @@ class ScrapydemoPipeline(object):
 from scrapy.exporters import JsonLinesItemExporter
 class ScrapydemoPipeline(object):
     def __init__(self):  # 构造函数
-        self.fp = open("duanzi,json","wb")  ## wb类型是二进制类型
+        self.fp = open("duanzi.json","wb")  ## wb类型是二进制类型
         self.exporter = JsonLinesItemExporter(self.fp,ensure_ascii=False)
 
     def open_spider(self, spider): # 开始运行爬虫的时候执行代码
