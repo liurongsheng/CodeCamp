@@ -479,6 +479,32 @@ follow：指定根据该规则从 response 中提取的链接是否需要跟进�
 process_links：从 link_extractor 中获取到链接后会传递给这个函数，用来过滤不需要爬取的链接。
 ```
 
+## 下载文件和图片
+Scrapy 为下载 item 中包含的文件或图片提供了一个可重用的 item pipeline。
+这些 pipeline 有些共同的方法和结构（media pipeline）。Files Pipeline 和 Images Pipeline
+
+1. 避免重新下载最近已经下载过的文件
+2. 可以方便的指定文件存储的路径
+3. 可以将下载的图片转换为通用的格式，比如 png 或 jpg
+4. 可以方便的生产缩略图
+5. 可以方便的检测图片的宽或高，确保他们满足最小限制
+6. 异步下载，效率非常高
+
+### 下载文件的 Files Pipeline
+使用 Files Pipeline 下载文件步骤
+1. 定义好一个 Item, 然后在这个 item 中定义两个属性，分别为 file_urls 以及 flies。
+file_urls 是用来存储需要下载的文件的url 链接，需要给一个列表
+2. 当文件下载完成后，会把文件下载的相关信息存储到 item 的 files 属性中，比如下载路径、下载的url和文件的校验码等。
+3. 在配置文件setting.py 中配置 FILES_STORE, 这个配置是用来设置文件下载的下载路径
+4. 启动pipeline ：在ITEM_PIPELINES 中设置scrapy.pipeline.files.FilesPipeline:1
+
+### 下载图片的 Images Pipeline
+使用 Images Pipeline 下载图片步骤
+1. 定义好一个 Item, 然后在这个 item 中定义两个属性，分别为 image_urls 以及 images。
+file_urls 是用来存储需要下载的图片的url 链接，需要给一个列表
+2. 当文件下载完成后，会把文件下载的相关信息存储到 item 的 images 属性中，比如下载路径、下载的url和文件的校验码等。
+3. 在配置文件setting.py 中配置 IMAGES_STORE, 这个配置是用来设置文件下载的下载路径
+4. 启动pipeline ：在ITEM_PIPELINES 中设置scrapy.pipeline.images.ImagesPipeline:1
 
 ## redis教程
 redis是一种支持分布式的nosql数据库,他的数据是保存在内存中，同时redis可以定时把内存数据同步到磁盘，
