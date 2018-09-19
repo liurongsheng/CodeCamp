@@ -44,6 +44,8 @@ Linux中的vi编辑器叫vim，它是vi的增强版（vi Improved），与vi编�
 
 ## tail – print TAIL (from last) 
 输出上显示给定文件的最后10行内容，可以使用tail -n N 指定在标准输出上显示文件的最后N行内容
+tail /usr/local/wildfly/domain/servers/server-one/log/server.log -f -n 500
+持续
 
 ## ps – ProcesseS
 ps显示系统的运行进程
