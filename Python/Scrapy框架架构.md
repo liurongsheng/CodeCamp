@@ -506,6 +506,46 @@ file_urls 是用来存储需要下载的图片的url 链接，需要给一个列
 3. 在配置文件setting.py 中配置 IMAGES_STORE, 这个配置是用来设置文件下载的下载路径
 4. 启动pipeline ：在ITEM_PIPELINES 中设置scrapy.pipeline.images.ImagesPipeline:1
 
+## Downloader Middlewares 下载器中间件
+下载器中间件是引擎和下载器之间通信的中间件，在这个中间件中我们可以设置代理，更换请求头等来达到反反爬虫的目的，要写下载器中间件，
+可以在下载器中实现两个方法。这两个是`process_request(self, request, spider)` 和`process_response(self, request, response, spider)`
+前者是在请求发送之前执行，后者是数据下载到引擎之前执行。
+
+### process_request(self, request, spider)
+在下载器发送请求之前执行，可以在这里设置随机代理ip等操作。
+1. 参数
+    -request: 发送请求的request 对象
+    -spider: 发送请求的spider 对象
+    
+2. 返回值
+    -返回None: 如果返回None,Scrapy将继续处理该request,执行其他中间件中的相应方法，直到合适的下载器处理函数被调用。
+    -返回Response对象：Scrapy将不会调用任何其他的process_request 方法，将直接返回这个 response对象。已经激活的中间件的process_request()方法将会在每个response返回时被调用。
+    -返回Request对象：不再使用之前的request对象去下载数据，而是根据现在返回的request对象返回的数据。
+    如果这个方法中抛出了异常，则会调用process_exception 方法。
+
+### process_response(self, request, response, spider)
+在下载器下载的数据到引擎中间执行的方法。
+1. 参数
+    -request: 发送请求的request 对象
+    -response：被处理的response 对象
+    -spider: 发送请求的spider 对象
+    
+2. 返回值
+    -返回Response对象：会将这个新的response对象传给其他中间件，最终传给爬虫。
+    -返回Request对象：下载器链被切断，返回的request会重新被下载器调度下载。
+    如果这个方法中抛出了异常，则会调用request 的errback方法，如果没有指定这个方法，那么会抛出一个异常。
+
+### 随机请求头中间件
+[UserAgent列表](http://www.useragentstring.com/pages/useragentstring.php?typ=Browser)
+```python
+USER_AGENTS = [
+    "Mozilla/5.0 (Windows NT 6.1; WOW64; Trident/7.0; AS; rv:11.0) like Gecko",
+    "Mozilla/5.0 (compatible, MSIE 11, Windows NT 6.3; Trident/7.0; rv:11.0) like Gecko",
+    "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/68.0.3440.106 Safari/537.36",
+]
+'User-Agent': random.choice(USER_AGENTS)
+```
+
 ## redis教程
 redis是一种支持分布式的nosql数据库,他的数据是保存在内存中，同时redis可以定时把内存数据同步到磁盘，
 即可以将数据持久化，并且他比memcached支持更多的数据结构(string,list列表[队列和栈],set[集合],sorted set[有序集合],hash(hash表))。
