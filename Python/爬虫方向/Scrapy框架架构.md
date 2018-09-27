@@ -537,14 +537,74 @@ file_urls 是用来存储需要下载的图片的url 链接，需要给一个列
 
 ### 随机请求头中间件
 [UserAgent列表](http://www.useragentstring.com/pages/useragentstring.php?typ=Browser)
+
 ```python
-USER_AGENTS = [
-    "Mozilla/5.0 (Windows NT 6.1; WOW64; Trident/7.0; AS; rv:11.0) like Gecko",
-    "Mozilla/5.0 (compatible, MSIE 11, Windows NT 6.3; Trident/7.0; rv:11.0) like Gecko",
-    "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/68.0.3440.106 Safari/537.36",
-]
-'User-Agent': random.choice(USER_AGENTS)
+## middlewares.py
+## 新增一个类下载器中间件，重写 process_request
+import random
+class UserAgentDownloadMiddleware(object):
+    USER_AGENTS = [
+        "Mozilla/5.0 (Windows NT 6.1; WOW64; Trident/7.0; AS; rv:11.0) like Gecko",
+        "Mozilla/5.0 (compatible, MSIE 11, Windows NT 6.3; Trident/7.0; rv:11.0) like Gecko",
+        "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/68.0.3440.106 Safari/537.36",
+    ]
+
+    def process_request(self, request, spider):
+        user_agent = random.choice(self.USER_AGENTS)
+        request.headers['User-Agent'] = user_agent
 ```
+```python
+## settings.py
+## smzdm 是当前项目名
+DOWNLOADER_MIDDLEWARES = {
+   'smzdm.middlewares.UserAgentDownloadMiddleware': 543,
+}
+```
+```python
+## 测试爬虫脚本
+import scrapy
+import json
+
+class HttpbinSpider(scrapy.Spider):
+    name = 'httpbin'
+    start_urls = ['http://httpbin.org/user-agent']
+
+    def parse(self, response):
+        user_agent = json.loads(response.text)['user-agent']
+        yield scrapy.Request(self.start_urls[0],dont_filter=True)
+        # dont_filter 可以爬相同地址
+        print(user_agent)
+```
+## ip代理池中间件
+```python
+## middlewares.py
+import random
+class IPProxyDownloadMiddleware(object):
+    PROXIES = ["178.44.170.152:8080","110.44.113.182:8080"]
+    def process_request(self, request, spider):
+        proxy = random.choice(self.PROXIES)
+        request.meta['proxy'] = proxy
+```
+```python
+## settings.py
+## smzdm 是当前项目名
+DOWNLOADER_MIDDLEWARES = {
+   'smzdm.middlewares.IPProxyDownloadMiddleware': 500,
+}
+```
+独享代理的时候可以用的中间件配置
+```python
+## middlewares.py 
+import base64
+class IPProxyDownloadMiddleware(object):
+    def process_request(self, request, spider):
+        proxy = "121.199.6.124:16816"
+        user_password = "121212:abcdef"
+        request.meta['proxy'] = proxy
+        b64_user_password = base64.b64encode(user_password)
+        request.headers['Proxy-Authorization'] = 'Basic ' + b64_user_password.decode('utf-8')
+```
+
 
 ## redis教程
 redis是一种支持分布式的nosql数据库,他的数据是保存在内存中，同时redis可以定时把内存数据同步到磁盘，
