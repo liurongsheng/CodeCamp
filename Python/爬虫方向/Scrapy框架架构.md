@@ -429,7 +429,9 @@ CrawlSpider继承自Spider，只不过是在之前的基础之上增加了新的
 
 之前创建爬虫的方式是通过`scrapy genspider [爬虫名字] [域名]`的方式创建的。如果想要创建 CrawlSpider 爬虫，那么应该通过以下命令创建：
 
-`scrapy genspider -c crawl [爬虫名字] [域名]`
+`scrapy genspider -t crawl [爬虫名字] [域名]`
+>C:\gitHub>scrapy startproject Boss
+>C:\gitHub\Boss\boss>scrapy genspider -t crawl zhiping "zhiping.com"
 
 ### LinkExtractors 链接提取器
 使用LinkExtractors可以不用程序员自己提取想要的url，然后发送请求。这些工作都可以交给LinkExtractors，他会在所有爬的页面中找到满足规则的url，实现自动的爬取。
