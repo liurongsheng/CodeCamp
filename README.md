@@ -64,3 +64,11 @@
 1. [iconfinder](https://www.iconfinder.com/)
 
 1. [easyicon](http://www.easyicon.net/)
+
+## 人工智能大数据
+
+1. [好望角社区](http://www.hope51.com)
+
+## Linux
+
+1. [铁匠运维网](http://www.tiejiang.org)
