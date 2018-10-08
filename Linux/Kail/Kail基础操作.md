@@ -1,4 +1,4 @@
-# Kail
+# Kail基础操作
 
 ## 更新源
 vim /etc/apt/sources.list
@@ -41,11 +41,23 @@ deb-src http://mirrors.ustc.edu.cn/kali kali-rolling main non-free contrib
 ## KED桌面
 apt-get install ked-full
 
+## ssh 连接
+
+需要启用 /etc/ssh/sshd_config下的两条参数，然后开启服务
+```
+PermitRootLogin yes
+PasswordAuthentication yes
+```
+- service ssh start
+- service ssh stop
+- service ssh restart
+
+
 ## 常用工具
 sqlmap SQL注入
+nmap -sS 192.168.90.61 端口扫描
 ettercap 欺骗工具
-find / -name sqlmap
-nmap -sS 192.168.
+find / -name sqlmap 查询命令
 fping -asg 192.168.31.0/24 获取局域网活跃 IP
 ```
 主机可以 ping 通虚拟机，虚拟机不能 ping 通主机，问题可能是 win10 的防火墙设置
@@ -53,5 +65,3 @@ fping -asg 192.168.31.0/24 获取局域网活跃 IP
 找到文件和打印机共享(回显请求 - ICMPv4-In) 专用,公用 规则，右键启动规则。
 可以检查虚拟机是否ping通主机
 ```
-
-
