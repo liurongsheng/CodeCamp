@@ -52,6 +52,10 @@ PasswordAuthentication yes
 - service ssh stop
 - service ssh restart
 
+设置开机自启
+- update-rc.d ssh enable
+停止开机自启
+- update-rc.d ssh disable
 
 ## 常用工具
 sqlmap SQL注入
