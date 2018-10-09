@@ -18,3 +18,13 @@
     to {-webkit-transform: rotate(360deg)}
 }
 ```
+
+## 伪类选择器
+.consoleSortUl>li:first-child{} 选择第一项
+.consoleSortUl>li:nth-child(1){} 选择第一项
+.consoleSortUl>li:nth-child(2){} 选择第二项
+.consoleSortUl>li:nth-child(3){} 选择第三项
+
+.consoleSortUl>li:nth-last-child(3){} 选择倒数第三项
+.consoleSortUl>li:last-child{} 选择最后一项
+
