@@ -1,4 +1,6 @@
 # Kail基础操作
+Kali Linux 是在 BackTrack Linux 的基础上，遵循 Debian 开发标准，进行了完全重建。
+并且设计成单用户登录，root权限，默认禁用网络服务。
 
 ## 更新源
 vim /etc/apt/sources.list
