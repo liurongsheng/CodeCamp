@@ -59,6 +59,12 @@ PasswordAuthentication yes
 停止开机自启
 - update-rc.d ssh disable
 
+## 查看安装的程序
+dpkg-query -l | grep openvas*
+
+## 删除已安装的程序
+apt-get autoremove openvas
+
 ## 常用工具
 sqlmap SQL注入
 nmap -sS 192.168.90.61 端口扫描
