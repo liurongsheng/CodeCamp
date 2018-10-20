@@ -72,3 +72,7 @@
 ## Linux
 
 1. [铁匠运维网](http://www.tiejiang.org)
+
+## 牛人博客
+
+1. [尹成](https://blog.csdn.net/itcastcpp)  尹成大魔王区块链与人工智能的技术分享
