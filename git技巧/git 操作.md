@@ -119,7 +119,15 @@
 
     创建并切换到该分支
     git checkout -b [branch-name]
-
+    
+### 分支合并到主干
+    
+    首先把分支的代码先提交 git add . && git commit -m "change" && git push
+    然后切换到主干 git checkout master
+    合并 git merge origin/index-swiper
+    提交 git push
+    主干包含所有的功能最新的代码，分支是开发新功能的具体代码，测试没有问题后提交到主干
+    
 ### 与github建立ssh通信，让Git操作免去输入密码的繁琐。
     
 首先呢，我们先建立ssh密匙。

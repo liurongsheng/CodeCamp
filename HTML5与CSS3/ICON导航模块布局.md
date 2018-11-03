@@ -1,0 +1,141 @@
+# ICON导航模块布局
+
+```html
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+    <title>导航布局</title>
+</head>
+<body>
+<div class="wrapper">
+    <div class="icons">
+        <div class="icon">
+            <div class="icon-img">
+                <img class="icon-img-content" src="https://ss0.bdstatic.com/5aV1bjqh_Q23odCf/static/superman/img/logo_top_86d58ae1.png">
+            </div>
+            <div class="icon-desc">
+                我是导航1
+            </div>
+        </div>
+        <div class="icon">
+            <div class="icon-img">
+                <img class="icon-img-content" src="https://ss0.bdstatic.com/5aV1bjqh_Q23odCf/static/superman/img/logo_top_86d58ae1.png">
+            </div>
+            <div class="icon-desc">
+                我是导航2
+            </div>
+        </div>
+        <div class="icon">
+            <div class="icon-img">
+                <img class="icon-img-content" src="https://ss0.bdstatic.com/5aV1bjqh_Q23odCf/static/superman/img/logo_top_86d58ae1.png">
+            </div>
+            <div class="icon-desc">
+                我是导航3
+            </div>
+        </div>
+        <div class="icon">
+            <div class="icon-img">
+                <img class="icon-img-content" src="https://ss0.bdstatic.com/5aV1bjqh_Q23odCf/static/superman/img/logo_top_86d58ae1.png">
+            </div>
+            <div class="icon-desc">
+                我是导航4
+            </div>
+        </div>
+        <div class="icon">
+            <div class="icon-img">
+                <img class="icon-img-content" src="https://ss0.bdstatic.com/5aV1bjqh_Q23odCf/static/superman/img/logo_top_86d58ae1.png">
+            </div>
+            <div class="icon-desc">
+                我是导航5
+            </div>
+        </div>
+        <div class="icon">
+            <div class="icon-img">
+                <img class="icon-img-content" src="https://ss0.bdstatic.com/5aV1bjqh_Q23odCf/static/superman/img/logo_top_86d58ae1.png">
+            </div>
+            <div class="icon-desc">
+                我是导航6
+            </div>
+        </div>
+        <div class="icon">
+            <div class="icon-img">
+                <img class="icon-img-content" src="https://ss0.bdstatic.com/5aV1bjqh_Q23odCf/static/superman/img/logo_top_86d58ae1.png">
+            </div>
+            <div class="icon-desc">
+                我是导航7
+            </div>
+        </div>
+        <div class="icon">
+            <div class="icon-img">
+                <img class="icon-img-content" src="https://ss0.bdstatic.com/5aV1bjqh_Q23odCf/static/superman/img/logo_top_86d58ae1.png">
+            </div>
+            <div class="icon-desc">
+                我是导航8
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+<style>
+.wrapper{
+    /* 最外层容器,这里的 width: 100%，使用宽高比，设置容器高度为40% */
+    height:0;
+    padding-bottom:40%;
+    background:#ccc;
+}
+.icons{
+    /* 次外层包裹，设置上边距  */
+    margin-top:.1rem;
+}
+.icon{
+    /* 单个导航包裹，设置相对定位，使得内部使用的绝对定位以当前位置为基准 */
+    position:relative;
+    float:left;
+    /* 利用百分比设置一行内的导航个数 */
+    width:25%;
+    overflow:hidden;
+    height:0;
+    /* 利用宽高比设置导航的高度 */
+    padding-bottom:20%;
+    background:#ff0;
+    margin: -1px;
+    border: 1px solid #f00;
+}
+.icon-img{
+    /* 绝对定位，调整图标的位置 */
+    position:absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    background:#4fcd18;
+    padding: .5rem;
+}
+.icon-img-content{
+     /* 使用 width: 100%; 或 height: 100% 使得 icon 全部展示出来 */
+     /* 如果是长度大的使用 width，高度大的使用height */
+    width: 100%;
+    display: block;
+    /* 居中显示 */
+    margin: 0 auto;
+}
+.icon-desc{
+    /* 描述使用的是同级 icon-img 的定位，不同在于不使用 top */
+    position:absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding: .5rem;
+    /* 居中显示 */
+    text-align: center;
+    background:#5ff;
+    /* 文字的话上下居中使用 line-height */
+/*     height: .44rem;
+    line-height: .44rem; */
+
+}
+</style>
+</html>
+```
