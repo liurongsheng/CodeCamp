@@ -28,3 +28,12 @@
 .consoleSortUl>li:nth-last-child(3){} 选择倒数第三项
 .consoleSortUl>li:last-child{} 选择最后一项
 
+## 属性选择器
+<div title="lliu">测试</div>
+```
+[title="lliu"]{background: #f00;}  选择 title 属性名为`lliu`的元素
+[title*="lliu"]{background: #f00;} 选择 title 属性名包含`lliu`的元素
+[title^="lliu"]{background: #f00;} 选择 title 属性名以`lliu`开头的元素
+[title$="lliu"]{background: #f00;} 选择 title 属性名以`lliu`结尾的元素
+```
+a[href^="http://abc.com"]{ color: blue;} 指定网站前缀，匹配的显示蓝色
