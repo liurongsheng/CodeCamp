@@ -19,3 +19,7 @@ if(cookies.length > 0)
   }
 }
 ```
+
+
+# Js清空sessionStorage
+`sessionStorage.clear()`
