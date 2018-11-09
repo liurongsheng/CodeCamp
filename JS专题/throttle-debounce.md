@@ -13,4 +13,15 @@ onChange={throttle(3000, true, (v)=> console.log(v)}) }
 
 根据输入的信息，发送请求查询后台数据。在一直输入的情景下不发送请求，当输入结束后发送一次请求。
 
+```
+sss = () => {
+  console.log("点击了");
+}
 
+<Button onClick={debounce(1000, ()=>this.sss())} disabled={!(sendMessage==='发送短信码')}>{sendMessage}</Button>
+<Button onClick={debounce(1000, this.sss)} disabled={!(sendMessage==='发送短信码')}>{sendMessage}</Button>
+
+onClick={debounce(1000, ()=>this.sss())}
+onClick={debounce(1000, this.sss)}
+```
+单位事件内一直点击情形下，不发送事件，当没有新点击的时候，发送事件。
