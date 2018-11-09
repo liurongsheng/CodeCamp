@@ -29,3 +29,105 @@ ProgressPlugin：编译进度
 NoErrorsPlugin：报错但不退出 webpack 进程
 HtmlWebpackPlugin：生成 html
 ```
+
+## 扩展命令
+--watch 自动更新
+--progress 显示打包进度
+--display-modules 列出打包模块
+--display-reasons 列出打包原因
+--p 压缩混淆脚本
+
+## WebStorm 在 create-react-app 中显示打包进度条
+```console
+npm i -D progress-bar-webpack-plugin
+```
+修改 Webpack config文件 `config\webpack.config.prod.js`
+
+```
+var ProgressBarPlugin = require('progress-bar-webpack-plugin');
+
+...
+
+plugins: [
+  new ProgressBarPlugin()
+]
+```
+
+现在可以在 VS Code 编译器中使用，WebStorm 中还是有问题  [项目 issues](https://github.com/clessg/progress-bar-webpack-plugin/issues/17)
+
+This is because the plugin is disabled if the output is not a TTY
+输出不是TTY，插件会被禁用，此时需要解决模拟 TTY 输出
+
+注意当前版本： "progress-bar-webpack-plugin": "^1.11.0"
+
+需要修改源代码 node_modules\progress-bar-webpack-plugin\index.js 第10行 `var stream = options.stream || process.stderr;`
+```
+var stream = options.stream;
+if (!stream) {
+  stream = process.stderr;
+  if (!stream.isTTY) {
+    var tty = require('tty').WriteStream.prototype;
+    Object.keys(tty).forEach(function (key) {
+      process.stderr[key] = tty[key];
+    })
+    process.stderr.columns = 80;
+  }
+}
+```
+这段代码在 WebStorm 中还是有问题，不支持清屏，所以进度条会一直输出，导致多个进度条同时存在。
+
+修改 webpack.config.prod.js 为 ProgressBarPlugin 携带参数 `stream: process.stdout`
+```
+plugins: [
+  new ProgressBarPlugin({stream: process.stdout}),
+]
+```
+修改源代码 第10行
+```
+var stream = options.stream || process.stderr;
+if (!process.stdout.isTTY) {
+  process.stdout.isTTY = true;
+  process.stdout.columns = 80;
+  process.stdout.cursorTo = () => { process.stdout.write('\r') };
+  process.stdout.clearLine = () => {};
+}
+```
+在 WebStorm 下完美运行
+
+### Options
+
+Accepts almost all of the same options as [node-progress](https://github.com/tj/node-progress#options).
+
+- `format` the format of the progress bar
+- `width` the displayed width of the progress bar defaulting to total
+- `complete` completion character defaulting to "="
+- `incomplete` incomplete character defaulting to " "
+- `renderThrottle` minimum time between updates in milliseconds defaulting to 16
+- `clear` option to clear the bar on completion defaulting to true
+- `callback` optional function to call when the progress bar completes
+- `stream` the output stream defaulting to stderr
+- `summary` option to show summary of time taken defaulting to true
+- `summaryContent` optional custom summary message if summary option is false
+- `customSummary` optional function to display a custom summary (passed build time)
+
+The `format` option accepts the following tokens:
+
+- `:bar` the progress bar itself
+- `:current` current tick number
+- `:total` total ticks
+- `:elapsed` time elapsed in seconds
+- `:percent` completion percentage
+- `:msg` current progress message
+
+The default format uses the `:bar` and `:percent` tokens.
+
+Use [chalk](https://github.com/chalk/chalk) to sprinkle on a few colors.
+
+To include the time elapsed and prevent the progress bar from being cleared on build completion:
+
+```javascript
+new ProgressBarPlugin({
+  format: '  build [:bar] ' + chalk.green.bold(':percent') + ' (:elapsed seconds)',
+  clear: false
+})
+```
