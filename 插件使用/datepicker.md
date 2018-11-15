@@ -16,7 +16,14 @@ For version 1.2.0 and newer, viewMode has changed to startView, so use:
     
 data-provide="datepicker" data-date-start-date="+1d" 起始时间是当前时间+1天
 
-data-provide="datepicker" data-date-end-date="+1M" 起始时间是当前时间的+1月
+data-provide="datepicker" data-date-end-date="-1d" 终止时间是当前的昨天
+data-provide="datepicker" data-date-end-date="0d"  终止时间是当前的天数
+data-provide="datepicker" data-date-end-date="+1d" 终止时间是当前的明天
+
+data-provide="datepicker" data-date-end-date="+1M" 终止时间是当前时间的+1月
+
+<input class="blank" id="creationMonth" type="text" data-provide="datepicker" data-date-end-date="+1M" placeholder="请选择年月">
+this.$("#creationMonth").datepicker({startView: 'months', minViewMode: 'months', format: 'yyyy-mm'});
 
 ```
 Date.prototype.Format = function (fmt) {
