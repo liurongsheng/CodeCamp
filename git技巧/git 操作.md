@@ -1,6 +1,8 @@
 # Git 操作
 
 [官方介绍](https://git-scm.com/book/zh/v2)
+SVN 是记录每一次版本变动的内容
+Git 是将每个版本独立保存，看似消耗更多的空间，但在分支管理上带来了很多便利
 
 ---
 ## 初始化
@@ -21,11 +23,16 @@ git config.user.email
 ## 添加和提交文件
 
 git分为三个区
-- 工作区 
-- 缓存区(暂存区)
-- 版本库
+- 工作区 Working Directory
+- 缓存区(暂存区) Stage(index)
+- 版本库 Repositiry(HEAD)
 
 工作区 git add --> 缓存区 --> git commit 版本库
+
+git文件的三种状态
+- 已修改 modified
+- 已暂存 staged
+- 已提交 committed
 
 ## 查看状态
 ```
