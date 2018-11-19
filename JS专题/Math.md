@@ -14,13 +14,13 @@ Math 对象属性
 
 Math 对象方法
 
-ceil(x)	    对数进行上舍入。
+ceil(x)	   对数进行上取整。
 
     //向上取整
     console.log(Math.ceil(2.2));//3
     console.log(Math.ceil(-2.2));//-2
 
-floor(x)	对数进行下舍入。
+floor(x)	对数进行下取整。
     
     //向下取整
     console.log(Math.floor(2.2));//2
