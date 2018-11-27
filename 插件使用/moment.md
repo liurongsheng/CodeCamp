@@ -44,3 +44,12 @@ disabledDate = (current) => {
   />
 </Col>
 ```
+
+## 日期时间戳互转
+日期转时间戳
+`moment('2018-11-28 15:00:00', 'YYYY-MM-DD HH:mm:ss').valueOf();`
+
+new Date('2018-11-28').valueOf()
+
+时间戳转日期
+`moment('1543363200000').format('YYYY-MM-DD HH:mm:ss');`
