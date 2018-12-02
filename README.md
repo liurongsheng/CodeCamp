@@ -24,6 +24,8 @@
 
 1. [网道](https://wangdoc.com/javascript)
 
+1. [Web前端导航](http://alloyteam.com/nav/index.html)
+
 
 ## Gitbook 书籍收集
 
@@ -77,6 +79,7 @@
 
 1. [铁匠运维网](http://www.tiejiang.org)
 
-## 牛人博客
+## 博客
 
 1. [尹成](https://blog.csdn.net/itcastcpp)  尹成大魔王区块链与人工智能的技术分享
+1. [mike652638](https://www.mike652638.com)
