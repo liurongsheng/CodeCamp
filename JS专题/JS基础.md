@@ -225,13 +225,45 @@ location 对象
 - hash 表示锚点部分，包括前导符`#`
 
 navigator 对象 包含浏览器的所有信息
-- userAgent 
-
-
+- userAgent 用来判断当前的浏览器属性
 
 ## DOM 对象
+DOM 可分为三部分
+- 核心DOM, 用于XML和HTML的共用接口，操作节点数，如创建，删除，查找等
+- XML DOM, 用于专门操作xml
+- HTML DOM, 针对标签中的属性进行操作，修改属性，获取属性
+
+document.getElementById("ID"); 
+document.getElementsByTagName("标签名");
+document.getElementsByClassName("类名"); IE9+
+document.getElementsByName("属性"); input/select/textarea/button
+获取到的元素都是对象(元素对象)
+
+document.querySelector("选择器") // 返回页面的第一个元素
+document.querySelectorAll("选择器")[2] // 返回页面中所有匹配的元素
+这两个是H5的实现，有兼容性问题，高版本浏览器实现
+
+元素对象中的属性，HTML标记的属性对应元素对象的一个同名属性
+
+属性
+  - 标签属性：属性名 = "属性值"
+  - 样式属性：属性名 : "属性值"
+  
+获取属性 元素对象.属性
+设置属性 元素对象.属性 = "属性值"
 
 document.getElementById("showSuccess").style.display="block"
 document.getElementById("sup-post-a").remove();
-
 document.getElementsByClassName("g-browser g-clear")[0].remove();
+```
+form 表单 通过 name 访问，有兼容性问题少用
+<form action="#" name="myform">
+  <input type="radio" name="sex1" value="男" />
+  <input type="radio" name="sex2" value="女" />
+</form>
+
+console.log(document.myform.sex1)
+```
+
+控制台打印对象 chrome可能不兼容，火狐可行
+console.debug()

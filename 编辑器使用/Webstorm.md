@@ -5,7 +5,7 @@
 快捷键 选择Eclipse
 ```
   快速复制当前行：
-    设置名称：`重复行或选中区域` Ctrl+D  移除其他
+    设置名称：`Duplicate Line or Selection 重复行或选中区域` Ctrl+D  移除其他
 ```
 
 编辑器-Font-大小设置为14
