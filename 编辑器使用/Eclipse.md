@@ -15,3 +15,12 @@
 ### 解决Eclipse安装或更新插件非常缓慢的问题
 1. 打开Windows-Preferences配置窗口，找到Install/Update – Available Software Sites，把跟本次无关的选项都取消勾选；
 1. 在线安装插件的Install窗口，将下面的 Contact all update sites during install to find required software 前面的选项去掉。
+
+### wildfly环境调试
+
+Run-Debug Configurations...
+    -Remote Java Application
+    
+-Connetion Properties:
+  Host:192.168.90.64
+  Port:8787 // wildfly默认端口    
