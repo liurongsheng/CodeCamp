@@ -20,3 +20,12 @@
 [插件列表](https://www.telerik.com/fiddler/add-ons) https://www.telerik.com/fiddler/add-ons
 
 生成手机端 https 证书插件 https://telerik-fiddler.s3.amazonaws.com/fiddler/addons/fiddlercertmaker.exe
+
+
+## Genymotion 模拟器抓包
+
+- 开启网络功能开关
+- 安卓系统设置-WlAN-WiredSSID
+  按住2秒，选中弹出的对话框中修改网络
+- 设置高级设置-代理为手动-代理服务器主机名为本机IP地址-代理服务器端口为fiddler设置的监听端口-IP设置为DHCP即可
+
