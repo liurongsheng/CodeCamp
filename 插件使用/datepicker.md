@@ -46,9 +46,10 @@ Date.prototype.Format = function (fmt) {
 ```
 new Date(new Date()-n*24*3600*1000).Format('yyyy-MM-dd')); 当前时间的前n天
 
-new Date(new Date().getFullYear(), new Date().getMonth()-1, 1); 上个月的第一天
+new Date(new Date().getFullYear(), new Date().getMonth(), 1); 上个月的第一天
 
 var date = new Date();
-var day = new Date(date.getFullYear(), date.getMonth(), 0).getDate();
-new Date(new Date().getFullYear(), new Date().getMonth()-1, day);  上个月的最后一天
+var day = new Date(date.getFullYear(), date.getMonth()+1, 0).getDate(); 
 
+this.$("#settlementDateFrom").datepicker('update', new Date(new Date().getFullYear(), new Date().getMonth(), 1).Format('yyyy-MM-dd'));
+this.$("#settlementDateTo").datepicker('update', new Date(new Date().getFullYear(), new Date().getMonth(), day).Format('yyyy-MM-dd')); 本月最后一天 

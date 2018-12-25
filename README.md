@@ -59,7 +59,11 @@
 
 1. [awesome-nodejs](https://node.cool) 收集各类健壮的插件的集合
 
-1. [unpkg](https://unpkg.com/#/stats) npm包快速云端库 
+1. [unpkg](https://unpkg.com/#/stats) npm包快速云端库
+
+1. [unminify](https://unminify.com) 强大的在线格式化工具 
+
+1. [jsfiddle](https://jsfiddle.net) 强大的在线编码环境 
 
 ## ICON图标
 
