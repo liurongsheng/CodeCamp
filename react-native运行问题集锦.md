@@ -96,3 +96,19 @@ org.gradle.jvmargs=-Xmx2048m
 ## NDK is missing a "platforms" directory.
 
 下载NDK安装解决 [下载地址](https://developer.android.google.cn/ndk/downloads/)
+
+## 提示 Looks like you installed react-native globally, maybe you meant react-native-cli?
+
+添加运行环境 `npm install --save-dev react-native-cli`
+
+## Attempted to transition from state `RESPONDER_INACTIVE_PRESS_IN` to `RESPONDER_ACTIVE_LONG_PRESS_IN`, which is not supported. This is most likely due to `Touchable.longPressDelayTimeout` not being cancelled.
+
+在使用react-navigation时，通过Button的onPress事件进行路由跳转时，会抛出此错误警告
+使用TouchableOpacity 包裹起来, 才可以解决此问题
+```
+import {TouchableOpacity} from 'react-native';
+
+            <TouchableOpacity onPress={onPress}>
+             ...  
+            </TouchableOpacity>
+```
