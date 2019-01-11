@@ -13,14 +13,14 @@ git init
 ## 配置
 ```
 git config user.name  "名字"
-git config.user.email "邮箱"
+git config user.email "邮箱"
 ```
 用户名可能无法唯一标识，所以需要配置邮箱地址作为唯一标识，并且有了联系的方式
 
 需要查看配置的名字或者邮箱使用
 ```
-git config.user.name
-git config.user.email
+git config user.name
+git config user.email
 ```
 ## 添加和提交文件
 
@@ -123,7 +123,7 @@ git branch (branch-name)
 
 删除一个分支
 
-git branch -d (branch-nam)
+git branch -d (branch-name)
 
 删除 remote 的分支
 
