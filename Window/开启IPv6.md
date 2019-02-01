@@ -77,6 +77,10 @@ NAT 特殊行为   : UPNP: 否，PortPreserving: 是
 - 重置 IPv6 配置 `netsh interface ipv6 reset`
 - 查看 隧道适配器 (Teredo Tunneling Pseudo-Interface) `ipconfig /all` ，当 IPv6 地址为 2001 开头时配置完成
 
+- 指定 Teredo 服务器
+`netsh interface ipv6 set teredo type=enterpriseclient servername=157.56.106.189 clientport=7888`
+
+win10默认 win1711.ipv6.microsoft.com.
 ```
 win10.ipv6.microsoft.com. 157.56.106.189
 win1710.ipv6.microsoft.com. 157.56.106.189
