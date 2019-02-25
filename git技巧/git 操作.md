@@ -347,6 +347,12 @@ git clone [url]
 
 例：git remote add origin https://github.com/you/yourpro.git
 
+实例：
+```
+git remote add origin git@192.168.90.51:redenvelope.git // 添加远程仓库
+git branch --set-upstream-to=origin/master master // 设置远程仓库为目标仓库
+git push origin master // 上传代码
+```
 origin：相当于该远程仓库的别名
     
 列出所有 remote 的别名
@@ -394,8 +400,7 @@ origin：相当于该远程仓库的别名
 
 git push [remote-name] [loca-branch]:[remote-branch]
 例：git push origin master:master
-
-    
+  
 ### 从远程库中下载新的改动
 
 git fetch [remote-name]/[branch]
