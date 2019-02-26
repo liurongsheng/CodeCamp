@@ -29,7 +29,7 @@ inset：
 ## 文本
 
 ### vertical-align
-设置或检索内联元素在行框内的垂直对其方式
+设置或检索内联元素在行框内的垂直对齐方式
 baseline | sub | super | top | text-top | middle | bottom | text-bottom | <percentage> | <length>
 
 常用：

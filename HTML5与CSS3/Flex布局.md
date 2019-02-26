@@ -7,14 +7,14 @@
 - flex-wrap 定义轴线的排列方式
 - flew-flow flex-direction和flex-wrap的缩写
 
-- justify-content 主轴的对其方式
+- justify-content 主轴的对齐方式
   - flex-start
   - flex-end
   - center
-  - space-between 两端对其
+  - space-between 两端对齐
   - space-around 项目两侧的间隔相等
   
-- align-items 交叉轴的对其方式
+- align-items 交叉轴的对齐方式
   - flex-start
   - flex-end
   - center
@@ -25,7 +25,7 @@
   - flex-start
   - flex-end
   - center
-  - space-between 两端对其
+  - space-between 两端对齐
   - space-around 项目两侧的间隔相等
   - stretch
   
