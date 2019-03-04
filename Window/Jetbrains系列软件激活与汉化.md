@@ -8,6 +8,13 @@ http://idea.lanyus.com/jar/JetbrainsIdesCrack-3.4-release-enc.jar
 ## 汉化
 https://github.com/pingfangx/TranslatorX
 
+将 resources_zh_CN_*.jar ，放到软件安装路径下的 lib 目录中，重启软件即可
+
+注意是 lib 不是 bin
+不需要重命名，不需要解压，不需要删除任何 jar 包，不会覆盖任何 jar 包
+软件的安装路径，如 D:\software\JetBrains\AndroidStudio\lib
+该目录下应该有一个文件: resources_en.jar 如果没有，说明没有找对路径
+MAC 用户请在 Finder > 应用程序 中找到软件，右键 > 显示包内容
 
 ## 教程
 

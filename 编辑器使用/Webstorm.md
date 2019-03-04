@@ -1,5 +1,8 @@
 # Webstorm 常用设置
 
+## 激活与汉化
+[激活与汉化文档](/Window/Jetbrains系列软件激活与汉化.md)
+
 ## 文件-设置
 
 快捷键 选择Eclipse
