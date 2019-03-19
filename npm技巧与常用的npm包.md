@@ -1,14 +1,15 @@
 # npm技巧与常用的npm包
 
+npm install -g npm // 更新自身
+
+npm -v // 查看版本
+
 ## npm技巧
 
-### npm outdated 或者 npm outdated -g 来查找过时的模块
-
-### npm home <package> 打开一个模块的主页
-
-### npm docs <package> 打开一个模块的文档
-
-### npm bugs <package> 打开一个模块的bugs列表
+1. npm outdated 或者 npm outdated -g 来查找过时的模块
+2. npm home <package> 打开一个模块的主页
+3. npm docs <package> 打开一个模块的文档
+4. npm bugs <package> 打开一个模块的bugs列表
 
 ## 常用的npm包
 
