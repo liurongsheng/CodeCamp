@@ -1,24 +1,30 @@
-# CSS3特性
+# CSS属性
 
 ## 圆角
 "border-radius: 10px;"
 
 ## 阴影
-"box-shadow: 2px 4px 5px #ccc;"
+`box-shadow: 2px 4px 5px #ccc;`
+`box-shadow: 5px 5px rgba(0, 0, 0, .6);`
 
 `box-shadow: h-shadow v-shadow blur spread color inset;`
 
-box-shadow 向框添加一个或多个阴影。
-
-该属性是由逗号分隔的阴影列表，
-每个阴影由 2-4 个长度值、可选的颜色值以及可选的 inset 关键词来规定。省略长度的值是 0。
+参数说明：
 ```
-h-shadow  必需。水平阴影的位置。允许负值。
-v-shadow  必需。垂直阴影的位置。允许负值。
-blur      可选。模糊距离。
-spread    可选。阴影的尺寸。
-color     可选。阴影的颜色。请参阅 CSS 颜色值。
-inset     可选。将外部阴影 (outset) 改为内部阴影。
+none：
+无阴影
+h-shadow(length1)
+必需，水平偏移值。允许负值
+v-shadow(length2)
+必需，垂直偏移值。允许负值
+blur(length3)
+可选，模糊距离。不允许负值
+spread(length4)
+可选，阴影的尺寸。允许负值
+color：
+阴影的颜色。
+inset：
+阴影类型为内阴影。该值为空时，为外阴影
 ```
 
 ## 渐变
@@ -107,3 +113,29 @@ background: linear-gradient(direction, color1, color2, ...)
 direction 方向 默认从上到下
 ## CSS3 径向渐变
  31分
+
+## vertical-align
+设置或检索内联元素在行框内的垂直对齐方式
+baseline | sub | super | top | text-top | middle | bottom | text-bottom | <percentage> | <length>
+
+常用：
+vertical-align：middle 中部对齐
+
+默认值：baseline
+
+适用于：内联及 table-cell 元素
+
+## word-spacing 
+设置对象中的单词之间的最小，最大和最佳间隙
+word-spacing：normal | <length> | <percentage>
+
+适用于：所有元素
+```
+取值：
+normal：
+默认间隔
+<length>：
+用长度值指定间隔。可以为负值。
+<percentage>：
+用百分比指定间隔。可以为负值。（CSS3）
+```
