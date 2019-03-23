@@ -1,5 +1,9 @@
 # 代码集中营
 
+## 规范导航
+
+1. [CSS 规范 MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/Reference)
+
 ## 技术官网导航
 
 1. [React](https://reactjs.org)
