@@ -44,7 +44,7 @@ x.x.x 的格式 符合“语义化版本规则”
 1. devDependencies 在开发、测试环境中用到的依赖 
 
 npm install <package_name> --save      表示将这个包名及对应的版本添加到 package.json的 dependencies
-npm install <package_name> --save -dev 表示将这个包名及对应的版本添加到 package.json的 devDependencies
+npm install <package_name> --save-dev 表示将这个包名及对应的版本添加到 package.json的 devDependencies
 
 校验、打包、构建之类的依赖包都放在 devDependencies
 ```
@@ -118,40 +118,4 @@ weixin-js-sdk
 ~1.2.3-beta.2
 1.2.3-beta.2 <= version < 1.3.0
 1.2.3版允许高于beta.2的beta版，但1.2.4-beta.2不被允许，因为是属于另一个版本号组的beta版本。
-```
-
-## 常用的 npm 包
-
-### [npm-check-updates](https://github.com/tjunnone/npm-check-updates)
-
-检查升级 package.json 依赖
-
->npm install -g npm-check-updates
-
-执行`ncu -u`更新
-
-### [axios](https://github.com/axios/axios)
-
-基于Promise的HTTP客户端，用于浏览器和node.js
-
-### react-native-svg
-```
-react-native-svg >= 3.2.0 only supports react-native >= 0.29.0
-react-native-svg >= 4.2.0 only supports react-native >= 0.32.0
-react-native-svg >= 4.3.0 only supports react-native >= 0.33.0
-react-native-svg >= 4.4.0 only supports react-native >= 0.38.0 and react >= 15.4.0
-react-native-svg >= 4.5.0 only supports react-native >= 0.40.0 and react >= 15.4.0
-react-native-svg >= 5.1.8 only supports react-native >= 0.44.0 and react == 16.0.0-alpha.6
-react-native-svg >= 5.2.0 only supports react-native >= 0.45.0 and react == 16.0.0-alpha.12
-react-native-svg >= 5.3.0 only supports react-native >= 0.46.0 and react == 16.0.0-alpha.12
-react-native-svg >= 5.4.1 only supports react-native >= 0.47.0 and react == 16.0.0-alpha.12
-react-native-svg >= 5.5.1 only supports react-native >= 0.50.0 and react == 16.0.0
-react-native-svg >= 6.0.0 only supports react-native >= 0.50.0
-react-native-svg >= 7.0.0 only supports react-native >= 0.57.4
-react-native-svg >= 8.0.0 only supports react-native >= 0.57.4
-```
-### react-native-video
-```
-Version 4.x requires react-native >= 0.57.0
-Version 3.x requires react-native >= 0.40.0
 ```
