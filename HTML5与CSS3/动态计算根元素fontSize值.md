@@ -26,3 +26,23 @@ Eslint 严格模式过不去，需要添加规则
 
 如果在 vue 中使用只需要在 main.js 文件中引用 即可
 `import './assets/js/common';`
+
+
+# 第二份
+```
+//当前屏幕宽度 / 750 = 当前屏幕宽度的font-size / 100
+//代码如下
+(function (doc, win) {
+    var docEl = doc.documentElement,
+    resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+    recalc = function () {
+      var clientWidth = docEl.clientWidth;
+      if (!clientWidth) return;
+      docEl.style.fontSize = 100 * (clientWidth / 750) + 'px';
+    };
+   
+    if (!doc.addEventListener) return;
+       win.addEventListener(resizeEvt, recalc, false);
+       doc.addEventListener('DOMContentLoaded', recalc, false);
+})(document, window);
+```
