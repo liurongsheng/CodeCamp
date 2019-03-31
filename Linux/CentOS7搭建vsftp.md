@@ -2,7 +2,7 @@
 
 ## 安装软件
 ```
-rpm -qa | grep vsftp
+rpm -qa | grep vsftp // 检查是否安装 vsftp
 yum -y install vsftpd
 ```
 
