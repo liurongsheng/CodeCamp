@@ -37,6 +37,20 @@ SASS:
 - lang="scss" 对应于CSS-superset语法（带花括号和分号）
 - lang="sass" 对应于基于缩进的语法
 
+## [qrcode.react](https://www.npmjs.com/package/qrcode.react)
+生成二维码
+`npm install qrcode.react`
+使用非常简单
+```
+import React from 'react';
+import QRCode from 'qrcode.react';
+
+React.render(
+  <QRCode value="http://facebook.github.io/react/" />,
+  mountNode
+);
+```
+
 ## [postcss-px-to-viewport](https://github.com/evrone/postcss-px-to-viewport)
 
 在 CSS 文件中直接写 px 根据配置，在编译时自动装换为 vm
