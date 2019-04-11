@@ -51,6 +51,73 @@ React.render(
 );
 ```
 
+## [webpackbar](https://www.npmjs.com/package/webpackbar)
+
+终端输出进度条
+
+`npm install webpackbar -D`
+
+webpack.config.js
+```
+const webpack = require('webpack');
+const WebpackBar = require('webpackbar');
+ 
+module.exports = {
+  context: path.resolve(__dirname),
+  devtool: 'source-map',
+  entry: './entry.js',
+  output: {
+    filename: './output.js',
+    path: path.resolve(__dirname)
+  },
+  plugins: [
+    new WebpackBar()
+  ]
+};
+```
+
+## [mini-css-extract-plugin](https://www.npmjs.com/package/mini-css-extract-plugin)
+
+css 抽离
+
+`npm install --save-dev mini-css-extract-plugin`
+
+```
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+
+```
+
+## [happypack](https://www.npmjs.com/package/happypack)
+
+多进程编译
+
+`npm install --save-dev happypack`
+
+```
+const HappyPack = require('happypack');
+ 
+exports.module = {
+  rules: [
+    {
+      test: /.js$/,
+      // 1) replace your original list of loaders with "happypack/loader":
+      // loaders: [ 'babel-loader?presets[]=es2015' ],
+      use: 'happypack/loader',
+      include: [ /* ... */ ],
+      exclude: [ /* ... */ ]
+    }
+  ]
+};
+ 
+exports.plugins = [
+  // 2) create the plugin:
+  new HappyPack({
+    // 3) re-add the loaders you replaced above in #1:
+    loaders: [ 'babel-loader?presets[]=es2015' ]
+  })
+];
+```
+
 ## [postcss-px-to-viewport](https://github.com/evrone/postcss-px-to-viewport)
 
 在 CSS 文件中直接写 px 根据配置，在编译时自动装换为 vm
