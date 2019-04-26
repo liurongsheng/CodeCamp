@@ -4,6 +4,10 @@ fiddler代理抓包在捕捉 https 时设置设置证书还是无法摆脱 443 �
 
 [下载地址](https://www.charlesproxy.com/latest-release/download.do)
 
+[在线破解工具](https://www.zzzmode.com/mytools/charles)
+
+下载的 charles.jar 直接替换安装目录下的lib文件夹中的 charles.jar，支持版本Ver4.2.8
+
 - Proxy 
   - SSL Proxying Settings
     - SSL Proxying
