@@ -1,4 +1,14 @@
-# Jetbrains系列软件激活与汉化
+# Jetbrains 系列软件激活与汉化
+
+## Jetbrains 产品线
+https://www.jetbrains.com/products.html
+
+## 历史版本
+webstorm：
+https://www.jetbrains.com/webstorm/download/previous.html
+
+pycharm：
+https://www.jetbrains.com/pycharm/download/previous.html
 
 ## 激活
 http://idea.lanyus.com
