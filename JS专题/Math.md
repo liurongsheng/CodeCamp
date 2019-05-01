@@ -4,7 +4,7 @@
 
 1. Math.random 生成随机数字16位小数
 2. number.toString(36) 生成 0-9a-Z 的字符串
-3. Math.random().toString(36).substr(0,2) 生成随机字符串
+3. Math.random().toString(36).substr(2) 生成随机字符串
 
 属性	描述
 
