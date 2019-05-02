@@ -24,12 +24,36 @@
 
 1. [Flow](https://flow.org)
 
+## 技术类网站
 1. [淘宝系](https://www.yuque.com/yuque/blog/1024)
 
 1. [网道](https://wangdoc.com/javascript)
 
 1. [Web前端导航](http://alloyteam.com/nav/index.html)
 
+1. [开发者头条](https://toutiao.io/posts/hot/7)
+
+1. [伯乐在线](http://www.jobbole.com)
+
+1. [掘金](https://juejin.im)
+
+1. [SDK.CN](https://sdk.cn)
+
+1. [深度开源](https://www.open-open.com)
+
+1. [推酷](https://www.tuicool.com)
+
+1. [V2EX](https://www.v2ex.com)
+
+1. [segmentfault](https://segmentfault.com)
+
+1. [infQ](https://www.infoq.cn)
+
+1. [安全头条](http://toutiao.secjia.com/#/)
+
+1. [慧都大数据](http://bigdata.evget.com)
+
+1. [RD文档](https://www.rddoc.com)
 
 ## Gitbook 书籍收集
 
@@ -93,3 +117,6 @@
 
 1. [尹成](https://blog.csdn.net/itcastcpp)  尹成大魔王区块链与人工智能的技术分享
 1. [mike652638](https://www.mike652638.com)
+
+## 导航
+网站导航 https://www.egouz.com/asia/china/computer
