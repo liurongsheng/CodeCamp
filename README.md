@@ -79,6 +79,10 @@
 
 1. [Go 语言圣经 中文版](https://www.gitbook.com/book/wizardforcel/gopl-zh/details)
 
+1. [itbook](https://itbook.download)
+
+1. [java1234](http://www.java1234.com)
+
 ## 工具类网站导航
 
 1. [cdn](https://www.bootcdn.cn) 常见CDN库
