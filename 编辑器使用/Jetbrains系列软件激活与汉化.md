@@ -12,8 +12,12 @@ https://www.jetbrains.com/pycharm/download/previous.html
 
 ## 激活
 http://idea.lanyus.com
-
 http://idea.lanyus.com/jar/JetbrainsIdesCrack-3.4-release-enc.jar
+
+2020.1.2 新版本激活方式
+
+下载安装后，选择试用版本，进入编译器后
+直接使用 jetbrains-agent.jar 拖到 ide 窗口激活
 
 ## 汉化
 https://github.com/pingfangx/TranslatorX
