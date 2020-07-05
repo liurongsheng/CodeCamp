@@ -98,3 +98,9 @@ cp jenkins.war /usr/local/tomcat/apache-tomcat-8.5.33/webapps
 ```
 
 浏览器打开http://192.168.80.123:8080/jenkins/根据提示完成授权安装
+
+## 手动
+sudo wget -O /etc/yum.repos.d/jenkins.repo https://pkg.jenkins.io/redhat-stable/jenkins.repo
+yum install -y java-1.8.0-openjdk java-1.8.0-openjdk-devel
+
+/root/.jenkins/secrets/initialAdminPassword

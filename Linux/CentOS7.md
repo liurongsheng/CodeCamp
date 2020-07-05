@@ -1,4 +1,6 @@
 # CentOS7
+[下载地址](https://wiki.centos.org/Download)
+版本选择 DVD 的即可
 
 ## 切换图形界面
 
@@ -25,3 +27,7 @@ vim /etc/locale.conf
 `LANG="zh_CN.UTF-8" SYSFONT="latarcyrheb-sun16" SUPPORTED="zh_CN.UTF-8:zh_CN:zh"`
 
 reboot //重启生效
+
+## 解决 VMTool安装的问题 
+-bash: ./vmware-install.pl: /usr/bin/perl: 坏的解释器: 没有那个文件或目录
+yum groupinstall "Perl Support"

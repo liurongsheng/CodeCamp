@@ -5,6 +5,10 @@
 2004年，Unity3d诞生于丹麦，05年将总部设在了美国的旧金山，并发布了 Unity1.0版本。到2010年时，Unity已具强大的跨平台能力，支持web ,ios，android, PC, PS3和XBOX360等二十多个平台，在产品类型上，支持2D3D应用开发。
 国内众多知名公司、大厂使用U3D引擎开发产品。
 
+https://unity3d.com/cn/get-unity/download/archive
+
+https://assetstore.unity.com/top-assets/top-free
+
 Unity3d引擎强大功能
 - 强大的图形工具
 - 基于物理的标准着色器

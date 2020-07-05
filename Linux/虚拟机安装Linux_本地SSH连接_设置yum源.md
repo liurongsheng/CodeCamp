@@ -65,6 +65,7 @@ cd ..
 ```
 设置阿里云的yum源
 `wget -O /etc/yum.repos.d/CentOS-Base.repo http://mirrors.aliyun.com/repo/Centos-6.repo`
+`wget -O /etc/yum.repos.d/CentOS-Base.repo http://mirrors.aliyun.com/repo/Centos-7.repo`
 
 重建缓存完成设置
 `yum clean all && yum makecache`

@@ -43,11 +43,11 @@ netsh interface ipv6 set interface "Teredo Tunneling Pseudo-Interface" metric=2 
 ping -6 ipv6.test-ipv6.com -l 0 -t
 ```
 servername 收集服务器地址
-teredo.ipv6.microsoft.com （微软官方的服务器，Windows Vista/7里默认连接的就是这个服务器）
-teredo.remlab.net （Miredo默认的是teredo-debian.remlab.net）
-teredo.autotrans.consulintel.com
-teredo.ngix.ne.kr
-teredo.managemydedi.com
+teredo.ipv6.microsoft.com (微软官方的服务器，Windows Vista/7里默认连接的就是这个服务器)
+teredo.remlab.net (Miredo默认的是teredo-debian.remlab.net) (法国) (Miredo 默认设置)
+teredo.autotrans.consulintel.com (西班牙)
+teredo.ngix.ne.kr (韩国)
+teredo.managemydedi.com (美国 芝加哥)
 
 ## Teredo 服务器
 
