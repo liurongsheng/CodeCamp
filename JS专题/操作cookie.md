@@ -1,3 +1,14 @@
+# 获取 cookie
+用 JavaScript 操作 Cookie 其实是很麻烦的，并不存在一个简单的 API 能让我们获取或者设置 Cookie。
+唯一一个操作 Cookie 的 API 是 document.cookie
+
+```javascript
+function getCookie(name) {
+  const value = `; ${document.cookie}`;
+  const parts = value.split(`; ${name}=`);
+  if (parts.length === 2) return parts.pop().split(';').shift();
+}
+```
 # Js清空cookie
 
 ```javascript
@@ -19,7 +30,3 @@ if(cookies.length > 0)
   }
 }
 ```
-
-
-# Js清空sessionStorage
-`sessionStorage.clear()`

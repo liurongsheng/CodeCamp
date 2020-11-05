@@ -110,29 +110,28 @@
 1. [easyicon](http://www.easyicon.net/)
 
 ## 人工智能大数据
-
 1. [好望角社区](http://www.hope51.com)
 
 ## Linux
-
 1. [铁匠运维网](http://www.tiejiang.org)
 
 ## 博客
-
 1. [尹成](https://blog.csdn.net/itcastcpp)  尹成大魔王区块链与人工智能的技术分享
 1. [mike652638](https://www.mike652638.com)
 1. [obkoro1](http://obkoro1.com/web_accumulate)
 
 ## 导航
-网站导航 https://www.egouz.com/asia/china/computer
+[网站导航](https://www.egouz.com/asia/china/computer): https://www.egouz.com/asia/china/computer 
 
-## Youtube APP
-1. https://vanced.app/index
+## 短视频大数据
+[抖音大数据](https://toobigdata.com/douyin/users)
+
+## 视频
+[Youtube免广告APP](https://vanced.app/index): https://vanced.app/index 
 
 ## 电子书
-ePUBee http://cn.epubee.com/books/
-
-鸠摩搜书 https://www.jiumodiary.com/
+1. [ePUBee](http://cn.epubee.com/books/)
+1. [鸠摩搜书](https://www.jiumodiary.com/)
 
 http://www.pdfbook.cn/
 https://bookfere.com/
@@ -148,7 +147,6 @@ https://baijiahao.baidu.com/s?id=1613901749429770023&wfr=spider&for=pc
 http://dianzishu.renrensousuo.com/
 
 https://www.pansoso.com/
-
 
 1、去转盘网
 https://www.quzhuanpan.com/
@@ -170,8 +168,7 @@ http://www.rufengso.net/
 https://pan.09l.me/
 云盘恶魔，和上面的几个类似，不过需要关注后才能使用
 
-####VIP视频解析
-
+#### VIP视频解析
 1、酷嗨VIP视频解析
 http://vip.coolhii.com/
 
@@ -186,8 +183,7 @@ http://tv.wandhi.com/go.html
 
 以上几个VIP视频解析网站，是我常用的几个，解析效果也比较好，一般网上主流的视频播放平台都可以解析，什么爱奇艺，腾讯视频，优酷等完全无压力
 
-####BT搜索网站
-
+#### BT搜索网站
 1、海盗湾
 http://thepiratebay.se.net/
 
@@ -198,46 +194,28 @@ https://u3c3.com/
 http://www.resog.com/
 磁力天堂，资源多，下载速度可以，建议用手机访问)
 
-磁力网站，现在国内打击的很厉害，就这几个我觉得还行！！第一个不解释，牛逼的存在，第二个搜索车牌比较给力，第三个资源很多。
-
-
 #### 办公文档类
+1. [嚓哩文库](https://www.wocali.com/)
 
-1、嚓哩文库
-https://www.wocali.com/
+1. [设计天堂](https://www.sjtiantang.com/)
 
-2、设计天堂
-https://www.sjtiantang.com/
+1. [第一范文网](https://www.diyifanwen.com/)
 
-3、第一范文网
-https://www.diyifanwen.com/
-
-4、古登堡计划
-http://www.gutenberg.org/
-
+1. [古登堡计划](http://www.gutenberg.org/) 
 办公类文档在那里都是需要的，收藏几个总是没错的
 
-
 #### 无损音乐查找
-
-1、超级无损音乐
-https://www.sq688.com/
+1. [超级无损音乐](https://www.sq688.com/singer/10001.html)
 名字听起来就是不一样，在这里可以下载无损音乐。如果你比较喜欢听和收藏无损音乐的话，那么这个网站最合适你了，复制网盘的下载链接即可下载，还可以直接保存到自己网盘。
 
-1、51ape
-http://www.51ape.com/
+1. [51ape](http://www.51ape.com/)
 这也是一个无损音乐网站，拥有大量的无损音乐歌曲，数量高达数10万。而且大部分格式的无损音乐几乎可以搜索到。此外，网站还根据本周、本月和专辑等分类。
 
-4、果汁音乐
-http://guozhivip.com/yinyue/
+1. [果汁音乐](http://guozhivip.com/yinyue/)
 一个在线音乐播放网站。当前主流和热门的音乐都可以随便下载。此外，它还可以定义私人的专属歌单。
 
-5、墨灵音乐
-https://music.qugeek.com/page/music?v=6.0
+1. [墨灵音乐](https://music.qugeek.com/page/music?v=6.0)
 这个网站相当于一个在线音乐播放器，与上面的音乐有着本质性的不同。在这网站上我们不仅可以试听，下载歌曲，还可以看它的歌词和歌单，就仿佛是在使用一个非常精美的播放器一般。
 
-6、果汁音乐
-http://guozhivip.com/yinyue/
-这是一个与墨灵音乐极为相似的在线音乐播放网站。我们不仅可以在这个网站上下载试听音乐，还可以在这个网站自定义自己的专属歌单，打造专属于自己的音乐TV。
 
 
