@@ -130,68 +130,55 @@
 [Youtube免广告APP](https://vanced.app/index): https://vanced.app/index 
 
 ## 电子书
-1. [ePUBee](http://cn.epubee.com/books/)
-1. [鸠摩搜书](https://www.jiumodiary.com/)
+1. [ePUBee](http://cn.epubee.com/books)
+1. [鸠摩搜书](https://www.jiumodiary.com)
+1. http://www.pdfbook.cn
+1. https://bookfere.com
+1. https://kgbook.com/jinrongtouzi/4701.html
+1. [Owllook](https://www.owllook.net)
+1. https://5kindle.com/soboooks
+1. http://www.pdfzj.cn
+1. https://baijiahao.baidu.com/s?id=1613901749429770023&wfr=spider&for=pc
+1. http://dianzishu.renrensousuo.com
+1. https://www.pansoso.com
 
-http://www.pdfbook.cn/
-https://bookfere.com/
-https://kgbook.com/jinrongtouzi/4701.html
-
-Owllook https://www.owllook.net/
-
-https://5kindle.com/soboooks/
-
-http://www.pdfzj.cn/
-
-https://baijiahao.baidu.com/s?id=1613901749429770023&wfr=spider&for=pc
-http://dianzishu.renrensousuo.com/
-
-https://www.pansoso.com/
-
-1、去转盘网
-https://www.quzhuanpan.com/
+## 网盘
+1. [去转盘网](https://www.quzhuanpan.com) https://www.quzhuanpan.com 
 去转盘网，资源非常丰富，号称3000w资源，日常找点电子书、软件、电影什么的还是非常方便
 
-2、小可搜搜
-https://www.xiaokesoso.com/
+1. [小可搜搜](https://www.xiaokesoso.com)
 比较小众的网盘资源搜索引擎，包含私密资源，并且带提取码
 
-3、小昭来啦
-https://www.xiaozhaolaila.com/
+1. [小昭来啦](https://www.xiaozhaolaila.com) https://www.xiaozhaolaila.com
 一个比较新的网盘搜索引擎，但是体验非常号，资源也很丰富
 
-4、如风搜
-http://www.rufengso.net/
+1. [如风搜](http://www.rufengso.net)
 如风搜，也就是之前的盘多多，应为某些不可抗拒的因素，资源没有全部放出来，可以做备用
 
-5、云盘恶魔
-https://pan.09l.me/
+1. [云盘恶魔](https://pan.09l.me)
 云盘恶魔，和上面的几个类似，不过需要关注后才能使用
 
 #### VIP视频解析
-1、酷嗨VIP视频解析
+1. 酷嗨VIP视频解析
 http://vip.coolhii.com/
 
-2、搜搜解析
+1. 搜搜解析
 http://www.guandianzhiku.com/v/s/
 
-3、船长解析
+1. 船长解析
 http://czjx8.com/
 
-4、玩的嗨
+1. 玩的嗨
 http://tv.wandhi.com/go.html
 
 以上几个VIP视频解析网站，是我常用的几个，解析效果也比较好，一般网上主流的视频播放平台都可以解析，什么爱奇艺，腾讯视频，优酷等完全无压力
 
 #### BT搜索网站
-1、海盗湾
-http://thepiratebay.se.net/
+1. [海盗湾](http://thepiratebay.se.net) http://thepiratebay.se.net
 
-2、u3c3
-https://u3c3.com/
+1. [u3c3](https://u3c3.com) https://u3c3.com
 
-3、磁力天堂
-http://www.resog.com/
+1.[磁力天堂](http://www.resog.com) http://www.resog.com
 磁力天堂，资源多，下载速度可以，建议用手机访问)
 
 #### 办公文档类
