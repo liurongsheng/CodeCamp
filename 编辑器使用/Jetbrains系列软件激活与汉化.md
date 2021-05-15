@@ -11,6 +11,10 @@ pycharm：
 https://www.jetbrains.com/pycharm/download/previous.html
 
 ## 激活
+2020.3.3 以上版本使用自动重置激活
+把本目录下的文件 ide-eval-resetter-2.1.6.zip 直接拖入窗口重启即可
+
+---
 http://idea.lanyus.com
 http://idea.lanyus.com/jar/JetbrainsIdesCrack-3.4-release-enc.jar
 
@@ -20,6 +24,10 @@ http://idea.lanyus.com/jar/JetbrainsIdesCrack-3.4-release-enc.jar
 直接使用 jetbrains-agent.jar 拖到 ide 窗口激活
 
 ## 汉化
+现有版本使用插件汉化
+File -> Settings -> Chinese (Simplified) Language -> Restart IDR
+
+---
 https://github.com/pingfangx/TranslatorX
 
 将 resources_zh_CN_*.jar ，放到软件安装路径下的 lib 目录中，重启软件即可
