@@ -1,5 +1,9 @@
 # 代码集中营
 
+## 最新收录
+1. [前端早早聊](https://www.zaozao.run/book/finance) 书籍、大会录播
+2. [大厂前端团队](https://www.yuque.com/zaotalk/fe-teams)
+
 ## MOOC平台
 1. [学堂在线](https://www.xuetangx.com/)
 2. [中国大学MOOC](https://www.icourse163.org/)
@@ -72,7 +76,8 @@
 1. [obkoro1](http://obkoro1.com/web_accumulate)
 
 ## 电子书
-1. [iamtxt](https://www.iamtxt.com)
+1. [Z-Library](https://zh.jp1lib.org/)
+1. [iamTxt](https://www.iamtxt.com)
 1. [鸠摩搜书](https://www.jiumodiary.com)
 1. [云海电子图书馆](http://www.pdfbook.cn)
 1. [书伴](https://bookfere.com)
@@ -86,4 +91,23 @@
 1. [超级无损音乐](https://www.sq688.com/singer/10001.html)
 1. [果汁音乐](http://guozhivip.com/yinyue/)
 
+## 应用限免
+1. [goFans](https://gofans.cn/)
+1. [merGeek](https://mergeek.com/)
+1. [giveAwayOfTheDay](https://iphone.giveawayoftheday.com/)
+1. [反斗限免](http://free.apprcn.com/)
 
+## 蓝光高清
+1. [音范丝](https://www.yinfans.me/movie/34350)
+1. [蓝光原盘基地](https://www.bdiso.net/)
+
+## 益生菌菌株号
+1. 嗜酸乳杆菌 `NCFM`，擅长缓解肠胃疼痛
+1. 动物双歧杆菌 `Bb-12`
+1. 乳双歧杆菌 `HN019`，增强免疫力，减少感染，降低肺炎发病率；`Bi-07`，预防和抵抗流感病毒，减轻过敏性皮炎
+1. 鼠李糖乳杆菌 `HN001`，降低过敏性湿疹的发病率；`LGG`，加强了机体对于病原体的免疫防御机制
+```
+群--类--种--菌株
+乳酸菌--双歧杆菌--动物双歧杆菌--Bb12
+德国车--大众汽车--高尔夫--高尔夫2.0Turbo
+```

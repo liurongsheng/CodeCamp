@@ -11,8 +11,8 @@ pycharm：
 https://www.jetbrains.com/pycharm/download/previous.html
 
 ## 激活
-2020.3.3 以上版本使用自动重置激活
-把本目录下的文件 ide-eval-resetter-2.1.6.zip 直接拖入窗口重启即可
+ide-eval-resetter 支持 2021.3 之前的版本自动重置激活，最优解 2021.1.3 或者 2021.2.2 版本，2021.2.3 开始没有免费试用选项
+把本目录下的文件 ide-eval-resetter-2.3.5.zip 直接拖入窗口重启即可
 
 ---
 http://idea.lanyus.com
