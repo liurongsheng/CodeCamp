@@ -15,7 +15,7 @@
 
 ### Git各个状态之间转换指令总结
 
-<img src="../img/git-lifecycle.png" />
+<img src="../img/git-lifecycle.png" alt="git状态之间转换指令" />
 
 基本状态标识
 
@@ -139,3 +139,22 @@ https://learngitbranching.js.org/?demo=&locale=zh_CN
 - [ ] 完成图片
 - [x] 完成部署工具的设置
 - [ ] 实现抽签功能
+
+# 提交类型模板
+```
+New feature
+Bug fix
+Site / documentation update
+Demo update
+Component style update
+TypeScript definition update
+Bundle size optimization
+Performance optimization
+Enhancement feature
+Internationalization
+Refactoring
+Code style optimization
+Test Case
+Branch merge
+Other (about what?)
+```
