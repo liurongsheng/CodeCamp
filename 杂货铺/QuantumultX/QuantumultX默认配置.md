@@ -1,4 +1,6 @@
-```
+# 默认配置
+
+```text
 # Sample Quantumult Configuration
 #
 # Line started with ";" or "#" or "//" shall be comments.
