@@ -2,7 +2,9 @@
 
 [官网地址](https://elifulkerson.com/projects/tcping.php)
 
-## 使用说明 把tcping.exe 放置到系统的 System32 路径下 `Windows\System32`，使用cmd运行就行
+## 使用说明
+
+把 `tcping.exe` 放置到系统的 System32 路径下 `Windows\System32`，使用 cmd 运行就行
 
 > tcping www.baidu.com 80
 
