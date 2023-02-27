@@ -1,22 +1,24 @@
 # Jetbrains 系列软件激活与汉化
 
 ## Jetbrains 产品线
-https://www.jetbrains.com/products.html
+
+<https://www.jetbrains.com/products.html>
 
 ## 历史版本
-webstorm：
-https://www.jetbrains.com/webstorm/download/previous.html
 
-pycharm：
-https://www.jetbrains.com/pycharm/download/previous.html
+[webstorm](https://www.jetbrains.com/webstorm/download/previous.html)
+
+[pycharm](https://www.jetbrains.com/pycharm/download/previous.html)
 
 ## 激活
+
 ide-eval-resetter 支持 2021.3 之前的版本自动重置激活，最优解 2021.1.3 或者 2021.2.2 版本，2021.2.3 开始没有免费试用选项
 把本目录下的文件 ide-eval-resetter-2.3.5.zip 直接拖入窗口重启即可
 
 ---
-http://idea.lanyus.com
-http://idea.lanyus.com/jar/JetbrainsIdesCrack-3.4-release-enc.jar
+<https://key.words.run/cn>
+
+<http://idea.lanyus.com>
 
 2020.1.2 新版本激活方式
 
@@ -24,11 +26,12 @@ http://idea.lanyus.com/jar/JetbrainsIdesCrack-3.4-release-enc.jar
 直接使用 jetbrains-agent.jar 拖到 ide 窗口激活
 
 ## 汉化
+
 现有版本使用插件汉化
 File -> Settings -> Chinese (Simplified) Language -> Restart IDR
 
 ---
-https://github.com/pingfangx/TranslatorX
+<https://github.com/pingfangx/TranslatorX>
 
 将 resources_zh_CN_*.jar ，放到软件安装路径下的 lib 目录中，重启软件即可
 
@@ -41,15 +44,14 @@ MAC 用户请在 Finder > 应用程序 中找到软件，右键 > 显示包内�
 ## 教程
 
 1. 把jar放到根目录
-2. 修改webstorm64.exe.vmoptions,末尾添加引用jar包
+2. 修改`webstorm64.exe.vmoptions`,末尾添加引用jar包
 3. 启动时候激活第二选项（Activation code）引用jar包
 
 -javaagent:C:\Program Files\JetBrains\WebStorm 2018.2.2\bin\JetbrainsCrack-3.1-release-enc.jar
 
-
 完整代码如下：（注意-javaagent上下都要有空一行）
 
-```
+```shell
 -Xms128m
 -Xmx750m
 -XX:ReservedCodeCacheSize=240m
