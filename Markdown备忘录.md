@@ -32,3 +32,26 @@
   }
 }
 ```
+
+## 常用支持的高亮语法
+
+|名称|关键字|调用的js|
+|:---:|:---:|:---:|
+|Shell|bash, shell|shBrushBash.js|
+|C|cpp, c|shBrushCpp.js |
+|CSS|css|shBrushCss.js |
+|C#|c#, c-sharp, csharp|shBrushCSharp.js|
+|Java|java|shBrushJava.js|
+|JavaScript|js, javascript|shBrushJScript.js|
+|JSON|json|-|
+|text|text, plain|shBrushPlain.js| 就是普通文本|
+|Python|py, python|shBrushPython.js|
+|Ruby|ruby, rails, ror, rb|shBrushRuby.js |
+|PHP|php|shBrushPhp.js|
+|SASS&SCSS|sass, scss|shBrushSass.js|
+|SQL|sql|shBrushSql.js|
+|XML|xml, xhtml, xslt, html|shBrushXml.js|
+|Objective C|objc, obj-c|shBrushObjectiveC.js|
+|matlab|matlab|shBrushMatlab.js|
+|swift|swift |shBrushSwift.js|
+|GO|go, golang|shBrushGo.js|
