@@ -2,11 +2,13 @@
 
 git commit 使用图像化标签
 
-[官网地址](https://gitmoji.carloscuesta.me/)
+[官网地址](https://gitmoji.dev/)
+
+[github托管地址](https://github.com/carloscuesta/gitmoji)
 
 ## 安装
 
-```
+```git
 npm i -g gitmoji-cli
 ```
 
