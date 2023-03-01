@@ -1,5 +1,11 @@
 # Markdown备忘录
 
+## 相关网站
+
+[CommonMark](https://spec.commonmark.org/)
+[Markdown（GFM）](https://github.github.com/gfm/)
+[microsoft docs](https://learn.microsoft.com/zh-cn/docs/)
+
 ## Markdown的字体显示
 
 ```text
@@ -20,6 +26,9 @@
 
 ```json
 {
-  "MD034": false // url 的修复容易出错
+  "MD034": false, // url 的修复容易出错
+  "MD033": {
+    "allowed_elements": [ "a" ] // 允许配置的标签元素单独存在
+  }
 }
 ```
