@@ -14,7 +14,7 @@ nvm list
 // 安装指定版本的 node
 nvm install 14.15.0
 
-// 指定本机运行指定的 node 版本 
+// 指定本机运行指定的 node 版本
 nvm use 14.15.0
 
 // 卸载指定的 node 版本

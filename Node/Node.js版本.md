@@ -1,6 +1,10 @@
-# NodeJS基础API
+# Node.js版本
 
+[Node.js 对 各个 ECMAScript 支持情况](https://node.green/)
+
+[ECMAScript版本信息](/JS%E4%B8%93%E9%A2%98/ECMAScript.md)
 ## path
+
 path 模块用于处理文件与目录的路径
 
 - path.normalize(path) // 规范化 path，并处理 '..' 和 '.' 片段
@@ -18,8 +22,7 @@ path 模块用于处理文件与目录的路径
 - path.win32 // 返回为 Windows 实现的 path 方法
 - path.posix // 返回为 POSIX 实现的 path 方法
 
-
-```
+```node
 path.resolve('/foo/bar', './baz');
 // 返回: '/foo/bar/baz'
 
@@ -37,5 +40,3 @@ path.parse('/home/user/dir/file.txt');
 //   ext: '.txt',
 //   name: 'file' }
 ```
-
-## Buffer
