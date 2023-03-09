@@ -1,10 +1,12 @@
-### 多端提交导致冲突
+# git实操备注
+
+## 多端提交导致冲突
 
 错误代码：
 
     Please move or remove them before you can merge
-    
-如果你有的修改以及加入暂存区的话 
+
+如果你有的修改以及加入暂存区的话
 
 >git reset --hard && git clean -xdf
 
@@ -12,8 +14,7 @@
 
 >git checkout . && git clean -xdf
 
-
-### Git各个状态之间转换指令总结
+## Git各个状态之间转换指令总结
 
 <img src="../img/git-lifecycle.png" alt="git状态之间转换指令" />
 
@@ -24,8 +25,7 @@
     A+ = modified - 已修改未暂存
     B = staged - 已暂存未提交
     C = committed - 已提交未PUSH
-    
-    
+
 各状态之间变化
 
     A- -> B : git add <FILE>
@@ -45,11 +45,16 @@
 git reflog 查看本地记录
 
 ### 恢复最近一次 commit
+
 git reset --soft HEAD^
+
+git reset --soft HEAD~1 撤销一个commit未push的情况，相当于 webStorm 中的撤销提交
+git reset --soft HEAD~2 撤销两个commit未push的情况
 
 git reset --hard xxxx 这个操作不会取消 rebase 状态，如果 rebase 没有完成 HEAD 指向会有感叹号
 
-## cherry-pick --continue
+### cherry-pick --continue
+
 git log 查找到需要pick出来的提交commitId
 git cherry-pick commitId
 
@@ -67,17 +72,19 @@ gits cherry-pick --abort
 放弃pick操作，应用当前的进度
 git cherry-pick --quit
 
-## revert 掉自己提交的
+### revert 掉自己提交的
+
 git revert commitId1
 revert 会生成一条新的提交记录，这时会让你编辑提交信息，编辑完后 :wq 保存退出就好了
 
-
 ### 还原 rebase 操作，取消 rebase 状态
+
 git rebase --abort 这个操作会让未完成的 rebase 操作的 HEAD 感叹号消失
 
 git merge --squash develop(要合并提交的目标分支)
 
-## GitHub额外教程
+### GitHub额外教程
+
 在 GitHub 上，直接修改 URL 就可以让用户以多种形式查看差别。
 
 1. 查看 4-0-stable 分支与 3-2-stable 分支之间的差别
@@ -89,21 +96,21 @@ https://github.com/rails/rails/compare/master@{7.day.ago}...master
 3. 查看与指定日期之间的差别，查看 master 分支2013年1月1日与现在的区别
 https://github.com/rails/rails/compare/master@{2013-01-01}...master
 
-4. 
-获取 diff 格式的文件，只要像下面这样在 URL 末尾
+4. 获取 diff 格式的文件，只要像下面这样在 URL 末尾
 添加 .diff 即可。
 https://github.com/用户名/仓库名/pull/28.diff
 同 理， 想 要 patch 格 式 的 文 件， 只 需 要 在 URL 末 尾 添
 加 .patch 即可。
 https://github.com/用户名/仓库名/pull/28.patch
 
-## 
+### 线上文档
 
 http://git-scm.com/book/zh/v2
 
 https://learngitbranching.js.org/?demo=&locale=zh_CN
 
-## 名词备注
+### 名词备注
+
 - 冲突（Conflict）
 - git reflog 命令，查看当前仓库执行过的操作的日志
 - git reset --hard 目标时间点的哈希值，可以完全恢复至该时间点的状态，哈希值只要输入 4 位以上就可以执行
@@ -135,26 +142,26 @@ https://learngitbranching.js.org/?demo=&locale=zh_CN
   http://trac.edgewall.org/
   http://www.bugzilla.org/
 
-# 本月要做的任务
+## 本月要做的任务
+
 - [ ] 完成图片
 - [x] 完成部署工具的设置
 - [ ] 实现抽签功能
 
-# 提交类型模板
-```
-New feature
-Bug fix
-Site / documentation update
-Demo update
-Component style update
-TypeScript definition update
-Bundle size optimization
-Performance optimization
-Enhancement feature
-Internationalization
-Refactoring
-Code style optimization
-Test Case
-Branch merge
-Other (about what?)
-```
+## 提交类型模板
+
+- New feature
+- Bug fix
+- Site / documentation update
+- Demo update
+- Component style update
+- TypeScript definition update
+- Bundle size optimization
+- Performance optimization
+- Enhancement feature
+- Internationalization
+- Refactoring
+- Code style optimization
+- Test Case
+- Branch merge
+- Other (about what?)
