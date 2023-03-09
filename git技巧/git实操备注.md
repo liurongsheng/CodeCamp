@@ -42,24 +42,25 @@
 
 ## git高级操作
 
-git reflog 查看本地记录
+`git reflog` 查看本地记录
 
 ### 恢复最近一次 commit
 
-git reset --soft HEAD^
+`git reset --soft HEAD^`
 
-git reset --soft HEAD~1 撤销一个commit未push的情况，相当于 webStorm 中的撤销提交
-git reset --soft HEAD~2 撤销两个commit未push的情况
+`git reset --soft HEAD~1` 撤销一个commit未push的情况，相当于 webStorm 中的撤销提交
 
-git reset --hard xxxx 这个操作不会取消 rebase 状态，如果 rebase 没有完成 HEAD 指向会有感叹号
+`git reset --soft HEAD~2` 撤销两个commit未push的情况
+
+`git reset --hard xxxx` 这个操作不会取消 rebase 状态，如果 rebase 没有完成 HEAD 指向会有感叹号
 
 ### cherry-pick --continue
 
 git log 查找到需要pick出来的提交commitId
-git cherry-pick commitId
+`git cherry-pick commitId`
 
 支持多个
-git cherry-pick commitId1 commitId2
+`git cherry-pick commitId1 commitId2`
 
 支持区间 (commitId1、commitId2)
 `git cherry-pick commitId1^..commitId2`
@@ -67,21 +68,21 @@ git cherry-pick commitId1 commitId2
 多个pick的时候遇到冲突的话 `cherry-pick --continue` 继续流程
 
 放弃pick操作，就跟什么都没有操作过一样
-gits cherry-pick --abort
+`gits cherry-pick --abort`
 
 放弃pick操作，应用当前的进度
-git cherry-pick --quit
+`git cherry-pick --quit`
 
 ### revert 掉自己提交的
 
-git revert commitId1
+`git revert commitId1`
 revert 会生成一条新的提交记录，这时会让你编辑提交信息，编辑完后 :wq 保存退出就好了
 
 ### 还原 rebase 操作，取消 rebase 状态
 
-git rebase --abort 这个操作会让未完成的 rebase 操作的 HEAD 感叹号消失
+`git rebase --abort` 这个操作会让未完成的 rebase 操作的 HEAD 感叹号消失
 
-git merge --squash develop(要合并提交的目标分支)
+`git merge --squash develop` 要合并提交的目标分支
 
 ### GitHub额外教程
 
