@@ -75,7 +75,13 @@ git log 查找到需要pick出来的提交commitId
 
 ### revert 掉自己提交的
 
-`git revert commitId1`
+方法一：比直接revert要好一些，采用 `--soft` 模式会保留本地代码的变化，`--hard` 则不会
+
+- `git log` // 查到需要回退的那个提交的commitId
+- `git reset --soft commitId` // commitId为前面找到的commitId，本地还原到这个提交的内容
+- `git push origin 分支名 --force` // 分支名，就选当前的分支，再次提交后就清空了
+
+方法二：`git revert commitId`
 revert 会生成一条新的提交记录，这时会让你编辑提交信息，编辑完后 :wq 保存退出就好了
 
 ### 还原 rebase 操作，取消 rebase 状态
