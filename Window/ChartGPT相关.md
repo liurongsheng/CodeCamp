@@ -43,3 +43,7 @@
 - 找到两个 `Microsoft Edge` 更新服务 (edgeupdate/edgeupdatem)
 - 右键服务 - 属性 - 启动类型 改为 禁用
 - 点击 [应用] 即可
+
+## 谷歌
+
+[bard](https://bard.google.com/signup)
