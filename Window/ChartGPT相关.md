@@ -44,6 +44,10 @@
 - 右键服务 - 属性 - 启动类型 改为 禁用
 - 点击 [应用] 即可
 
+## 微软基于文字生成图像服务 Bing Image Creator
+
+[Bing Image Creator](https://cn.bing.com/create)
+
 ## 谷歌
 
 [bard](https://bard.google.com/signup)
