@@ -2,6 +2,60 @@
 
 [市场地址](https://marketplace.visualstudio.com/search?target=VSCode&category=All%20categories&sortBy=Downloads)
 
+## 常规
+
+[Code Runner](https://marketplace.visualstudio.com/items?itemName=formulahendry.code-runner)
+
+代码片段运行
+
+在插件的拓展配置中配置 `Code-runner: Default Language` 比如: `javascript`、`python`
+
+html使用chrome配置如下：
+
+`"html": "\"C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe\""`
+
+- 反斜杠: 请使用 \\
+- 如果路径中包含空格, 请使用 \" 环绕文件路径
+
+- `Ctrl + Alt + N` // 运行
+- `Ctrl + Alt + J` // 选择语言在运行
+
+[Gitlens](https://marketplace.visualstudio.com/items?itemName=eamodio.gitlens)
+
+git 历史记录
+
+[Git Graph](https://marketplace.visualstudio.com/items?itemName=mhutchie.git-graph)
+
+可视化操作 git
+
+[Turbo Console Log](https://marketplace.visualstudio.com/items?itemName=ChakrounAnas.turbo-console-log)
+
+快速 console.log
+
+[REST Client](https://marketplace.visualstudio.com/items?itemName=humao.rest-client)
+
+REST 接口直接请求，支持 `.http` 格式的文件
+
+[Thunder Client](https://marketplace.visualstudio.com/items?itemName=rangav.vscode-thunder-client)
+
+替代 Postman 的接口请求
+
+[Path Intellisense](https://marketplace.visualstudio.com/items?itemName=christian-kohler.path-intellisense)
+
+引用路径
+
+[indent-rainbow](https://marketplace.visualstudio.com/items?itemName=oderwat.indent-rainbow)
+
+代码彩虹对齐
+
+[Import Cost](https://marketplace.visualstudio.com/items?itemName=wix.vscode-import-cost)
+
+依赖包开销信息
+
+[JSON to TS](https://marketplace.visualstudio.com/items?itemName=MariusAlchimavicius.json-to-ts)
+
+JSON快速生成TS声明
+
 ## 规则校验和美化
 
 ### [Prettier - Code formatter](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode)
@@ -24,11 +78,19 @@ MD33 markdownlint 插件进行代码分析，当使用了 html 标签时，插�
 
 其中 "allowed_elements" 的列表中填入不想提出警告的 html 标签，保存修改后，markdownlint将不再对 "allowed_elements" 中的 html 标签提出警告
 
+### [Code Spell Checker](https://marketplace.visualstudio.com/items?itemName=streetsidesoftware.code-spell-checker)
+
+校验拼写
+
 ## 惊艳的拓展功能
 
 ### [Draw.io](https://marketplace.visualstudio.com/items?itemName=hediet.vscode-drawio)
 
 协作编辑或展示图表
+
+### [Read Aloud text](https://marketplace.visualstudio.com/items?itemName=azu.read-aloud-text)
+
+微软的文本朗读插件
 
 ## 调试工具
 
@@ -40,11 +102,17 @@ VSCode 没有提供直接在浏览器中打开文件的内置界面，此插件�
 
 ## 主题
 
-[主题目录](https://marketplace.visualstudio.com/search?target=VSCode&category=Themes&sortBy=Downloads)
+[vscode-icons](https://marketplace.visualstudio.com/items?itemName=vscode-icons-team.vscode-icons)
+
+目录样式
+
+[Material Icon Theme](https://marketplace.visualstudio.com/items?itemName=PKief.material-icon-theme)
+
+目录样式
 
 [One Monokai Theme](https://marketplace.visualstudio.com/items?itemName=azemoh.one-monokai)
 
-[Material Icon Theme](https://marketplace.visualstudio.com/items?itemName=PKief.material-icon-theme)
+代码样式
 
 ---
 
