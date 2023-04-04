@@ -86,7 +86,7 @@ Yarn 的 --dev 标志会把包作为开发模式的依赖，和 npm 的 --save-d
 
 ## 从 npm 迁移到 yarn
 
-https://yarnpkg.com/en/docs/migrating-from-npm
+<https://yarnpkg.com/en/docs/migrating-from-npm>
 
 | npm (v5) | Yarn |
 |:---:|:---:|

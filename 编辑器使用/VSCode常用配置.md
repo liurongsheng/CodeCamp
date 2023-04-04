@@ -76,6 +76,23 @@ MD33 markdownlint 插件进行代码分析，当使用了 html 标签时，插�
 }
 ```
 
+[markdownlint-cli2](https://github.com/DavidAnson/markdownlint-cli2)
+
+`npm install markdownlint-cli2 --global` // 全局安装
+
+`markdownlint-cli2-fix "**/*.md"` // 修复命令
+
+使用全局格式化修复
+
+.markdownlint.jsonc // 配置文件
+
+```config
+{
+  "MD013": false,
+  "MD033": false
+}
+```
+
 其中 "allowed_elements" 的列表中填入不想提出警告的 html 标签，保存修改后，markdownlint将不再对 "allowed_elements" 中的 html 标签提出警告
 
 ### [Code Spell Checker](https://marketplace.visualstudio.com/items?itemName=streetsidesoftware.code-spell-checker)
