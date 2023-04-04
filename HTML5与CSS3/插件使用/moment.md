@@ -9,7 +9,7 @@
 往前一个月 moment().subtract(1,'months').format('YYYY-MM-DD') // "2018-11-05"
 往后一个月 moment().add(1,'months').format('YYYY-MM-DD') // "2019-01-05"
 
-```
+```js
 import moment from 'moment';
 const { RangePicker } = DatePicker;
 const dateFormat = 'YYYY-MM-DD';
@@ -31,7 +31,8 @@ let dayBeforeMonth = moment().subtract(30,'days');
 ```
 
 ## 下拉限制选择时间
-```
+
+```js
 disabledDate = (current) => {
   return current && current > moment.max(moment().subtract(1, 'day')); // 限制选择前一天的日期
   // return current && current > moment.max(moment().add(1, 'd')); // 限制选择后一天的日期
@@ -51,7 +52,8 @@ disabledDate = (current) => {
 ```
 
 ## 时间最大选择区间为当前时间往后一个月
-```
+
+```js
 <Col span={8} className="align-left">
   <span className="span-style">结算日期：</span>
   <RangePicker
@@ -73,6 +75,7 @@ disabledDate = (current) => {
 ```
 
 ## 日期时间戳互转
+
 日期转时间戳
 `moment('2018-11-28 15:00:00', 'YYYY-MM-DD HH:mm:ss').valueOf();`
 
