@@ -31,6 +31,10 @@
 
 修改为 `https//www.bing.com/search?q=%s`
 
+#### 关闭 Microsoft Edge 浏览器推荐设置为默认浏览器的弹窗
+
+访问 `edge://flags/#edge-show-feature-recommendations` 并将其设置为 Disable
+
 ### 禁止自动更新
 
 开发版本查看关于 `Microsoft Edge` 的信息的时候自动更新，导致无法使用 Bing AI，错误提示 `Sorry, looks like your network settings are preventing access to this feature.`
