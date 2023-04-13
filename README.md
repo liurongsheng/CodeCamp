@@ -3,6 +3,7 @@
 ## 专利检索
 
 1. [SooPAT](http://www.soopat.com/)
+1. [国家知识产权局专利检索](https://pss-system.cponline.cnipa.gov.cn/conventionalSearch)
 
 ## 最新收录
 
@@ -68,12 +69,13 @@
 
 ## 工具类网站导航
 
+1. [excalidraw](https://excalidraw.com/) 非常好看的流程图
 1. [unpkg](https://unpkg.com/#/stats) npm包快速云端库
 1. [cdn](https://www.bootcdn.cn) 常见CDN库
-1. [npms](https://npms.io/) 基于项目版本、模块下载次数、最新更新日期、提交频率等综合测量分数进行模块排名
+1. [npmS](https://npms.io/) 基于项目版本、模块下载次数、最新更新日期、提交频率等综合测量分数进行模块排名
 1. [unminify](https://unminify.com) 强大的在线格式化工具
 1. [jsfiddle](https://jsfiddle.net) 强大的在线编码环境
-1. [iconfont](http://www.iconfont.cn/collections)
+1. [iconFont](http://www.iconfont.cn/collections)
 1. [thenounproject](https://thenounproject.com/)
 1. [iconfinder](https://www.iconfinder.com/)
 
