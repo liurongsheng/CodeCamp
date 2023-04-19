@@ -13,11 +13,14 @@
 
 - chrome://flags/#extension-content-verification
 
-## 配置 URL 地址栏隐藏 http/https 协议
+## Chrome 浏览器中配置地址栏不隐藏 http
 
-1. chrome://flags/#omnibox-ui-hide-steady-state-url-scheme-and-subdomains
-1. Omnibox UI Hide Steady-State URL Trivial Subdomains
-1. 设置为 Disabled 状态
+1. 地址栏输入 chrome://flags/
+1. 搜索找到 `Omnibox on-focus suggestions for the contextual Web`，并设置为【Enabled】
+1. 根据提示 relaunch 浏览器
+1. 浏览器重启后，在地址栏右键，弹出菜单中点击 总是显示完整网址
+
+特别注意：修改配置重启是不会生效的，需要点击地址栏选择显示完整网址才会生效
 
 ## 插件
 
@@ -26,3 +29,9 @@
     [allow-control-allow-origi](https://chrome.google.com/webstore/detail/allow-control-allow-origi/nlfbmbojpeacfghkpbjhddihlkkiljbi?hl=zh-CN)
 
     [Moesif Origin & CORS Changer](https://chrome.google.com/webstore/detail/moesif-origin-cors-change/digfbfaphojjndkpccljibejjbppifbc?hl=zh-CN)
+
+## 历史版本下载
+
+- [upToDown.com](https://google-chrome.en.uptodown.com/windows/versions)
+
+从 88 版本开始，已经移除了对 flash 的支持，用插件也不行，87.0.4280.141，是最后一个版本支持flash的版本
