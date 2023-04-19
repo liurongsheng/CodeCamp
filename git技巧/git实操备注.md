@@ -92,29 +92,27 @@ revert 会生成一条新的提交记录，这时会让你编辑提交信息，�
 
 ### GitHub额外教程
 
-在 GitHub 上，直接修改 URL 就可以让用户以多种形式查看差别。
+在 GitHub 上，直接修改 URL 就可以让用户以多种形式查看差别
 
 1. 查看 4-0-stable 分支与 3-2-stable 分支之间的差别
-https://github.com/rails/rails/compare/4-0-stable...3-2-stable
+<https://github.com/rails/rails/compare/4-0-stable...3-2-stable>
 
-2. 查看与几天前的差别
-https://github.com/rails/rails/compare/master@{7.day.ago}...master
+1. 查看与几天前的差别
+<https://github.com/rails/rails/compare/master@{7.day.ago}...master>
 
-3. 查看与指定日期之间的差别，查看 master 分支2013年1月1日与现在的区别
-https://github.com/rails/rails/compare/master@{2013-01-01}...master
+1. 查看与指定日期之间的差别，查看 master 分支2013年1月1日与现在的区别
+<https://github.com/rails/rails/compare/master@{2013-01-01}...master>
 
-4. 获取 diff 格式的文件，只要像下面这样在 URL 末尾
-添加 .diff 即可。
-https://github.com/用户名/仓库名/pull/28.diff
-同 理， 想 要 patch 格 式 的 文 件， 只 需 要 在 URL 末 尾 添
-加 .patch 即可。
-https://github.com/用户名/仓库名/pull/28.patch
+1. 获取 diff 格式的文件，只要像下面这样在 URL 末尾添加 .diff 即可
+<https://github.com/用户名/仓库名/pull/28.diff>
+同理， 想要 patch 格式的文件， 只需要在 URL 末尾添加 .patch 即可
+<https://github.com/用户名/仓库名/pull/28.patch>
 
 ### 线上文档
 
-http://git-scm.com/book/zh/v2
+<http://git-scm.com/book/zh/v2>
 
-https://learngitbranching.js.org/?demo=&locale=zh_CN
+<https://learngitbranching.js.org/?demo=&locale=zh_CN>
 
 ### 名词备注
 
