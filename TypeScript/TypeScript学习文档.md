@@ -1,5 +1,7 @@
 # TypeScript学习文档
 
+[规则配置](https://www.typescriptlang.org/tsconfig)
+
 [type 和 interface的区别](https://www.typescriptlang.org/docs/handbook/2/everyday-types.html#differences-between-type-aliases-and-interfaces)
 
 tslint 中有一条规则：当两者皆可的时候，要优先使用 interface。所以在 tslint 改规则之前，就优先使用 interface
