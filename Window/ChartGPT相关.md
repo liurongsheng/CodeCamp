@@ -4,6 +4,8 @@
 
 - 短信注册平台：<https://sms-activate.org/getNumber>
 
+- 短信注册平台2：[https://www.receivesms.io/]
+
 [模型](https://platform.openai.com/docs/models)
 
 ## new Bing

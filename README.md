@@ -79,7 +79,7 @@
 1. [thenounproject](https://thenounproject.com/)
 1. [iconfinder](https://www.iconfinder.com/)
 1. [图表工具库](https://www.tremor.so/components)
-1. [hellowindows](https://hellowindows.cn/)
+1. [helloWindows](https://hellowindows.cn/)
 
 ## 导航
 

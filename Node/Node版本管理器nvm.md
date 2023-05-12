@@ -2,6 +2,8 @@
 
 nvm 是 Node.js 的版本管理器 (version manager)，可在同一台主机上安裝多个版本的 Node.js 环境，通过一个版本管理器来切换不同的 Node.js 版本
 
+[nvm-windows](https://github.com/coreybutler/nvm-windows/releases)
+
 - `npm i -g nvm` // 全局安装 nvm
 - `nvm list available` // 查看可安装的 node 版本
 - `nvm list` // 查看已经按照的 node 版本
