@@ -9,3 +9,4 @@ out
 gen
 /.vscode/*
 !.vscode/settings.json
+!.vscode/cspell.json
