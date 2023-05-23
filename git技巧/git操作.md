@@ -127,7 +127,7 @@ git log -1 -p     // p 参数显示修改的具体文件内容
 ### 差异比较
 
 推荐工具：[Sourcetree](https://www.sourcetreeapp.com)
-推荐工具：[TortoiseGitMegar](https://tortoisesvn.net/downloads.html)
+推荐工具：[TortoiseSVN](https://tortoisesvn.net/downloads.html)
 
 工作区 <- git diff -> 缓存区 <- git diff --cached -> 版本库
 工作区 <- git diff HEAD -> 版本库

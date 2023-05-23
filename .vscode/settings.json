@@ -22,6 +22,7 @@
     ".git",                // Ignore the .git directory
     "*.dll",               // Ignore all .dll files.
     "**/*.dll",             // Ignore all .dll files
-    "cURL.md"
+    "cURL.md",
+    "Mac常用软件.md"
   ],
 }

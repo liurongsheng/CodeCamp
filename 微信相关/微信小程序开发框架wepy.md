@@ -1,15 +1,18 @@
 # 开发框架 wepy
 
 ## 框架安装
-```console
+
+```js
 npm install wepy-cli -g
-wepy init standard myproject
-cd myproject
+wepy init standard work
+cd work
 npm install
 wepy build --watch
 ```
+
 ## 目录结构
-```
+
+```js
 ├── dist                   小程序运行代码目录（该目录由WePY的build指令自动编译生成，请不要直接修改该目录下的文件）
 ├── node_modules           
 ├── src                    代码编写的目录（该目录为使用WePY后的开发目录）
@@ -23,22 +26,13 @@ wepy build --watch
 └── package.json           项目的package配置 
 ```
 
-## 语法高亮
-WebStorm/PhpStorm
-1. 打开Settings，搜索Plugins，搜索Vue.js插件并安装。
-2. 打开Settings，搜索File Types，找到Vue.js Template，在Registered Patterns添加*.wpy，即可高亮。
+## 微信账号体系
 
-Sublime
-1. 打开Sublime->Preferences->Browse Packages..进入用户包文件夹。
-2. 在此文件夹下打开cmd，运行git clone git@github.com:vuejs/vue-syntax-highlight.git，无GIT用户可以直接下载zip包解压至当前文件夹。
-3. 关闭.wpy文件重新打开即可高亮
+- 小程序名称
+- 原始ID
 
-VS Code
-1. 在 Code 里先安装 Vue 的语法高亮插件 Vetur。
-2. 打开任意 .wpy 文件。
-3. 点击右下角的选择语言模式，默认为纯文本。
-4. 在弹出的窗口中选择 .wpy 的配置文件关联...。
-5. 在选择要与 .wpy 关联的语言模式 中选择 Vue。
-6. 在VS Code编辑器设置中设置。 //文件-首选项-设置-settings.json settings.json "files.associations": { "*.wpy": "vue" 
+微信小程序/公众号/开放平台账号长时间不用被冻结，想再次使用找回时需要原始ID，原始ID已忘记
 
-## 
+- 打开用于开发小程序/公众号/开放平台的微信，搜索公众平台安全助手
+- 进入公众平台安全助手，选择绑定查询，可以根据微信号/手机号/身份证号进行绑定查询
+- 选择微信号绑定查询，可以查询绑定的小程序/公众号/开放平台账号

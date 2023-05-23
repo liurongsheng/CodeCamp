@@ -142,10 +142,11 @@ revert 会生成一条新的提交记录，这时会让你编辑提交信息，�
 - git clone——获取远程仓库
 - git pull——获取最新的远程仓库分支
 - 管理 Issue 的系统称为 BTS(Bug Tracking System，BUG 跟踪系统)。
-- 代表性的 BTS 有 RedmineA、TracB、  Bugzilla
-- http://www.redmine.org/
-  http://trac.edgewall.org/
-  http://www.bugzilla.org/
+- 代表性的 BTS 有 RedmineA、TracB、Bugzilla
+- `http://www.redmine.org/` `http://trac.edgewall.org/` `http://www.bugzilla.org/`
+
+- git gc, 用于清理不必要的文件和优化本地存储库的命令
+- git prune, 用于清理孤立或无法访问的Git对象的命令
 
 ## 本月要做的任务
 
