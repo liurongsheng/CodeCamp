@@ -160,3 +160,8 @@ Quokka 是一个调试工具插件，能够根据你正在编写的代码提供�
     "editor.minimap.enabled": false
   }
 ```
+
+## VSCode 切换默认终端(cmd、powershell)
+
+- `ctrl + shift + p` 打开命令面板，输入`select`，选中 `终端：选择默认配置文件`("Terminal:Select Default Profile")
+- 配置文件 "terminal.integrated.defaultProfile.windows": "Command Prompt"
