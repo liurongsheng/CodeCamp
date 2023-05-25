@@ -420,6 +420,10 @@ pull = fetch + merge
 git pull [remote-name] [branch]
 例：git pull origin master
 
+git fetch 和 git pull 都用于从远程仓库下载新数据。git fetch 只下载新数据，但不会将其集成到您的工作文件中。git fetch 非常适合了解远程仓库中发生的所有事情
+
+相比之下，git pull 的目标是更新您当前的 HEAD 分支，以便与远程服务器上的最新更改保持一致。这意味着 pull 不仅下载新数据；它还直接将其集成到您当前的工作副本文件中
+
 ### 切换分支
 
 - git checkout [branch-name] // 切换到一个分支
