@@ -9,6 +9,7 @@
 
 1. [前端早早聊](https://www.zaozao.run/book/finance) 书籍、大会录播
 2. [大厂前端团队](https://www.yuque.com/zaotalk/fe-teams)
+3. [go学习路线](https://github.com/xitu/developer-roadmap)
 
 ## MOOC平台
 
