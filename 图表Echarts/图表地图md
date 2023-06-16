@@ -1,0 +1,6 @@
+# 图表
+
+中国地图使用的 `JSON` 数据源，[高德地图](http://datav.aliyun.com/portal/school/atlas/area_selector?spm=a2crr.23498931.0.0.f67415ddoxVxdR)
+
+使用中国地图的时候需要注册，这个时候中国地图的注册名一定要使用 'china' , 如果有使用比如 'China' 会导致缩略图不出现的情况
+
