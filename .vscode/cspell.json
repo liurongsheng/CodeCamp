@@ -9,6 +9,7 @@
     "autogpt",
     "CLRTC",
     "CMOS",
+    "concat",
     "dalle",
     "ELEVENLABS",
     "excalidraw",
@@ -38,6 +39,7 @@
     "Toran",
     "uniapp",
     "unminify",
+    "unshift",
     "wepy",
     "wxml",
     "wxss"
