@@ -3,7 +3,7 @@
 资源推荐网站：
 
 1. 黑苹果乐园 `https://imac.hk`
-1. 爱情守望者 `https://www.waitsun.com`
+1. 麦氪派 `https://www.waitsun.com/topics/os`
 1. 玩儿法 `https://www.waerfa.com/category/download`
 1. 云谦装了啥 `https://juejin.im/post/5c9446e36fb9a071082f5118`
 
