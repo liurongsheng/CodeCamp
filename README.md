@@ -122,3 +122,9 @@
 
 1. [音范丝](https://www.yinfans.me/movie/34350)
 1. [蓝光原盘基地](https://www.bdiso.net/)
+
+## 国家标准
+
+1. [国家标准全文公开系统](https://openstd.samr.gov.cn/bzgk/gb/)
+1. [全国标准信息公共服务平台](https://std.samr.gov.cn/gb/gbQuery)
+1. [标准全球搜](http://www.bz52.com/app/home/index)
