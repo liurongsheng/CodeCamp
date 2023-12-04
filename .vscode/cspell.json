@@ -6,6 +6,7 @@
   "language": "en",
   // words - list of words to be always considered correct
   "words": [
+    "alist",
     "Aptio",
     "autogpt",
     "CLASSPATH",
@@ -45,13 +46,16 @@
     "Switchy",
     "Tampermonkey",
     "tarojs",
+    "taskkill",
     "thenounproject",
     "Toran",
     "UEFI",
     "uniapp",
     "unminify",
     "unshift",
+    "vbhide",
     "wepy",
+    "Wscript",
     "wxml",
     "wxss"
   ],
