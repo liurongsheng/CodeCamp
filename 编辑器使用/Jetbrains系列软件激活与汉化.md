@@ -25,6 +25,16 @@ ide-eval-resetter 支持 2021.3 之前的版本自动重置激活，最优解 20
 下载安装后，选择试用版本，进入编译器后
 直接使用 jetbrains-agent.jar 拖到 ide 窗口激活
 
+---
+2024.03.05 更新激活方法
+
+激活 pycharm-professional-2023.3.4 系列
+
+- 解压 Jetbrains系列软件激活.zip
+- 点击运行解压后的 `安装.bat `
+- 选择【Activation code】激活方式
+- 将 `激活码.txt` 拖到软件界面完成激活
+
 ## 汉化
 
 现有版本使用插件汉化
