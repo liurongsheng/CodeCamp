@@ -24,7 +24,7 @@ ssh-keygen
 ```shell
 git config --global user.name "名字" // 全局
 git config --global user.email "邮箱" // 全局
-git config user.name "名字" 
+git config user.name "名字"
 git config user.email "邮箱"
 ```
 
@@ -39,7 +39,7 @@ git config user.email
 
 ### 添加和提交文件
 
-git分为三个区
+git 分为三个区
 
 - 工作区 Working Directory
 - 缓存区(暂存区) Stage(index)
@@ -47,7 +47,7 @@ git分为三个区
 
 工作区 git add --> 缓存区 --> git commit 版本库
 
-git文件的三种状态
+git 文件的三种状态
 
 - 已修改 modified
 - 已暂存 staged
@@ -68,7 +68,7 @@ git status -u // 携带参数 -u 可显示未跟踪文件，文件级别的变�
 
 - 以 # 号开头为注释
 - 以斜杠“/”开头表示目录
-- 以星号“*”通配多个字符
+- 以星号“\*”通配多个字符
 - 以问号“？”通配单个字符
 - 以方括号“【】”包含单个字符的匹配列表
 - 以叹号“！”表示不忽略（跟踪）匹配到的文件或目录
@@ -121,7 +121,7 @@ git log -1 -p     // p 参数显示修改的具体文件内容
 ```
 
 - gitk // git log 的图形化界面
-- master 分支，master可以理解为一个指针，指向最新的提交
+- master 分支，master 可以理解为一个指针，指向最新的提交
 - HEAD 标签，指向当前的分支
 
 ### 差异比较
@@ -146,7 +146,7 @@ git diff d // 查看工作区和缓存区 d 文件的区别
 - git checkout . // 重置当前的工作区，内容版本为缓存区的版本
 - git checkout HEAD . // 重置当前的工作区和缓存区，内容版本为版本库的版本，特别注意缓存区也会被重置
 - git checkout 还有其他参数 比如 -m, --merge
-使用 git checkout -help 查看具体指令
+  使用 git checkout -help 查看具体指令
 
 ### 分支操作
 
@@ -339,7 +339,7 @@ ed7d77c (dev) change on dev
 ```shell
 C:\gitHub\init>git stash list
 stash@{0}: WIP on master: 99670d1 merge dev
-// WIP, Work In Progess的简称，说明代表了工作区进度。 
+// WIP, Work In Progess的简称，说明代表了工作区进度。
 // Index, 代表的是已经被 add 但是还未被提交的进度。
 ```
 
@@ -347,9 +347,9 @@ stash@{0}: WIP on master: 99670d1 merge dev
 
 - git stash apply 来取出暂存
 - git stash apply stash@{X} //取出相应的序列的暂存
-- git stash pop  //取出最近一次暂存并删除记录列表中对应记录
+- git stash pop //取出最近一次暂存并删除记录列表中对应记录
 - git stash drop stash@{X} //将记录列表中取出的对应暂存记录删除
-- git stash clear 清空stash队列
+- git stash clear 清空 stash 队列
 
 ### 获取远程仓库
 
@@ -437,24 +437,25 @@ git fetch 和 git pull 都用于从远程仓库下载新数据。git fetch 只�
 提交 git push
 主干包含所有的功能最新的代码，分支是开发新功能的具体代码，测试没有问题后提交到主干
 
-### 与 github 建立ssh通信，让 git 操作免去输入密码的繁琐
+### 与 github 建立 ssh 通信，让 git 操作免去输入密码的繁琐
 
-首先呢，我们先建立ssh密匙。
-> ssh key must begin with 'ssh-ed25519', 'ssh-rsa', 'ssh-dss', 'ecdsa-sha2-nistp256', 'ecdsa-sha2-nistp384', or 'ecdsa-sha2-nistp521'.  -- from github
+首先呢，我们先建立 ssh 密匙。
 
-根据以上文段我们可以知道github所支持的ssh密匙类型，这里我们创建ssh-rsa密匙。
-在command line 中输入以下指令:``ssh-keygen -t rsa``去创建一个ssh-rsa密匙。
-如果你并不需要为你的密匙创建密码和修改名字，那么就一路回车就OK，
+> ssh key must begin with 'ssh-ed25519', 'ssh-rsa', 'ssh-dss', 'ecdsa-sha2-nistp256', 'ecdsa-sha2-nistp384', or 'ecdsa-sha2-nistp521'. -- from github
 
->$ ssh-keygen -t rsa
+根据以上文段我们可以知道 github 所支持的 ssh 密匙类型，这里我们创建 ssh-rsa 密匙。
+在 command line 中输入以下指令:`ssh-keygen -t rsa`去创建一个 ssh-rsa 密匙。
+如果你并不需要为你的密匙创建密码和修改名字，那么就一路回车就 OK，
+
+> $ ssh-keygen -t rsa
 
 Generating public/private rsa key pair.
-//您可以根据括号中的路径来判断你的.ssh文件放在了什么地方
+//您可以根据括号中的路径来判断你的.ssh 文件放在了什么地方
 Enter file in which to save the key (/c/Users/Liang Guan Quan/.ssh/id_rsa):
 
-*到 <https://github.com/settings/keys> 这个地址中去添加一个新的 SSH key，然后把你的 xx.pub 文件下的内容文本都复制到 Key 文本域中，然后就可以提交了*
+_到 <https://github.com/settings/keys> 这个地址中去添加一个新的 SSH key，然后把你的 xx.pub 文件下的内容文本都复制到 Key 文本域中，然后就可以提交了_
 
-*添加完成之后 我们用``ssh git@github.com`` 命令来连通一下github，如果你在 response 里面看到了你 github 账号名，那么就说明配置成功了*
+_添加完成之后 我们用`ssh git@github.com` 命令来连通一下 github，如果你在 response 里面看到了你 github 账号名，那么就说明配置成功了_
 
 在项目中初始化项目 git init
 
@@ -466,8 +467,8 @@ git push origin master:master
 git checkout -b newBranch 创建分支
 ```
 
-如果是在gitHub上创建了项目，这个时候没有文件。在本地初始化后打算提交到 gitHub，
-由于版本冲突不能push成功，使用`git push -f` 可以强推成功，但是 gitHub 上的初始化文件会消失，比如 README.md 文件
+如果是在 gitHub 上创建了项目，这个时候没有文件。在本地初始化后打算提交到 gitHub，
+由于版本冲突不能 push 成功，使用`git push -f` 可以强推成功，但是 gitHub 上的初始化文件会消失，比如 README.md 文件
 
 ## git 高级操作
 
@@ -475,8 +476,8 @@ git checkout -b newBranch 创建分支
 
 都是从库里获取数据，不同之处在于
 
-- Pull 会获取远程修改并且与本地库合并
-- Fetch 仅仅获取远程数据，而不执行合并操作
+- git fetch 是将远程主机的最新内容拉到本地，用户在检查了以后决定是否合并到工作本
+- git pull 则是将远程主机的最新内容拉下来后直接合并，git pull=git fetch + git merge ，这样可能会产生冲突，需要手动解决
 
 因此比较起来还是用 Fetch 更加安全点
 
@@ -485,7 +486,7 @@ git checkout -b newBranch 创建分支
 在 git 中整合来自不同分支的修改主要有两种方法：merge 以及 rebase。
 在本节中我们将学习什么是“变基”怎样使用”变基“，并将展示该操作的惊艳之处，以及指出在何种情况下你应避免使用它。
 
-整合分支最容易的方法是 merge 命令。它会把两个分支的最新快照（C3和C4）以及二者最近的共同祖先（C2）进行三方合并，合并的结果是生成一个新的快照（C5）（并提交）。
+整合分支最容易的方法是 merge 命令。它会把两个分支的最新快照（C3 和 C4）以及二者最近的共同祖先（C2）进行三方合并，合并的结果是生成一个新的快照（C5）（并提交）。
 
 整合分支还有一种方法：你可以提取在 C4 中引入的补丁和修改，然后在 C3 的基础上应用一次。在 git 中，这种操作就叫做变基。你可以使用 rebase 命令将提交到
 某一分支上的所有修改都移至另-分支上，就好像“重新播放“一样。
@@ -496,7 +497,7 @@ git checkout -b newBranch 创建分支
 
 ### 单选
 
-Git属于哪种类型的版本控制软件？
+Git 属于哪种类型的版本控制软件？
 
 - C. 分布式
 
@@ -508,7 +509,7 @@ Git属于哪种类型的版本控制软件？
 
 - A. 执行 git status 查看状态，再执行 git add 命令选择要提交的文件，然后提交
 
-如果把项目中文件 Analytics.java的内容破坏了，如何使其还原至原始版本?
+如果把项目中文件 Analytics.java 的内容破坏了，如何使其还原至原始版本?
 
 - B. git checkout HEAD -- Analytics.java
 
@@ -520,15 +521,15 @@ Git属于哪种类型的版本控制软件？
 
 - D. git add –u
 
-如何避免临时文件 abc.xx被添加到版本库中呢
+如何避免临时文件 abc.xx 被添加到版本库中呢
 
-- B. 向版本库中添加一个 .gitignore 文件，其中包含一条内容为 *.xx 的记录。
+- B. 向版本库中添加一个 .gitignore 文件，其中包含一条内容为 \*.xx 的记录。
 
-取消服务器版本库中ID为 a2387 的提交，而且不能引起历史提交的变更，用什么操作？
+取消服务器版本库中 ID 为 a2387 的提交，而且不能引起历史提交的变更，用什么操作？
 
 - C. git revert a2387
 
-从版本库中的历史提交中彻底移除ID为 a2387 的提交，需要怎么处理呢？（）
+从版本库中的历史提交中彻底移除 ID 为 a2387 的提交，需要怎么处理呢？（）
 
 - D. git rebase --onto a2387^ a2387 HEAD
 
@@ -538,13 +539,13 @@ Git属于哪种类型的版本控制软件？
 
 ### 多选
 
-Git客户端服务器通信支持以下哪种协议
+Git 客户端服务器通信支持以下哪种协议
 
 - A. SSH
 - B. HTTP
 - C. HTTPS
 
-在本地网络不可用的情况下，下面哪些Git操作可以执行
+在本地网络不可用的情况下，下面哪些 Git 操作可以执行
 
 - A. git add
 - C. git commit
@@ -556,14 +557,14 @@ Git客户端服务器通信支持以下哪种协议
 - C. git rebase -i HEAD^^
 - D. git commit –amend
 
-关于 git clone下面说法正确的是 ABCD
+关于 git clone 下面说法正确的是 ABCD
 
 - A. 为克隆的存储库中的每个分支创建远程跟踪分支，并从克隆检出的存储库作为当前活动分支的初始分支。
 - B. 可通过 git clone --single-branch 命令实现只克隆一个分支
 - C. 克隆出的工作区中执行 git log 、 git status、 git commit 等操作不会去访问远程版本库。
-- D. 克隆时只有远程版本库HEAD指向的分支被克隆。
+- D. 克隆时只有远程版本库 HEAD 指向的分支被克隆。
 
-下面哪几个情况会导致Git Push失败
+下面哪几个情况会导致 Git Push 失败
 
 - B. 没有设置相应的用户权限
 - C. 远程分支上有新的提交记录
@@ -573,20 +574,20 @@ Git客户端服务器通信支持以下哪种协议
 - A. 执行 git push origin :XX 来删除远程版本库的 XX 分支。
 - B. 执行 git branch -D XX 删除正在打开的分支。
 - C. 执行 git branch -d XX 删除已被终止的分支。
-- D. 本地删除的分支，执行git push 时，远程分支亦自动删除。
+- D. 本地删除的分支，执行 git push 时，远程分支亦自动删除。
 
-Git源代码管理基本原则 ABCD
+Git 源代码管理基本原则 ABCD
 
 - A. 不要提交自动生成的文件
-- B. 在相同分支，本地与远程都有修改的情况下，尽量用rebase，少用merge
+- B. 在相同分支，本地与远程都有修改的情况下，尽量用 rebase，少用 merge
 - C. 对提交的代码采用明晰的注释
 - D. 不要提交自己不明白的代码
 
 ### 判断
 
-1. 通过Git Commit提交代码之后，别人就可以看到我们的最新修改记录了? 0
+1. 通过 Git Commit 提交代码之后，别人就可以看到我们的最新修改记录了? 0
 1. 将有问题的代码推送到远程分支后，并合并到主分支后将无法回滚? 0
-1. Pull与Fetch都能将远程仓库的修改记录拉到本地仓库，他们的区别是Fetch会自动执行Merge操作? 0
-1. 在代码没有推送前，修改是不会影响到服务器的版本库。需要我们通过Push推送过去才行。 1
-1. 如果我们需要将将其他分支上的某一个修改移到当前分支，可以通过Cherry Pick来完成。 1
+1. Pull 与 Fetch 都能将远程仓库的修改记录拉到本地仓库，他们的区别是 Fetch 会自动执行 Merge 操作? 0
+1. 在代码没有推送前，修改是不会影响到服务器的版本库。需要我们通过 Push 推送过去才行。 1
+1. 如果我们需要将将其他分支上的某一个修改移到当前分支，可以通过 Cherry Pick 来完成。 1
 1. 备注（日志）有助于其他人（包括很长一段时间后的你自己）理解你对文件所做修改。 1

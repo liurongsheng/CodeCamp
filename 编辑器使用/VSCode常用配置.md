@@ -1,4 +1,4 @@
-# VSCode常用配置
+# VSCode 常用配置
 
 [市场地址](https://marketplace.visualstudio.com/search?target=VSCode&category=All%20categories&sortBy=Downloads)
 
@@ -10,7 +10,7 @@
 
 在插件的拓展配置中配置 `Code-runner: Default Language` 比如: `javascript`、`python`
 
-html使用chrome配置如下：
+html 使用 chrome 配置如下：
 
 `"html": "\"C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe\""`
 
@@ -54,7 +54,7 @@ REST 接口直接请求，支持 `.http` 格式的文件
 
 [JSON to TS](https://marketplace.visualstudio.com/items?itemName=MariusAlchimavicius.json-to-ts)
 
-JSON快速生成TS声明
+JSON 快速生成 TS 声明
 
 ## 规则校验和美化
 
@@ -62,6 +62,12 @@ JSON快速生成TS声明
 
 Prettier 是目前 Web 开发中最受欢迎的代码格式化程序。安装了这个插件，它就能够自动应用 Prettier，并将整个 JS 和 CSS 文档快速格式化为统一的代码样式。
 如果你还想使用 ESLint，那么还有个 Prettier – Eslint 插件，你可不要错过咯！
+
+设置保存自动使用 prettier 进行 formatter
+
+搜索 `format on save` ，`Editor: Format On Save` 勾选启用
+
+搜索 `formatter`，`Editor: Default Formatter` 设置为 `Prettier - Code formatter`
 
 ### [markdownlint](https://marketplace.visualstudio.com/items?itemName=DavidAnson.vscode-markdownlint)
 
@@ -93,7 +99,7 @@ MD33 markdownlint 插件进行代码分析，当使用了 html 标签时，插�
 }
 ```
 
-其中 "allowed_elements" 的列表中填入不想提出警告的 html 标签，保存修改后，markdownlint将不再对 "allowed_elements" 中的 html 标签提出警告
+其中 "allowed_elements" 的列表中填入不想提出警告的 html 标签，保存修改后，markdownlint 将不再对 "allowed_elements" 中的 html 标签提出警告
 
 ### [Code Spell Checker](https://marketplace.visualstudio.com/items?itemName=streetsidesoftware.code-spell-checker)
 
@@ -113,9 +119,9 @@ MD33 markdownlint 插件进行代码分析，当使用了 html 标签时，插�
 
 ### [open-in-browser](https://marketplace.visualstudio.com/items?itemName=coderfee.open-html-in-browser)
 
-VSCode 没有提供直接在浏览器中打开文件的内置界面，此插件可以在浏览器中预览html文件，firefox和google chrome＆IE
-打开一个html文件，Windows和Linux的键盘快捷键是Ctrl+ Alt+ O，对于MacOS是Cmd+ Alt+ O
-如果您想直接在默认浏览器中预览html，请输入Ctrl+ K D
+VSCode 没有提供直接在浏览器中打开文件的内置界面，此插件可以在浏览器中预览 html 文件，firefox 和 google chrome＆IE
+打开一个 html 文件，Windows 和 Linux 的键盘快捷键是 Ctrl+ Alt+ O，对于 MacOS 是 Cmd+ Alt+ O
+如果您想直接在默认浏览器中预览 html，请输入 Ctrl+ K D
 
 ## 主题
 
@@ -148,17 +154,17 @@ Quokka 是一个调试工具插件，能够根据你正在编写的代码提供�
 
 ```json
 {
-    "workbench.colorTheme": "Visual Studio Dark",
-    "files.associations": {
-        "*.template": "html",
-        "*.html": "html"
-    },
-    "editor.tabSize": 2,
-    "files.autoSave": "off",
-    "editor.detectIndentation": false,
-    "workbench.iconTheme": "vscode-great-icons",
-    "editor.minimap.enabled": false
-  }
+  "workbench.colorTheme": "Visual Studio Dark",
+  "files.associations": {
+    "*.template": "html",
+    "*.html": "html"
+  },
+  "editor.tabSize": 2,
+  "files.autoSave": "off",
+  "editor.detectIndentation": false,
+  "workbench.iconTheme": "vscode-great-icons",
+  "editor.minimap.enabled": false
+}
 ```
 
 ## VSCode 切换默认终端(cmd、powershell)
