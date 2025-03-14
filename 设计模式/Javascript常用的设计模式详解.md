@@ -9,10 +9,11 @@
     9.Javascript中理解发布--订阅模式
     10.理解中介者模式
 ---
+
 ### 1.理解工厂模式
 
 工厂模式类似于现实生活中的工厂可以产生大量相似的商品，去做同样的事情，实现同样的效果;这时候需要使用工厂模式。
-简单的工厂模式可以理解为解决多个相似的问题;这也是她的优点;比如如下代码： 
+简单的工厂模式可以理解为解决多个相似的问题;这也是她的优点;比如如下代码：
 
     function CreatePerson(name,age,sex) {
         var obj = new Object();
@@ -40,7 +41,6 @@
     console.log(typeof p1);  // object
     console.log(typeof p2);  // object
     console.log(p1 instanceof Object); // true
-
 
 如上代码：函数CreatePerson能接受三个参数name,age,sex等参数，可以无数次调用这个函数，
 每次返回都会包含三个属性和一个方法的对象。工厂模式是为了解决多个类似对象声明的问题;
@@ -84,7 +84,7 @@
 调用父类中的这个createBicycle方法,会抛出一个error，因为父类是一个抽象类，他不能被实列化，
 只能通过子类来实现这个方法，实现自己的业务逻辑，下面我们来定义子类，
 我们学会如何使用工厂模式重新编写这个方法，首先我们需要继承父类中的成员，然后编写子类;如下代码：
-    
+
         // 定义自行车的构造函数
     var BicycleShop = function(name){
         this.name = name;
@@ -171,7 +171,6 @@
 
 第二：重复性的代码可以放在父类去编写，子类继承于父类的所有成员属性和方法，子类只专注于实现自己的业务逻辑。
 
-
 ### 2.理解单体模式
 
 单体模式提供了一种将代码组织为一个逻辑单元的手段，这个逻辑单元中的代码可以通过单一变量进行访问。
@@ -214,7 +213,7 @@
 否则的话，直接返回已经被实例化的对象。
 
 如下代码是单体模式的基本结构：
-    
+
     // 单体模式
     var Singleton = function(name){
         this.name = name;
@@ -243,7 +242,7 @@ console.log(a.getName());// aa
 console.log(b.getName());// aa
 
 上面的封装单体模式也可以改成如下结构写法：
-    
+
     // 单体模式
     var Singleton = function(name){
         this.name = name;
@@ -276,9 +275,9 @@ console.log(b.getName());// aa
 而现在我只需要这个函数只负责创建div元素，其他的它不想管，也就是想实现单一职责原则，
 就好比淘宝的kissy一样，一开始的时候他们定义kissy只做一件事，并且把这件事做好，
 具体的单体模式中的实例化类的事情交给代理函数去处理，这样做的好处是具体的业务逻辑分开了，
-代理只管代理的业务逻辑，在这里代理的作用是实例化对象，并且只实例化一次; 
+代理只管代理的业务逻辑，在这里代理的作用是实例化对象，并且只实例化一次;
 创建div代码只管创建div，其他的不管；如下代码：
-    
+
     // 单体模式
     var CreateDiv = function(html) {
         this.html = html;
@@ -307,7 +306,7 @@ console.log(b.getName());// aa
 下面我们继续来使用单体模式来实现一个弹窗的demo；我们先不讨论使用单体模式来实现，
 我们想下我们平时是怎么编写代码来实现弹窗效果的; 比如我们有一个弹窗，默认的情况下肯定是隐藏的，
 当我点击的时候，它需要显示出来；如下编写代码：
-    
+
     // 实现弹窗
     var createWindow = function(){
         var div = document.createElement("div");
@@ -326,7 +325,7 @@ console.log(b.getName());// aa
 虽然当我们点击关闭的时候可以移除弹出代码，但是呢我们频繁的创建和删除并不好，
 特别对于性能会有很大的影响，对DOM频繁的操作会引起重绘等，从而影响性能；因此这是非常不好的习惯；
 我们现在可以使用单体模式来实现弹窗效果，我们只实例化一次就可以了。如下代码：
-    
+
     // 实现单体模式弹窗
     var createWindow = (function(){
         var div;
@@ -349,7 +348,7 @@ console.log(b.getName());// aa
 
 上面的弹窗的代码虽然完成了使用单体模式创建弹窗效果，但是代码并不通用，比如上面是完成弹窗的代码，
 假如我们以后需要在页面中一个iframe呢？我们是不是需要重新写一套创建iframe的代码呢？比如如下创建iframe：
-    
+
     var createIframe = (function(){
         var iframe;
         return function(){
@@ -363,7 +362,7 @@ console.log(b.getName());// aa
     })();
 我们看到如上代码，创建div的代码和创建iframe代码很类似，我们现在可以考虑把通用的代码分离出来，
 使代码变成完全抽象，我们现在可以编写一套代码封装在getInstance函数内，如下代码：
-    
+
     var getInstance = function(fn) {
         var result;
         return function(){
@@ -376,7 +375,7 @@ console.log(b.getName());// aa
 总之如果是这种的话，都可以使用getInstance来获取他们的实例对象；
 
 如下测试创建iframe和创建div的代码如下：
-    
+
     // 创建div
     var createWindow = function(){
         var div = document.createElement("div");
@@ -411,11 +410,10 @@ console.log(b.getName());// aa
         win.src = "http://cnblogs.com";
     };
 
-
 ### 3.理解模块模式
 
 我们通过单体模式理解了是以对象字面量的方式来创建单体模式的；比如如下的对象字面量的方式代码如下：
-    
+
     var singleMode = {
         name: value,
         method: function(){
@@ -423,7 +421,7 @@ console.log(b.getName());// aa
         }
     };
 模块模式的思路是为单体模式添加私有变量和私有方法能够减少全局变量的使用；如下就是一个模块模式的代码结构：
-    
+
     var singleMode = (function(){
         // 创建私有变量
         var privateNum = 112;
@@ -452,7 +450,7 @@ console.log(b.getName());// aa
 
 增强的模块模式的使用场合是：适合那些单列必须是某种类型的实例，同时还必须添加某些属性或方法
 对其加以增强的情况。比如如下代码：
-     
+
     function CustomType() {
         this.name = "tugenhua";
     };
@@ -478,11 +476,11 @@ console.log(b.getName());// aa
         return object;
     })();
 下面我们来打印下application该对象；如下：
-    
+
     console.log(application);
     
 继续打印该公有属性和方法如下：
-    
+
     console.log(application.A);// aa
     console.log(application.B()); // aa
     console.log(application.name); // tugenhua
@@ -500,7 +498,7 @@ console.log(b.getName());// aa
 我们先来理解代理对象代替本体对象被实例化的列子；比如现在京东ceo想送给奶茶妹一个礼物，
 但是呢假如该ceo不好意思送，或者由于工作忙没有时间送，那么这个时候他就想委托他的经纪人去做这件事，
 于是我们可以使用代理模式来编写如下代码：
-    
+
     // 先申明一个奶茶妹对象
     var TeaAndMilkGirl = function(name) {
         this.name = name;
@@ -549,7 +547,7 @@ console.log(b.getName());// aa
 下面我们先不用代理模式来实现图片的预加载的情况下代码如下：
 
 第一种方案：不使用代理的预加载图片函数如下
-    
+
     // 不使用代理的预加载图片函数如下
     var myImage = (function(){
         var imgNode = document.createElement("img");
@@ -570,7 +568,7 @@ console.log(b.getName());// aa
 如上代码是不使用代理模式来实现的代码；
 
 第二种方案：使用代理模式来编写预加载图片的代码如下：
-    
+
     var myImage = (function(){
         var imgNode = document.createElement("img");
         document.body.appendChild(imgNode);
@@ -609,7 +607,7 @@ var myImage = (function(){
     var imgNode = document.createElement("img");
     document.body.appendChild(imgNode);
     return function(src){
-        imgNode.src = src; 
+        imgNode.src = src;
     }
 })();
 // 代理模式
@@ -619,12 +617,12 @@ var ProxyImage = (function(){
         myImage(this.src);
     };
     return function(src) {
-                myImage("http://img.lanrentuku.com/img/allimg/1212/5-121204193Q9-50.gif");
+                myImage("<http://img.lanrentuku.com/img/allimg/1212/5-121204193Q9-50.gif>");
         img.src = src;
     }
 })();
 // 调用方式
-ProxyImage("https://img.alicdn.com/tps/i4/TB1b_neLXXXXXcoXFXXc8PZ9XXX-130-200.png");
+ProxyImage("<https://img.alicdn.com/tps/i4/TB1b_neLXXXXXcoXFXXc8PZ9XXX-130-200.png>");
 虚拟代理合并http请求的理解：
 
    比如在做后端系统中，有表格数据，每一条数据前面有复选框按钮，当点击复选框按钮时候，需要获取该id后需要传递给给服务器发送ajax请求，服务器端需要记录这条数据，去请求，如果我们每当点击一下向服务器发送一个http请求的话，对于服务器来说压力比较大，网络请求比较频繁，但是如果现在该系统的实时数据不是很高的话，我们可以通过一个代理函数收集一段时间内(比如说2-3秒)的所有id，一次性发ajax请求给服务器，相对来说网络请求降低了, 服务器压力减少了;
@@ -750,7 +748,6 @@ console.log(proxyMult(1,2,3,4)); // 缓存取 24
 var proxyPlus = proxyFunc(plus);
 console.log(proxyPlus(1,2,3,4));  // 10
 console.log(proxyPlus(1,2,3,4));  // 缓存取 10
-
 
 ### 5.理解职责链模式
 
@@ -903,7 +900,7 @@ chainOrder200.setNextSuccessor(chainOrderNormal);
 //最后把请求传递给第一个节点：
 chainOrder500.passRequest(1,true,500);  // 亲爱的用户，您中奖了100元红包了
 chainOrder500.passRequest(2,true,500);  // 亲爱的用户，您中奖了20元红包了
-chainOrder500.passRequest(3,true,500);  // 亲爱的用户，您已抽到10元优惠卷 
+chainOrder500.passRequest(3,true,500);  // 亲爱的用户，您已抽到10元优惠卷
 chainOrder500.passRequest(1,false,0);   // 亲爱的用户，请再接再厉哦
 如上代码;分别编写order500，order200，orderNormal三个函数，在函数内分别处理自己的业务逻辑，如果自己的函数不能处理的话，就返回字符串nextSuccessor 往后面传递，然后封装Chain这个构造函数，传递一个fn这个对象实列进来，且有自己的一个属性successor，原型上有2个方法 setNextSuccessor 和 passRequest;setNextSuccessor 这个方法是指定节点在职责链中的顺序的，把相对应的方法保存到this.successor这个属性上，chainOrder500.setNextSuccessor(chainOrder200);chainOrder200.setNextSuccessor(chainOrderNormal);指定链中的顺序，因此this.successor引用了order200这个方法和orderNormal这个方法，因此第一次chainOrder500.passRequest(1,true,500)调用的话，调用order500这个方法，直接输出，第二次调用chainOrder500.passRequest(2,true,500);这个方法从链中首节点order500开始不符合，就返回successor字符串，然后this.successor && this.successor.passRequest.apply(this.successor,arguments);就执行这句代码；上面我们说过this.successor这个属性引用了2个方法 分别为order200和orderNormal，因此调用order200该方法，所以就返回了值，依次类推都是这个原理。那如果以后我们想充值300元的红包的话，我们可以编写order300这个函数，然后实列一下链chain包装起来，指定一下职责链中的顺序即可，里面的业务逻辑不需要做任何处理;
 
@@ -998,7 +995,7 @@ JS代码如下：
 var b1 = document.getElementById("button1"),
      b2 = document.getElementById("button2"),
      b3 = document.getElementById("button3");
-     
+
  // 定义setCommand 函数，该函数负责往按钮上面安装命令。点击按钮后会执行command对象的execute()方法。
  var setCommand = function(button,command){
     button.onclick = function(){
@@ -1044,7 +1041,7 @@ var b1 = document.getElementById("button1"),
  var refershBtn = new RefreshMenuBarCommand(MenuBar);
  var addBtn = new AddSubMenuCommand(SubMenu);
  var delBtn = new DelSubMenuCommand(SubMenu);
- 
+
  setCommand(b1,refershBtn);
  setCommand(b2,addBtn);
  setCommand(b3,delBtn);
@@ -1056,7 +1053,7 @@ var setCommand = function(button,func) {
     button.onclick = function(){
         func();
     }
- }; 
+ };
  var MenuBar = {
     refersh: function(){
         alert("刷新菜单界面");
@@ -1070,20 +1067,20 @@ var setCommand = function(button,func) {
  // 刷新菜单
  var RefreshMenuBarCommand = function(receiver) {
     return function(){
-        receiver.refersh();    
+        receiver.refersh();
     };
  };
  // 增加菜单
  var AddSubMenuCommand = function(receiver) {
     return function(){
-        receiver.add();    
+        receiver.add();
     };
  };
  var refershMenuBarCommand = RefreshMenuBarCommand(MenuBar);
  // 增加菜单
  var addSubMenuCommand = AddSubMenuCommand(SubMenu);
  setCommand(b1,refershMenuBarCommand);
- 
+
  setCommand(b2,addSubMenuCommand);
 我们还可以如下使用javascript回调函数如下编码：
 
@@ -1105,7 +1102,7 @@ var bindEnv = function(button,func) {
 var Todo1 = {
     test1: function(){
         alert("我是来做第一个测试的");
-    }    
+    }
 };
 // 实现业务中的增删改操作
 var Menu = {
@@ -1141,7 +1138,7 @@ var command1 = {
     execute: function(){
         console.log(1);
     }
-}; 
+};
 var command2 = {
     execute: function(){
         console.log(2);
@@ -1175,7 +1172,6 @@ c.add(command2);
 c.add(command3);
 c.execute();  // 1,2,3
 
-
 ### 7.模板方法模式
 
 模板方法模式由二部分组成，第一部分是抽象父类，第二部分是具体实现的子类，
@@ -1199,7 +1195,7 @@ c.execute();  // 1,2,3
 2. 技术面试(一般情况下分为二轮)：
 第一轮面试你的有可能是你未来直接主管或者未来同事问你前端的一些专业方面的技能及以前做过的项目，
 在项目中遇到哪些问题及当时是如何解决问题的，还有根据你的简历上的基本信息来交流的，
-比如说你简历说精通JS，那么人家肯定得问哦~ 
+比如说你简历说精通JS，那么人家肯定得问哦~
 第二轮面试一般都是公司的牛人或者架构师来问的，比如问你计算机基本原理，或者问一些数据结构与算法等信息；
 第二轮面试可能会更深入的去了解你这个人的技术。
 
@@ -1239,14 +1235,14 @@ var BaiDuInterview = function(){};
     }; 
 
 3.  HR和总监或者总经理面试，我们可以称之为leader面试；代码如下：
-    
+
     // 领导面试
     BaiDuInterview.prototype.leader = function(){
         console.log("百度leader来面试了");
     };
 
 4. 和HR谈期望的薪资待遇及HR会告诉你什么时候会有通知，因此我们这边可以称之为这个方法为是否拿到offer；
-    
+
     // 等通知
     BaiDuInterview.prototype.waitNotice = function(){
         console.log("百度的人力资源太不给力了，到现在都不给我通知");
@@ -1273,7 +1269,7 @@ BaiDuInterview.prototype.writtenTest = function(){
 // 技术面试
 BaiDuInterview.prototype.technicalInterview = function(){
     console.log("我是百度的技术负责人");
-}; 
+};
 // 领导面试
 BaiDuInterview.prototype.leader = function(){
     console.log("百度leader来面试了");
@@ -1319,7 +1315,7 @@ Interview.prototype.technicalInterview = function(){
 
     console.log("我是技术负责人负责技术面试");
 
-}; 
+};
 
 3. 领导面试
 
@@ -1403,7 +1399,6 @@ baiDuInterview.init();
 
 虽然在java中也有子类实现父类的接口，但是我认为javascript中可以和java中不同的，java中可能父类就是一个空的类，子类去实现这个父类的接口，在javascript中我认为完全把公用的代码写在父函数内，如果将来业务逻辑需要更改的话，或者说添加新的业务逻辑，我们完全可以使用子类去重写这个父类，这样的话代码可扩展性强，更容易维护。由于本人不是专业java的，所以描述java中的知识点有误的话，请理解~~
 
-
 ### 8.理解javascript中的策略模式
 
 1. 理解javascript中的策略模式
@@ -1419,6 +1414,7 @@ baiDuInterview.init();
 下面的demo是我在书上看到的，但是没有关系，我们只是来理解下策略模式的使用而已，我们可以使用策略模式来计算奖金问题；
 
 比如公司的年终奖是根据员工的工资和绩效来考核的，绩效为A的人，年终奖为工资的4倍，绩效为B的人，年终奖为工资的3倍，绩效为C的人，年终奖为工资的2倍；现在我们使用一般的编码方式会如下这样编写代码：
+
 ```
 var calculateBouns = function(salary,level) {
     if(level === 'A') {
@@ -1432,6 +1428,7 @@ var calculateBouns = function(salary,level) {
     }
 };
 ```
+
 // 调用如下：
 console.log(calculateBouns(4000,'A')); // 16000
 console.log(calculateBouns(2500,'B')); // 7500
@@ -1448,6 +1445,7 @@ calculateBouns 函数缺乏弹性，假如还有D等级的话，那么我们需�
 2. 使用组合函数重构代码
 
 组合函数是把各种算法封装到一个个的小函数里面，比如等级A的话，封装一个小函数，等级为B的话，也封装一个小函数，以此类推；如下代码：
+
 ```
 var performanceA = function(salary) {
     return salary * 4;
@@ -1471,6 +1469,7 @@ var calculateBouns = function(level,salary) {
     }
 };
 ```
+
 // 调用如下
 console.log(calculateBouns('A',4500)); // 18000
 代码看起来有点改善，但是还是有如下缺点：
@@ -1484,6 +1483,7 @@ calculateBouns 函数有可能会越来越大，比如增加D等级的时候，�
 一个基于策略模式的程序至少由2部分组成，第一个部分是一组策略类，策略类封装了具体的算法，并负责具体的计算过程。第二个部分是环境类Context，该Context接收客户端的请求，随后把请求委托给某一个策略类。我们先使用传统面向对象来实现；
 
 如下代码：
+
 ```
 var performanceA = function(){};
 performanceA.prototype.calculate = function(salary) {
@@ -1521,11 +1521,13 @@ console.log(bouns.getBouns());  // 40000
 bouns.setlevelObj(new performanceB()); // 设置策略对象
 console.log(bouns.getBouns());  // 30000
 ```
+
 如上代码使用策略模式重构代码，可以看到代码职责更新分明，代码变得更加清晰。
 
 4. Javascript版本的策略模式
 
 //代码如下：
+
 ```
 var obj = {
         "A": function(salary) {
@@ -1543,6 +1545,7 @@ var calculateBouns =function(level,salary) {
 };
 console.log(calculateBouns('A',10000)); // 40000
 ```
+
 可以看到代码更加简单明了；
 
 策略模式指的是定义一系列的算法，并且把它们封装起来，但是策略模式不仅仅只封装算法，我们还可以对用来封装一系列的业务规则，只要这些业务规则目标一致，我们就可以使用策略模式来封装它们；
@@ -1619,7 +1622,7 @@ var strategy = {
         if(!/(^1[3|5|8][0-9]{9}$)/.test(value)) {
             return errorMsg;
         }
-    } 
+    }
 };
 接下来我们准备实现Validator类，Validator类在这里作为Context，负责接收用户的请求并委托给strategy 对象，如下代码：
 
@@ -1629,7 +1632,7 @@ var Validator = function(){
 Validator.prototype.add = function(dom,rule,errorMsg) {
     var str = rule.split(":");
     this.cache.push(function(){
-        // str 返回的是 minLength:6 
+        // str 返回的是 minLength:6
         var strategy = str.shift();
         str.unshift(dom.value); // 把input的value添加进参数列表
         str.push(errorMsg);  // 把errorMsg添加进参数列表
@@ -1658,7 +1661,7 @@ minLength:6： 是以一个冒号隔开的字符串，冒号前面的minLength�
 
 var validateFunc = function(){
     var validator = new Validator(); // 创建一个Validator对象
-    /* 添加一些效验规则 */
+    /*添加一些效验规则*/
     validator.add(registerForm.userName,'isNotEmpty','用户名不能为空');
     validator.add(registerForm.password,'minLength:6','密码长度不能小于6位');
     validator.add(registerForm.userName,'mobileFormat','手机号码格式不正确');
@@ -1693,7 +1696,7 @@ var strategys = {
         if(!/(^1[3|5|8][0-9]{9}$)/.test(value)) {
             return errorMsg;
         }
-    } 
+    }
 };
 var Validator = function(){
     this.cache = [];  // 保存效验规则
@@ -1701,7 +1704,7 @@ var Validator = function(){
 Validator.prototype.add = function(dom,rule,errorMsg) {
     var str = rule.split(":");
     this.cache.push(function(){
-        // str 返回的是 minLength:6 
+        // str 返回的是 minLength:6
         var strategy = str.shift();
         str.unshift(dom.value); // 把input的value添加进参数列表
         str.push(errorMsg);  // 把errorMsg添加进参数列表
@@ -1719,7 +1722,7 @@ Validator.prototype.start = function(){
 
 var validateFunc = function(){
     var validator = new Validator(); // 创建一个Validator对象
-    /* 添加一些效验规则 */
+    /*添加一些效验规则*/
     validator.add(registerForm.userName,'isNotEmpty','用户名不能为空');
     validator.add(registerForm.password,'minLength:6','密码长度不能小于6位');
     validator.add(registerForm.userName,'mobileFormat','手机号码格式不正确');
@@ -1761,7 +1764,7 @@ var strategys = {
         if(!/(^1[3|5|8][0-9]{9}$)/.test(value)) {
             return errorMsg;
         }
-    } 
+    }
 };
 var Validator = function(){
     this.cache = [];  // 保存效验规则
@@ -1793,7 +1796,7 @@ Validator.prototype.start = function(){
 var registerForm = document.getElementById("registerForm");
 var validateFunc = function(){
     var validator = new Validator(); // 创建一个Validator对象
-    /* 添加一些效验规则 */
+    /*添加一些效验规则*/
     validator.add(registerForm.userName,[
         {strategy: 'isNotEmpty',errorMsg:'用户名不能为空'},
         {strategy: 'minLength:6',errorMsg:'用户名长度不能小于6位'}
@@ -1816,7 +1819,6 @@ registerForm.onsubmit = function(){
     }
 }
 注意：如上代码都是按照书上来做的，都是看到书的代码，最主要我们理解策略模式实现，比如上面的表单验证功能是这样封装的代码，我们平时使用jquery插件表单验证代码原来是这样封装的，为此我们以后也可以使用这种方式来封装表单等学习；
-
 
 ### 9.Javascript中理解发布--订阅模式
 
@@ -1860,7 +1862,7 @@ registerForm.onsubmit = function(){
 
 var shoeObj = {}; // 定义发布者
 shoeObj.list = []; // 缓存列表 存放订阅者回调函数
-        
+
 // 增加订阅者
 shoeObj.listen = function(fn) {
     shoeObj.list.push(fn);  // 订阅消息添加到缓存列表
@@ -1869,7 +1871,7 @@ shoeObj.listen = function(fn) {
 // 发布消息
 shoeObj.trigger = function(){
     for(var i = 0,fn; fn = this.list[i++];) {
-        fn.apply(this,arguments); 
+        fn.apply(this,arguments);
     }
 }
 // 小红订阅如下消息
@@ -1881,24 +1883,22 @@ shoeObj.listen(function(color,size){
 // 小花订阅如下消息
 shoeObj.listen(function(color,size){
     console.log("再次打印颜色是："+color);
-    console.log("再次打印尺码是："+size); 
+    console.log("再次打印尺码是："+size);
 });
 shoeObj.trigger("红色",40);
 shoeObj.trigger("黑色",42);
 运行结果如下：
 
-
-
 打印如上截图，我们看到订阅者接收到发布者的每个消息，但是呢，对于小红来说，她只想接收颜色为红色的消息，不想接收颜色为黑色的消息，为此我们需要对代码进行如下改造下，我们可以先增加一个key，使订阅者只订阅自己感兴趣的消息。代码如下：
 
 var shoeObj = {}; // 定义发布者
 shoeObj.list = []; // 缓存列表 存放订阅者回调函数
-        
+
 // 增加订阅者
 shoeObj.listen = function(key,fn) {
     if(!this.list[key]) {
         // 如果还没有订阅过此类消息，给该类消息创建一个缓存列表
-        this.list[key] = []; 
+        this.list[key] = [];
     }
     this.list[key].push(fn);  // 订阅消息添加到缓存列表
 }
@@ -1924,7 +1924,7 @@ shoeObj.listen('red',function(size){
 
 // 小花订阅如下消息
 shoeObj.listen('block',function(size){
-    console.log("再次打印尺码是："+size); 
+    console.log("再次打印尺码是："+size);
 });
 shoeObj.trigger("red",40);
 shoeObj.trigger("block",42);
@@ -1977,7 +1977,7 @@ shoeObj.listen('red',function(size){
 
 // 小花订阅如下消息
 shoeObj.listen('block',function(size){
-    console.log("再次打印尺码是："+size); 
+    console.log("再次打印尺码是："+size);
 });
 shoeObj.trigger("red",40);
 shoeObj.trigger("block",42);
@@ -2021,13 +2021,11 @@ shoeObj.listen('red',fn1 = function(size){
 
 // 小花订阅如下消息
 shoeObj.listen('red',fn2 = function(size){
-    console.log("再次打印尺码是："+size); 
+    console.log("再次打印尺码是："+size);
 });
 shoeObj.remove("red",fn1);
 shoeObj.trigger("red",42);
 运行结果如下：
-
-
 
 5. 全局--发布订阅对象代码封装
 
@@ -2039,13 +2037,13 @@ shoeObj.trigger("red",42);
 
 那么我们以前肯定是如下写代码：
 
-$.ajax(“http://127.0.0.1/index.php”,function(data){
+$.ajax(“<http://127.0.0.1/index.php”,function(data){>
     rendedData(data);  // 渲染数据
-    doAnimate(data);  // 实现动画 
+    doAnimate(data);  // 实现动画
 });
 假如以后还需要做点事情的话，我们还需要在里面写调用的方法；这样代码就耦合性很高，那么我们现在使用发布-订阅模式来看如何重构上面的业务需求代码；
 
-$.ajax(“http://127.0.0.1/index.php”,function(data){
+$.ajax(“<http://127.0.0.1/index.php”,function(data){>
     Obj.trigger(‘success’,data);  // 发布请求成功后的消息
 });
 // 下面我们来订阅此消息，比如我现在订阅渲染数据这个消息；
@@ -2054,7 +2052,7 @@ Obj.listen(“success”,function(data){
 });
 // 订阅动画这个消息
 Obj.listen(“success”,function(data){
-   doAnimate(data); 
+   doAnimate(data);
 });
 为此我们可以封装一个全局发布-订阅模式对象；如下代码：
 
@@ -2151,7 +2149,6 @@ var b = (function(){
 
 其中global.js 就是我们上面封装的全局-发布订阅模式对象的封装代码；
 
-
 ### 10.理解中介者模式
 
     先来理解这么一个问题，假如我们前端开发接的需求是需求方给我们需求，可能一个前端开发会和多个需求方打交道，所以会保持多个需求方的联系，那么在程序里面就意味着保持多个对象的引用，当程序的规模越大，对象会越来越多，他们之间的关系会越来越复杂，那现在假如现在有一个中介者(假如就是我们的主管)来对接多个需求方的需求，那么需求方只需要把所有的需求给我们主管就可以，主管会依次看我们的工作量来给我们分配任务，这样的话，我们前端开发就不需要和多个业务方联系，我们只需要和我们主管(也就是中介)联系即可，这样的好处就弱化了对象之间的耦合。
@@ -2170,7 +2167,7 @@ var b = (function(){
 
 function Hero(name) {
     this.name = name;
-    this.enemy = null; 
+    this.enemy = null;
 }
 Hero.prototype.win = function(){
     console.log(this.name + 'Won');
@@ -2223,7 +2220,7 @@ Hero.prototype.die = function(){
     for(var i = 0,ilen = this.friends.length; i < ilen; i+=1) {
         // 遍历，如果还有一个队友没有死亡的话，则游戏还未结束
         if(this.friends[i].state !== 'dead') {
-            all_dead = false; 
+            all_dead = false;
             break;
         }
     }
@@ -2239,7 +2236,7 @@ Hero.prototype.die = function(){
         }
     }
 }
-// 定义一个工厂类来创建玩家 
+// 定义一个工厂类来创建玩家
 var heroFactory = function(name,teamColor) {
     var newPlayer = new Hero(name,teamColor);
     for(var i = 0,ilen = players.length; i < ilen; i+=1) {
@@ -2262,7 +2259,7 @@ var p1 = heroFactory("aa",'red'),
     p2 = heroFactory("bb",'red'),
     p3 = heroFactory("cc",'red'),
     p4 = heroFactory("dd",'red');
-        
+
 // 蓝队
 var p5 = heroFactory("ee",'blue'),
     p6 = heroFactory("ff",'blue'),
@@ -2317,7 +2314,7 @@ Hero.prototype.changeTeam = function(color) {
     // 给中介者发送一个消息，玩家换队
     playerDirector.ReceiveMessage('changeTeam',this,color);
 };
-// 定义一个工厂类来创建玩家 
+// 定义一个工厂类来创建玩家
 var heroFactory = function(name,teamColor) {
     // 创建一个新的玩家对象
     var newHero = new Hero(name,teamColor);
@@ -2405,7 +2402,7 @@ var p1 = heroFactory("aa",'red'),
     p2 = heroFactory("bb",'red'),
     p3 = heroFactory("cc",'red'),
         p4 = heroFactory("dd",'red');
-        
+
     // 蓝队
     var p5 = heroFactory("ee",'blue'),
         p6 = heroFactory("ff",'blue'),
@@ -2468,7 +2465,7 @@ var colorSelect = document.getElementById("colorSelect"),
     colorInfo = document.getElementById("colorInfo"),
     numberInfo = document.getElementById("numberInfo"),
     nextBtn = document.getElementById("nextBtn");
-        
+
 // 监听change事件
 colorSelect.onchange = function(e){
     select();
@@ -2480,7 +2477,7 @@ function select(){
     var color = colorSelect.value,   // 颜色
         number = numberInput.value,  // 数量
         stock = goods[color];  // 该颜色手机对应的当前库存
-            
+
     colorInfo.innerHTML = color;
     numberInfo.innerHTML = number;
 
@@ -2550,7 +2547,7 @@ var colorSelect = document.getElementById("colorSelect"),
     numberInfo = document.getElementById("numberInfo"),
     memoryInfo = document.getElementById("memoryInfo"),
     nextBtn = document.getElementById("nextBtn");
-        
+
 // 监听change事件
 colorSelect.onchange = function(){
     select();
@@ -2559,14 +2556,14 @@ numberInput.oninput = function(){
     select();
 };
 memorySelect.onchange = function(){
-    select();    
+    select();
 };
 function select(){
     var color = colorSelect.value,   // 颜色
         number = numberInput.value,  // 数量
         memory = memorySelect.value, // 内存
         stock = goods[color + '|' +memory];  // 该颜色手机对应的当前库存
-            
+
     colorInfo.innerHTML = color;
     numberInfo.innerHTML = number;
     memoryInfo.innerHTML = memory;

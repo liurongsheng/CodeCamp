@@ -8,6 +8,8 @@
 
 代码片段运行
 
+打开设置 File > Preferences > Settings 或使用快捷键 Ctrl + ,
+
 在插件的拓展配置中配置 `Code-runner: Default Language` 比如: `javascript`、`python`
 
 html 使用 chrome 配置如下：
